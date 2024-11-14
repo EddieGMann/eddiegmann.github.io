@@ -159,7 +159,7 @@ function storyoutloud(){
 	// Check if the browser supports SpeechSynthesis
             if ('speechSynthesis' in window) {
                 // Create a new speech synthesis utterance
-                var outloud = new SpeechSynthesisOutloud(outloudwords);
+                var outloud = new SpeechSynthesisUtterance(outloudwords);
                 
                 // Set properties of the voice if desired
                 outloud.rate = 1;  // Speed of speech
