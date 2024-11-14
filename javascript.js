@@ -155,7 +155,7 @@ function clearstoryboard(){
 }
 
 function storyoutloud(){
-	var outloudwords = document.getElementById("userstorycanvas").value;
+	var outloudwords = document.getElementById("userstorytime").value;
 	// Check if the browser supports SpeechSynthesis
             if ('speechSynthesis' in window) {
                 // Create a new speech synthesis utterance
