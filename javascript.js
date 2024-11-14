@@ -154,6 +154,23 @@ function clearstoryboard(){
 	dirtystoryboardctx.clearRect(0,0, dirtystoryboard.width, dirtystoryboard.height);
 }
 
+function storyoutloud(){
+	var outloudwords = document.getElementById("userstorycanvas").value;
+	// Check if the browser supports SpeechSynthesis
+            if ('speechSynthesis' in window) {
+                // Create a new speech synthesis utterance
+                var outloud = new SpeechSynthesisUtterance(outloudwords);
+                
+                // Set properties of the voice if desired
+                utterance.rate = 1;  // Speed of speech
+                utterance.pitch = 1; // Pitch of speech
+
+                // Speak the text
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Sorry, your browser does not support text-to-speech.");
+            }
+        }
 
 
 
