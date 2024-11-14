@@ -1,0 +1,159 @@
+/* styles.css */
+
+/*Normal */
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top frame header */
+.top-frame {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.top-frame nav a {
+    color: #fff;
+    margin: 0 35px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-frame nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adjusted to be below the header */
+    left: 0;
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: #444;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sidebar button:hover {
+    background-color: #666;
+}
+
+/* Main content area */
+.content {
+    margin-left: 220px; /* Offset to make space for the sidebar */
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+/* Two-column layout using Flexbox */
+.container {
+    display: flex;
+    gap: 20px; /* Optional: spacing between columns */
+    padding: 20px;
+}
+
+/* Left column */
+.column-left {
+    flex: 6; /* Takes up 2 parts */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Right column */
+.column-right {
+    flex: 1; /* Takes up 1 part */
+    background-color: #d9d9d9;
+    padding: 20px;
+}
+
+ul {
+    display: block;
+    padding-left: 20px; /* Adjust as needed */
+}
+
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.normalname {
+	font-size : 45px;
+}
+
+.normalsubheader{
+	font-size : 25px;
+}
+
+.normalskillsheader{
+	font-size: 15px;
+	font-style: italic;
+}
+
+.normallocation{
+	font-size: 17px;
+	font-color: #A9A9A9;
+	font-style: bold;
+
+}
+
+.normaltimeframe{
+
+}
+
+.normaljobtitle{
+
+}
+
+.canvas {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #000000;
+}
+
+  .align {
+    display: flex;
+    align-items: flex-end; /* Aligns items to the bottom */
+  }
+
+  .responsive-container {
+    display: flex;
+    flex-wrap: wrap; /* Enables wrapping onto a new line */
+    word-warp: break-word;
+    gap: 10px; /* Optional: spacing between elements */
+    align-items: flex-end; /* Aligns items to the bottom line */
+  }
+
+  .userstorytime {
+    width: 100%; /* Make input responsive */
+    max-width: 300px; /* Optional max width */
+    height: 40px;
+textarea {
+	resize: none;
+}
+/*Halloween */
+
+/*8-bit */
+
+/*Christmas */
+
+/*Overly Flowly */

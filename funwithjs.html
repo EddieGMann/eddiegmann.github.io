@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Franco</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script> <!-- Link to external JavaScript file with defer -->
+</head>
+<body>
+    <!-- Header with navigation links -->
+    <header class="top-frame">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="funwithjs.html">JavaScript Showcase</a>
+            <a href="page4.html">Page 4</a>
+        </nav>
+    </header>
+
+    <div>
+        <p>JavaScript Showcase</p>
+    </div>
+
+    <div style="padding-left: 50px;">
+	<canvas class = "canvas" id = "userinputcolor"></canvas>
+	<canvas class = "canvas" id = "squaresizeslide"></canvas>
+ <p>
+
+	<input type = "color" value = "001A57" id = "clr" onclick="docolor()">
+	<label for "sqsldr"> Blue Rectangle:</label>
+	<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
+ </p>
+
+</div>
+
+<div style = "padding-left : 50px;">
+<h1> Draw your own picture!! </h1>
+    <p>
+        <label for="setwidth">Set Width:</label>
+        <input type="text" id="setwidth" name="setwidth" size="7">
+        <label for="setheight">Set Height:</label>
+        <input type="text" id="setheight" name="setheight" size="7">
+        <input type="button" value="Change Size" onclick="canvassize()">
+    </p>
+    <canvas id="userpaint" style="border:1px solid black;"></canvas>
+    <p>
+        <label for="paintclr">Choose Color:</label>
+        <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
+        <label for="brushsldr">Brush Size:</label>
+        <input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
+	<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
+    </p>
+</div>
+
+
+<div style="padding-left: 50px;" class="align responsive-container">
+	<canvas id="userstorycanvas" class = "canvas"></canvas>
+	<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
+	<input type = "button" value = "Upload" onclick="storyupload()">
+	<input type = "button" value = "Clear Canvas" onclick = "clearstoryboard()">
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
+
+
+
+
+
+
+
+
