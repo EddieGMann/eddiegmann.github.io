@@ -166,7 +166,7 @@ function storyoutloud(){
                 utterance.pitch = 1; // Pitch of speech
 
                 // Speak the text
-                window.speechSynthesis.speak(utterance);
+                window.speechSynthesis.speak(outloud);
             } else {
                 alert("Sorry, your browser does not support text-to-speech.");
             }
