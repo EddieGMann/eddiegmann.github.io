@@ -162,8 +162,8 @@ function storyoutloud(){
                 var outloud = new SpeechSynthesisUtterance(outloudwords);
                 
                 // Set properties of the voice if desired
-                utterance.rate = 1;  // Speed of speech
-                utterance.pitch = 1; // Pitch of speech
+                outloud.rate = 1;  // Speed of speech
+                outloud.pitch = 1; // Pitch of speech
 
                 // Speak the text
                 window.speechSynthesis.speak(outloud);
