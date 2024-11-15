@@ -174,31 +174,56 @@ function storyoutloud(){
 
     
 function userPhotoUpload() {
-        var sentphoto = document.getElementById("photofileinput");
-        var photocanvas = document.getElementById("userphotoinput");
-        var uploadedFile = sentphoto.files[0]; // Access the file
-        if (!uploadedFile) {
-            alert("No file chosen!");
-            return;
-        }
+    var sentphoto = document.getElementById("photofileinput");
+    var photocanvas = document.getElementById("userphotoinput");
+    var uploadedFile = sentphoto.files[0]; // Access the file
 
-        var uploadedPhotoName = uploadedFile.name;
-        alert("Chose " + uploadedPhotoName);
-
-        var reader = new FileReader();
-        reader.onload = function(event) {
-            var img = new Image();
-            img.onload = function() {
-                var context = photocanvas.getContext("2d");
-                // Clear the canvas
-                context.clearRect(0, 0, photocanvas.width, photocanvas.height);
-                // Draw the uploaded image
-                context.drawImage(img, 0, 0, photocanvas.width, photocanvas.height);
-            };
-            img.src = event.target.result;
-        };
-        reader.readAsDataURL(uploadedFile);
+    if (!uploadedFile) {
+        alert("No file chosen!");
+        return;
     }
+
+    var uploadedPhotoName = uploadedFile.name;
+    alert("Chose " + uploadedPhotoName);
+
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var img = new Image();
+        img.onload = function() {
+            var context = photocanvas.getContext("2d");
+            var canvasWidth = photocanvas.width;
+            var canvasHeight = photocanvas.height;
+
+            // Calculate the scaling dimensions to maintain aspect ratio
+            var imageAspectRatio = img.width / img.height;
+            var canvasAspectRatio = canvasWidth / canvasHeight;
+            var renderWidth, renderHeight, startX, startY;
+
+            if (imageAspectRatio > canvasAspectRatio) {
+                // Image is wider
+                renderWidth = canvasWidth;
+                renderHeight = canvasWidth / imageAspectRatio;
+                startX = 0;
+                startY = (canvasHeight - renderHeight) / 2; // Center vertically
+            } else {
+                // Image is taller
+                renderWidth = canvasHeight * imageAspectRatio;
+                renderHeight = canvasHeight;
+                startX = (canvasWidth - renderWidth) / 2; // Center horizontally
+                startY = 0;
+            }
+
+            // Clear the canvas
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Draw the image while maintaining aspect ratio
+            context.drawImage(img, startX, startY, renderWidth, renderHeight);
+        };
+        img.src = event.target.result;
+    };
+    reader.readAsDataURL(uploadedFile);
+}
+
 
 
 
