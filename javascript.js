@@ -177,8 +177,8 @@ function userphotoupload(){
 	var photocanvas = document.getElementById("userphotoinput");
 	var uploadedphotoname = sentphoto.value;
 
-	alert ("Chose " + uploadedphotoname);
-	image.drawTo(photocanvas);
+	
+	sentphoto.drawTo(photocanvas);
 	
 }
 
