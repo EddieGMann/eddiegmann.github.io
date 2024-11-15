@@ -186,26 +186,40 @@ function userPhotoUpload() {
     var uploadedPhotoName = uploadedFile.name;
     alert("Chose " + uploadedPhotoName);
 
+    var maxWidth = 800;  // Max width for the canvas
+    var maxHeight = 600; // Max height for the canvas
+
     var reader = new FileReader();
     reader.onload = function(event) {
         var img = new Image();
         img.onload = function() {
-            // Resize the canvas to match the image dimensions
-            photocanvas.width = img.width;
-            photocanvas.height = img.height;
+            var imgWidth = img.width;
+            var imgHeight = img.height;
+
+            // Scale image to fit within maxWidth and maxHeight while maintaining aspect ratio
+            var scaleFactor = Math.min(maxWidth / imgWidth, maxHeight / imgHeight);
+
+            // Calculate the new width and height of the image
+            var newWidth = imgWidth * scaleFactor;
+            var newHeight = imgHeight * scaleFactor;
+
+            // Resize the canvas to fit the scaled image
+            photocanvas.width = newWidth;
+            photocanvas.height = newHeight;
 
             var context = photocanvas.getContext("2d");
 
-            // Clear the canvas (optional)
+            // Clear the canvas
             context.clearRect(0, 0, photocanvas.width, photocanvas.height);
 
             // Draw the image onto the resized canvas
-            context.drawImage(img, 0, 0);
+            context.drawImage(img, 0, 0, newWidth, newHeight);
         };
         img.src = event.target.result;
-	     };
+    };
     reader.readAsDataURL(uploadedFile);
 }
+
 
 
 
