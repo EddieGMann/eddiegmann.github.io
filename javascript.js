@@ -172,6 +172,12 @@ function storyoutloud(){
             }
         }
 
+function userphotoupload(){
+	var sentphoto = document.getElementById("photofileinput");
+	var uploadedphotoname = sentphoto.value;
+	alert ("Chose " + uploadedphotoname);
+	
+}
 
 
 
