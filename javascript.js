@@ -190,40 +190,22 @@ function userPhotoUpload() {
     reader.onload = function(event) {
         var img = new Image();
         img.onload = function() {
+            // Resize the canvas to match the image dimensions
+            photocanvas.width = img.width;
+            photocanvas.height = img.height;
+
             var context = photocanvas.getContext("2d");
-            var canvasWidth = photocanvas.width;
-            var canvasHeight = photocanvas.height;
 
-            // Calculate the scaling dimensions to maintain aspect ratio
-            var imageAspectRatio = img.width / img.height;
-            var canvasAspectRatio = canvasWidth / canvasHeight;
-            var renderWidth, renderHeight, startX, startY;
+            // Clear the canvas (optional)
+            context.clearRect(0, 0, photocanvas.width, photocanvas.height);
 
-            if (imageAspectRatio > canvasAspectRatio) {
-                // Image is wider
-                renderWidth = canvasWidth;
-                renderHeight = canvasWidth / imageAspectRatio;
-                startX = 0;
-                startY = (canvasHeight - renderHeight) / 2; // Center vertically
-            } else {
-                // Image is taller
-                renderWidth = canvasHeight * imageAspectRatio;
-                renderHeight = canvasHeight;
-                startX = (canvasWidth - renderWidth) / 2; // Center horizontally
-                startY = 0;
-            }
-
-            // Clear the canvas
-            context.clearRect(0, 0, canvasWidth, canvasHeight);
-
-            // Draw the image while maintaining aspect ratio
-            context.drawImage(img, startX, startY, renderWidth, renderHeight);
+            // Draw the image onto the resized canvas
+            context.drawImage(img, 0, 0);
         };
         img.src = event.target.result;
-    };
+	     };
     reader.readAsDataURL(uploadedFile);
 }
-
 
 
 
