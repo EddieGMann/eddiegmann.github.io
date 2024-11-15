@@ -172,7 +172,6 @@ function storyoutloud(){
             }
         }
 
-document.addEventListener("DOMContentLoaded", function() {
     
 function userPhotoUpload() {
         var sentphoto = document.getElementById("photofileinput");
@@ -200,7 +199,7 @@ function userPhotoUpload() {
         };
         reader.readAsDataURL(uploadedFile);
     }
-});
+
 
 
 
