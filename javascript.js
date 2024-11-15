@@ -174,8 +174,11 @@ function storyoutloud(){
 
 function userphotoupload(){
 	var sentphoto = document.getElementById("photofileinput");
+	var photocanvas = document.getElementById("userphotoinput");
 	var uploadedphotoname = sentphoto.value;
+
 	alert ("Chose " + uploadedphotoname);
+	image.drawTo(photocanvas);
 	
 }
 
