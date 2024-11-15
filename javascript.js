@@ -172,15 +172,37 @@ function storyoutloud(){
             }
         }
 
-function userphotoupload(){
-	var sentphoto = document.getElementById("photofileinput");
-	var photocanvas = document.getElementById("userphotoinput");
-	var uploadedphotoname = sentphoto.value;
+document.addEventListener("DOMContentLoaded", function() {
+    
+function userPhotoUpload() {
+        var sentphoto = document.getElementById("photofileinput");
+        var photocanvas = document.getElementById("userphotoinput");
+        var uploadedFile = sentphoto.files[0]; // Access the file
 
-	
-	sentphoto.drawTo(photocanvas);
-	
-}
+        if (!uploadedFile) {
+            alert("No file chosen!");
+            return;
+        }
+
+        var uploadedPhotoName = uploadedFile.name;
+        alert("Chose " + uploadedPhotoName);
+
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var img = new Image();
+            img.onload = function() {
+                var context = photocanvas.getContext("2d");
+                // Clear the canvas
+                context.clearRect(0, 0, photocanvas.width, photocanvas.height);
+                // Draw the uploaded image
+                context.drawImage(img, 0, 0, photocanvas.width, photocanvas.height);
+            };
+            img.src = event.target.result;
+        };
+        reader.readAsDataURL(uploadedFile);
+    }
+});
+
 
 
 
