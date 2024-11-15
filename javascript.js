@@ -178,7 +178,6 @@ function userPhotoUpload() {
         var sentphoto = document.getElementById("photofileinput");
         var photocanvas = document.getElementById("userphotoinput");
         var uploadedFile = sentphoto.files[0]; // Access the file
-
         if (!uploadedFile) {
             alert("No file chosen!");
             return;
