@@ -151,8 +151,21 @@ textarea {
 	resize: none;
 }
 
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropdown{
+	position:relative;
+	display:inline-block;
+}
+
 .dropdown-content{
 	display: none;
+	position: absolute;
 }
 .dropdown:hover .dropdown-content {display: block;}
 /*Halloween */
