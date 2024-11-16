@@ -94,7 +94,7 @@ textarea {
 }
 
 /* Dropdown content (hidden by default) */
-.dropdown-content {
+.dropdownbtn {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
