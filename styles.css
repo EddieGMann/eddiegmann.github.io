@@ -55,7 +55,7 @@
 }
 
 /* Main content area */
-.content {
+.maincontent {
     margin-left: 220px; /* Offset to make space for the sidebar */
     padding: 20px;
 }
