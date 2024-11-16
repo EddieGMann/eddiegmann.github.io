@@ -104,7 +104,7 @@ textarea {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdownbtn a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -112,12 +112,12 @@ textarea {
 }
 
 /* Change link color on hover */
-.dropdown-content a:hover {
+.dropdownbtn a:hover {
   background-color: #ddd;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdownbtn {
   display: block;
 }
 
