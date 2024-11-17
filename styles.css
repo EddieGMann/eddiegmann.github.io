@@ -86,6 +86,9 @@
 textarea {
 	resize: none;
 }
+.light-blue{
+	background-color:: light-blue;
+  }
 
 /* Style The Dropdown Button */
 .dropbtn {
