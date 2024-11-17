@@ -39,3 +39,9 @@
   	border: none;
   	cursor: pointer;
 }
+
+.dropdown {
+  margin-top: 15px;
+  position: relative;
+  display: inline-block;
+}
