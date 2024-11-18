@@ -72,7 +72,9 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdowncontent a:hover {background-color: #f1f1f1}
+.dropdowncontent a:hover {
+	background-color: #f1f1f1
+ }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdowncontent {
@@ -155,6 +157,7 @@
     width: 100%; /* Make input responsive */
     max-width: 300px; /* Optional max width */
     height: 40px;
+  }
 
 .content {
     margin-left: 220px; /* Offset to make space for the sidebar */
@@ -223,4 +226,5 @@ p {
 }
 
 .normaljobtitle{
+}
 
