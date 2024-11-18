@@ -10,6 +10,8 @@
     color: #fff;
     padding: 15px;
     text-align: center;
+    overflow: hidden;
+	float: center;
 }
 
 .top-frame nav a {
@@ -73,8 +75,8 @@
 }
 
 .dropdownnavbar {
-	 position: relative;
-         display: inline-block;
+  float: left;
+  overflow: hidden;
 }
 
 
@@ -87,6 +89,14 @@
   z-index: 1;
 }
 
+.dropdowncontentnavbar a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
 .dropdownnavbar: hover .dropdowncontentnavbar{
 	display:block;
 }
