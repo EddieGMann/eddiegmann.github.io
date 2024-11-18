@@ -107,6 +107,6 @@
   text-align: left;
 }
 
-.dropdownnavbar: hover .dropdowncontentnavbar{
+.dropdownnavbar:hover .dropdowncontentnavbar{
 	display:block;
 }
