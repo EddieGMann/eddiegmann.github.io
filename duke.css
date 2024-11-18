@@ -4,32 +4,35 @@
     box-sizing: border-box;
 }
 
-/* Top frame header */
+/* Container for top-frame */
 .top-frame {
-    background-color: #333;
-    color: #fff;
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    background-color: #333; /* Background color */
     padding: 15px;
-    text-align: center;
 }
 
+/* Nav inside the top-frame */
 .top-frame nav {
-	    display: flex; /* Arrange children in a horizontal row */
+    display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
-    background-color: #333; /* Optional: Background for clarity */
-    padding: 10px;
     gap: 15px; /* Space between items */
 }
 
+/* Style for the links */
 .top-frame nav a {
-    color: #fff;
-    margin: 0 35px;
+    color: white;
     text-decoration: none;
+    padding: 10px 20px;
     font-weight: bold;
 }
 
+/* Hover effect on links */
 .top-frame nav a:hover {
     text-decoration: underline;
 }
+
 
 .pagecolor{
 	background-color: #008000;
