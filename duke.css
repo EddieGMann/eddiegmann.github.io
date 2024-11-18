@@ -99,6 +99,7 @@
 }
 
 .dropdowncontentnavbar a {
+	background-color: #81d4fa;
 	float: none;
   color: black;
   padding: 12px 16px;
