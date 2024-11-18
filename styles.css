@@ -5,36 +5,111 @@
     box-sizing: border-box;
 }
 
-/* Top frame header */
+/* Container for top-frame */
 .top-frame {
-    background-color: #333;
-    color: #fff;
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    background-color: #333; /* Background color */
     padding: 15px;
-    text-align: center;
 }
 
+/* Nav inside the top-frame */
+.top-frame nav {
+    display: flex; /* Arrange children (links) in a horizontal row */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between items */
+}
+
+/* Style for the links */
 .top-frame nav a {
-    color: #fff;
-    margin: 0 35px;
+    color: white;
     text-decoration: none;
+    padding: 10px 20px;
     font-weight: bold;
 }
 
+/* Hover effect on links */
 .top-frame nav a:hover {
     text-decoration: underline;
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 60px; /* Adjusted to be below the header */
-    left: 0;
-    width: 200px;
-    height: calc(100% - 60px);
-    background-color: #444;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+
+.pagecolor{
+	background-color: #008000;
+  }
+
+.drpbutton{
+	background-color: #ffd700;
+	color : #981518;
+	padding: 16px;
+  	font-size: 16px;
+  	border: none;
+  	cursor: pointer;
+}
+
+.dropdown{
+  margin-top: 75px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdowncontent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdowncontent a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.dropdownnavbar {
+	position:relative;
+	display:inline-block;
+}
+
+
+.dropdowncontentnavbar {
+  display: none;
+  position: absolute;
+  background-color: #81d4fa;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdowncontentnavbar a {
+	float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdownnavbar:hover .dropdowncontentnavbar{
+	display:block;
 }
 
 .sidebar button {
@@ -81,21 +156,3 @@
     max-width: 300px; /* Optional max width */
     height: 40px;
 
-
-
-/* Style The Dropdown Button */
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  margin-top: 15px;
-  position: relative;
-  display: inline-block;
-}
