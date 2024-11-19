@@ -232,3 +232,18 @@ p {
 	width: 500px;
 	height: auto;
 }
+.roomsystemsimagescontainer{
+	text-align:center;
+	margin 20px auto;
+	width: fit-content;
+}
+.roomsystemsimagescontainer img{
+	max-width 100%;
+	display: block;
+}
+.roomsystemsimagescontainer .systemcaption{
+	margin-top: 10px; /* Adds space between the image and the caption */
+    font-size: 16px; /* Optional: Adjusts the caption font size */
+    color: #555; /* Optional: Sets a softer color for the caption */
+}
+
