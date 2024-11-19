@@ -234,7 +234,7 @@ p {
 }
 .roomsystemsimagescontainer{
 	text-align:center;
-	margin: 200px auto;
+	margin: 35px auto;
 	width: fit-content;
 }
 .roomsystemsimagescontainer img{
@@ -242,7 +242,7 @@ p {
 	display: block;
 }
 .roomsystemsimagescontainer .systemcaption{
-	margin-top: px; /* Adds space between the image and the caption */
+	margin-bottom: 15px; /* Adds space between the image and the caption */
     font-size: 16px; /* Optional: Adjusts the caption font size */
     color: #555; /* Optional: Sets a softer color for the caption */
 }
