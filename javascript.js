@@ -1,3 +1,10 @@
+ // Fetch the nav.html and insert it into the 'navbar' div
+fetch('navigationpane.html')
+.then(response => response.text())
+.then(data => {
+                document.getElementById('navbar').innerHTML = data;
+ });
+
 function docolor() {
 	var colbox = document.getElementById("userinputcolor");
 	var clrchoice = document.getElementById("clr");
