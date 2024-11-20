@@ -224,22 +224,23 @@
 
 .normalname{
 	font-family: Georgia;
-	font-size: 45px;
+	font-size: 47px;
 	color: black;
 	padding: 15px;
 }
 
 .normalcurrentposition{
-	font-family:Georgia;
+	font-family: Georgia;
 	font-size: 15px;
 	color: black;
-	padding: 15px;
+	padding: 5px;
 
 .normalsubheaders{
 	font-family: Georgia;
-	font-size: 30px;
+	font-size: 40px;
 	color: black;
-	padding: 15px;
+	padding: 20px;
+	font-weight: bold;
 }
 
 .normallocation{
