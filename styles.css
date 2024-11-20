@@ -48,7 +48,8 @@
   	cursor: pointer;
 }
 
-.dropdown{
+/* General Dropdown Styling */
+.dropdown {
   margin-top: 75px;
   position: relative;
   display: inline-block;
@@ -59,7 +60,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -71,38 +72,31 @@
   display: block;
 }
 
-/* Change color of dropdown links on hover */
 .dropdowncontent a:hover {
-	background-color: #f1f1f1
- }
+  background-color: #f1f1f1;
+}
 
-/* Show the dropdown menu on hover */
+/* Show dropdown on hover */
 .dropdown:hover .dropdowncontent {
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
+/* Parent Dropdown */
 .dropdownnavbar {
-	position:relative;
-	display:inline-block;
+  position: relative;
+  display: inline-block;
 }
-
 
 .dropdowncontentnavbar {
   display: none;
   position: absolute;
   background-color: #81d4fa;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdowncontentnavbar a {
-	float: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -110,34 +104,42 @@
   text-align: left;
 }
 
-.dropdowncontentnavbarlms {
-  display: none;
-  position: absolute;
-  background-color: #81d4fa;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdowncontentnavbarlms a {
-	float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
+.dropdownnavbar:hover .dropdowncontentnavbar {
   display: block;
-  text-align: left;
-}
-.dropdownnavbar:hover .dropdowncontentnavbar{
-	display:block;
 }
 
-.dropdownnavbar:hover .dropdowncontentnavbarlms{
-	display:block;
+/* Nested Dropdown (LMS) */
+.dropdownnavbar .dropdowncontentnavbar .dropdownnavbarlms {
+  position: relative;
 }
 
 .dropdownnavbar .dropdowncontentnavbarlms {
-    top: 0;
-    left: 100%; /* Aligns nested dropdown to the right of parent dropdown */
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* Align to the right of parent dropdown */
+  background-color: #81d4fa;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
+
+.dropdownnavbar .dropdowncontentnavbar .dropdownnavbarlms:hover .dropdowncontentnavbarlms {
+  display: block; /* Show nested dropdown on hover */
+}
+
+.dropdowncontentnavbarlms a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdowncontentnavbarlms a:hover {
+  background-color: #f1f1f1;
+}
+
 
 .sidebar button {
     background-color: #555;
