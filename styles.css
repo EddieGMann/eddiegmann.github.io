@@ -233,6 +233,7 @@
 	font-family: Georgia;
 	font-size: 15px;
 	color: black;
+}
 
 .normalsubheaders{
 	font-family: Georgia;
@@ -246,7 +247,6 @@
 	font-family: Georgia;
 	font-size: 25px;
 	color: black;
-	padding: 15px;
 	margin-left: 25px;
 }
 .normaljobtitle{
@@ -259,7 +259,6 @@
 	font-family: Georgia;
 	font-size: 22px;
 	color: black;
-	padding: 15px;
 	margin-left: 35px;
 }
 
@@ -267,7 +266,6 @@
 	font-family: Georgia;
 	font-size: 15px;
 	color: black;
-	padding: 15px;
 	margin-left: 45px;
 }
 
