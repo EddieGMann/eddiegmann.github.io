@@ -226,7 +226,6 @@
 	font-family: Georgia;
 	font-size: 47px;
 	color: black;
-	padding: 15px;
 }
 
 .normalcurrentposition{
@@ -237,27 +236,27 @@
 
 .normalsubheaders{
 	font-family: Georgia;
-	font-size: 40px;
+	font-size: 30px;
 	color: black;
-	padding: 20px;
 	font-weight: bold;
+	margin-left: 10px;
 }
 
 .normallocation{
 	font-family: Georgia;
-	font-size: 25px;
+	font-size: 20px;
 	color: black;
 	margin-left: 25px;
 }
 .normaljobtitle{
 	font-family:Georgia;
-	font-size: 25px;
+	font-size: 20px;
 	color:black;
 }
 
 .normaltimeperiod{
 	font-family: Georgia;
-	font-size: 22px;
+	font-size: 18px;
 	color: black;
 	margin-left: 35px;
 }
@@ -274,12 +273,6 @@
 	font-style: italic;
 }
 
-.normallocation{
-	font-size: 17px;
-	font-color: #A9A9A9;
-	font-style: bold;
-
-}
 
 .roomsystemsimages{
 	width: 300px;
