@@ -236,7 +236,7 @@
 
 .normalsubheaders{
 	font-family: Georgia;
-	font-size: 5px;
+	font-size: 25px;
 	color: black;
 	font-weight: bold;
 	margin-left: 10px;
@@ -244,26 +244,26 @@
 
 .normallocation{
 	font-family: Georgia;
-	font-size: 20px;
+	font-size: 17px;
 	color: black;
 	margin-left: 25px;
 }
 .normaljobtitle{
 	font-family:Georgia;
-	font-size: 20px;
+	font-size: 17px;
 	color:black;
 }
 
 .normaltimeperiod{
 	font-family: Georgia;
-	font-size: 18px;
+	font-size: 15px;
 	color: black;
 	margin-left: 35px;
 }
 
 .normalduties{
 	font-family: Georgia;
-	font-size: 15px;
+	font-size: 13px;
 	color: black;
 	margin-left: 45px;
 }
