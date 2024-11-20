@@ -216,6 +216,12 @@ h1 {
     padding: 20px;
 }
 
+.sidebarcontainer{
+	flex:1;
+	background-color: #993399;
+	padding: 20px;
+}
+
 ul {
     display: block;
     padding-left: 20px; /* Adjust as needed */
