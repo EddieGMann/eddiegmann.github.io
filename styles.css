@@ -191,10 +191,6 @@
     padding: 20px;
 }
 
-h1 {
-    font-size: 24px;
-}
-
 /* Two-column layout using Flexbox */
 .container {
     display: flex;
@@ -224,24 +220,47 @@ h1 {
 	height: 350px;
 }
 
-ul {
-    display: block;
-    padding-left: 20px; /* Adjust as needed */
-}
 
 
-p {
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.normalname {
-	font-size : 45px;
+.normalname{
+	font-family: Georgia;
+	font-size: 45px;
+	color: black;
 	padding: 15px;
 }
 
-.normalsubheader{
-	font-size : 25px;
+.normalcurrentposition{
+	font-family:Georgia;
+	font-size: 15px;
+	color: black;
+	padding: 15px;
+
+.normalsubheaders{
+	font-family: Georgia;
+	font-size: 30px;
+	color: black;
+	padding: 15px;
+}
+
+.normallocation{
+	font-family: Georgia;
+	font-size: 25px;
+	color: black;
+	padding: 15px;
+}
+
+.normaltimeperiod{
+	font-family: Georgia;
+	font-size: 22px;
+	color: black;
+	padding: 15px;
+}
+
+.normalduties{
+	font-family: Georgia;
+	font-size: 15px;
+	color: black;
+	padding: 15px;
 }
 
 .normalskillsheader{
@@ -254,13 +273,6 @@ p {
 	font-color: #A9A9A9;
 	font-style: bold;
 
-}
-
-.normaltimeframe{
-
-}
-
-.normaljobtitle{
 }
 
 .roomsystemsimages{
