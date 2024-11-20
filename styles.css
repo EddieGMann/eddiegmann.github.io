@@ -204,7 +204,7 @@ h1 {
 
 /* Left column */
 .column-left {
-    flex: 6; /* Takes up 2 parts */
+    flex: 6; /* Takes up 6 parts */
     background-color: #f0f0f0;
     padding: 20px;
 }
@@ -221,7 +221,7 @@ h1 {
 	background-color: #993399;
 	padding: 20px;
 	color: #C84E00;
-	height: 50px;
+	height: 350px;
 }
 
 ul {
