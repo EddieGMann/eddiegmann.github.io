@@ -216,7 +216,7 @@
 	flex:1;
 	background-color: #993399;
 	padding: 20px;
-	color: #C84E00;
+	color: green;
 	height: 350px;
 }
 
@@ -233,7 +233,6 @@
 	font-family: Georgia;
 	font-size: 15px;
 	color: black;
-	padding: 5px;
 
 .normalsubheaders{
 	font-family: Georgia;
@@ -261,7 +260,7 @@
 	font-size: 22px;
 	color: black;
 	padding: 15px;
-	margin-left: 30px;
+	margin-left: 35px;
 }
 
 .normalduties{
@@ -269,7 +268,7 @@
 	font-size: 15px;
 	color: black;
 	padding: 15px;
-	margin-left: 35px;
+	margin-left: 45px;
 }
 
 .normalskillsheader{
