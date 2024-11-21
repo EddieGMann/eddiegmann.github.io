@@ -223,51 +223,51 @@
 
 
 .normalname{
-	font-family: Georgia;
+	font-family: Georgia, serif;
 	font-size: 47px;
 	color: black;
 }
 
 .normalcurrentposition{
-	font-family: Georgia;
+	font-family: Georgia, serif;
 	font-size: 15px;
 	color: black;
 }
 
 .normalsubheaders{
-	font-family: Georgia;
+	font-family: Georgia, serif;
 	font-size: 25px;
 	color: black;
 	font-weight: bold;
 	margin-left: 10px;
-	line-height: 2.5;
+	line-height: 2.3;
 }
 
 .normallocation{
-	font-family: Georgia;
+	font-family: Georgia, serif;
 	font-size: 17px;
 	color: black;
 	margin-left: 25px;
 	line-height: 1.5; /* Standard line height for smaller font size */
 }
 .normaljobtitle{
-	font-family:Georgia;
+	font-family:Georgia, serif;
 	font-size: 17px;
 	color:black;
 	line-height: 1.5; /* Standard line height for smaller font size */
 }
 
 .normaltimeperiod{
-	font-family: Georgia;
-	font-size: 15px;
+	font-family: Georgia, serif;
+	font-size: 16px;
 	color: black;
 	margin-left: 35px;
 	line-height: 1.5; /* Standard line height for smaller font size */
 }
 
 .normalduties{
-	font-family: Georgia;
-	font-size: 13px;
+	font-family: Georgia, serif;
+	font-size: 15px;
 	color: black;
 	margin-left: 45px;
 	line-height: 1.5; /* Standard line height for smaller font size */
