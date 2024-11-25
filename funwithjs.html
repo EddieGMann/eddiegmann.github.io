@@ -16,11 +16,11 @@
         <h1 style = "text-align: center">JavaScript Showcase</h1>
     </div>
 
-    <div style="padding-left: 50px;">
-	<p>Here, one can use the color picker to choose a color for the canvas, and use the input slider to create a rectangle using that same color.</p>
+    <div style="justify-content: center;">
+	<p style = "padding-top: 15px; text-align: center;">Here, one can use the color picker to choose a color for the canvas, and use the input slider to create a rectangle using that same color.</p>
 	<canvas class = "canvas" id = "userinputcolor"></canvas>
 	<canvas class = "canvas" id = "squaresizeslide"></canvas>
-<div>
+<div style ="justify-content: center;">
 
 	<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
 	<input type ="button" id = "clrchange" value = "Commit Color">
@@ -31,9 +31,9 @@
 </div>
 
 <div style = "padding-left : 50px;">
-<h1 style = "text-align:center" > Draw your own picture!! </h1>
-    <p>Choose a height and width for your canvas, then choose a color and paintbrush size.  From there, create your masterpiece.</p>
-	<div>
+<h1 style = "justify-content: center;"> Draw your own picture!! </h1>
+    <p style = "padding-top: 15px; text-align: center;">Choose a height and width for your canvas, then choose a color and paintbrush size.  From there, create your masterpiece.</p>
+	<div style = "align:center;">
         <label for="setwidth">Set Width:</label>
         <input type="text" id="setwidth" name="setwidth" size="7">
         <label for="setheight">Set Height:</label>
@@ -42,7 +42,7 @@
 	</div>
     
     <canvas id="userpaint" style="border:1px solid black;"></canvas>
-    <div>
+    <div style = "justify-content: center;">
         <label for="paintclr">Choose Color:</label>
         <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
 	<input type ="button" id = "paintcolorcommit" value = "Commit Color">
