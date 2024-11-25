@@ -165,6 +165,7 @@
 	width: 200px;
 	height: 200px;
 	border: 2px solid #000000;
+	justify-content: center; /* Centers horizontally */
 }
 
   .align {
