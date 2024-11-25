@@ -16,7 +16,7 @@ function docolor() {
 function dosquare() {
 	var squarebox = document.getElementById("squaresizeslide");
 	var szchoice = document.getElementById("sqsldr");
-	var size = parseInt(szchoice.value);
+	var size = parseInt(szchoice.value, 10);
 	var ctxsq = squarebox.getContext("2d");
 	var colbox = document.getElementById("userinputcolor");
 	var clrchoice = document.getElementById("clr");
