@@ -178,7 +178,7 @@
     flex-wrap: wrap; /* Enables wrapping onto a new line */
     word-wrap: break-word;
     gap: 10px; /* Optional: spacing between elements */
-    align-items: flex-end; /* Aligns items to the bottom line */
+    justify-content:center;
   }
 
   .userstorytime {
