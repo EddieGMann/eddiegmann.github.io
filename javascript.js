@@ -22,8 +22,8 @@ function dosquare() {
 	var clrchoice = document.getElementById("clr");
 	var color = clrchoice.value;
 	ctxsq.clearRect(0,0, squarebox.width, squarebox.height);
-	ctxsq.fillStyle = "color";
-	ctxsq.fillRect(25,25, size,size);
+	ctxsq.fillStyle = color;
+	ctxsq.fillRect(3,10, size,size);
 
 }
 
