@@ -176,6 +176,7 @@
     display: flex;
     gap: 10px; /* Optional: spacing between elements */
 	justify: center;
+	  text-align: center;
   }
 
   .userstorytime {
