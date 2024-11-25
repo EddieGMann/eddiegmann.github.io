@@ -161,13 +161,7 @@
     padding: 20px;
 }
 
-.canvas {
-	width: 200px;
-	height: 200px;
-	border: 2px solid #000000;
-	flex-shrink: 0; /* Prevent shrinking */
- 	flex-grow: 0; /* Prevent growing */
-}
+
 
   .align {
     display: flex;
@@ -184,6 +178,8 @@
     max-width: 300px; /* Optional max width */
     height: 40px;
   }
+
+
 
 .content {
     margin-left: 220px; /* Offset to make space for the sidebar */
@@ -219,7 +215,13 @@
 	height: 350px;
 }
 
-
+.canvas {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #000000;
+	flex-shrink: 0; /* Prevent shrinking */
+ 	flex-grow: 0; /* Prevent growing */
+}
 
 .normalname{
 	font-family: Georgia, serif;
