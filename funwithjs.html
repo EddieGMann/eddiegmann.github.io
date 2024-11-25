@@ -20,7 +20,7 @@
 	<p style = "padding-top: 15px; text-align: center;">Here, one can use the color picker to choose a color for the canvas, and use the input slider to create a rectangle using that same color.</p>
 	<canvas class = "canvas" id = "userinputcolor"></canvas>
 	<canvas class = "canvas" id = "squaresizeslide"></canvas>
-<div style ="justify-content: center;">
+<div style ="align-items: center;">
 
 	<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
 	<input type ="button" id = "clrchange" value = "Commit Color">
@@ -30,8 +30,8 @@
 
 </div>
 
-<div style ="justify-content: center;">
-<h1 style = "justify-content: center;"> Draw your own picture!! </h1>
+<div style ="align-items: center;">
+<h1 style ="align-items: center;"> Draw your own picture!! </h1>
     <p style = "padding-top: 15px; text-align: center;">Choose a height and width for your canvas, then choose a color and paintbrush size.  From there, create your masterpiece.</p>
 	<div style = "align:center;">
         <label for="setwidth">Set Width:</label>
@@ -42,7 +42,7 @@
 	</div>
     
     <canvas class = "canvas" id="userpaint" style="border:1px solid black;"></canvas>
-    <div style = "justify-content: center;">
+    <div style ="align-items: center;"">
         <label for="paintclr">Choose Color:</label>
         <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
 	<input type ="button" id = "paintcolorcommit" value = "Commit Color">
@@ -53,7 +53,7 @@
 </div>
 
 
-<div style="padding-left: 50px;" class="align responsive-container">
+<div style ="align-items: center;" class="align responsive-container">
 	<canvas id="userstorycanvas" class = "canvas"></canvas>
 	<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
 	<input type = "button" value = "Upload" onclick="storyupload()">
@@ -62,7 +62,7 @@
 
 </div>
 
-<div style="padding-left: 83px;" class= "align responsive-container">
+<div style ="align-items: center;" class= "align responsive-container">
 	<canvas class = "canvas" id="userphotoinput" style="border:1px solid black;"></canvas>
 	<label for="photofileinput" style="cursor: pointer; background-color: #007bff; color: white; padding: 10px; border-radius: 5px;">
     Upload Photo
