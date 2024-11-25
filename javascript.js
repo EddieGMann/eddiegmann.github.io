@@ -16,14 +16,14 @@ function docolor() {
 function dosquare() {
 	var squarebox = document.getElementById("squaresizeslide");
 	var szchoice = document.getElementById("sqsldr");
-	var size = szchoice.value;
+	var size = parseInt(szchoice.value);
 	var ctxsq = squarebox.getContext("2d");
 	var colbox = document.getElementById("userinputcolor");
 	var clrchoice = document.getElementById("clr");
 	var color = clrchoice.value;
 	ctxsq.clearRect(0,0, squarebox.width, squarebox.height);
 	ctxsq.fillStyle = color;
-	ctxsq.fillRect(3,10, size + 1.5,size + 3);
+	ctxsq.fillRect(3,10, size,size);
 
 }
 
