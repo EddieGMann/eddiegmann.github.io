@@ -98,15 +98,14 @@ function clrcanvas() {
 
 }
 
-
-
-function storyupload() {
 	let splitstorywords = [];
 	let currentWordIndex = 0;
 	let intervalId;
 	let xPosition = 25; // Starting x position for words
 	let yPosition = 35; // Starting y position for lines
 	let lineHeight = 20; // Space between lines
+
+function storyupload() {
     var storywords = document.getElementById("userstorytime").value;
     var storyctx = document.getElementById("userstorycanvas").getContext("2d");
     var canvasWidth = document.getElementById("userstorycanvas").width;
