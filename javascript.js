@@ -23,7 +23,7 @@ function dosquare() {
 	var color = clrchoice.value;
 	ctxsq.clearRect(0,0, squarebox.width, squarebox.height);
 	ctxsq.fillStyle = color;
-	ctxsq.fillRect(10,10, size+133,size);
+	ctxsq.fillRect(10,10, size+103,size);
 
 }
 
