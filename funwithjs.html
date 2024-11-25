@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -10,71 +11,60 @@
 
 
 <body>
-<div id="navbar"></div>
-<div class = "responsive-container">
-	<div class = "column-left">
-    		<div>
-        		<h1>JavaScript Showcase1</h1>
-    		</div>
+ <div id="navbar"></div>
 
-    		<div>
-			<p style = "padding-top: 15px;">Here, one can use the color picker to choose a color for the canvas, and use the input slider to create a rectangle using that same color.</p>
-			<canvas class = "canvas" id = "userinputcolor"></canvas>
-			<canvas class = "canvas" id = "squaresizeslide"></canvas>
-			<div>
+    <div>
+        <p>JavaScript Showcase</p>
+    </div>
 
-				<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
-				<input type ="button" id = "clrchange" value = "Commit Color">
-				<label for = "sqsldr"> Your color choice rectangle:</label>
-				<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
-			</div>
+    <div style="padding-left: 50px;">
+	<canvas class = "canvas" id = "userinputcolor"></canvas>
+	<canvas class = "canvas" id = "squaresizeslide"></canvas>
+ <p>
 
-		</div>
+	<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
+	<label for "sqsldr"> Blue Rectangle:</label>
+	<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
+ </p>
 
-	<div>
-		<h1> Draw your own picture!! </h1>
-    		<p style = "padding-top: 15px;">Choose a height and width for your canvas, then choose a color and paintbrush size.  From there, create your masterpiece.</p>
-		<div>
-        		<label for="setwidth">Set Width:</label>
-        		<input type="text" id="setwidth" name="setwidth" size="7">
-        		<label for="setheight">Set Height:</label>
-        		<input type="text" id="setheight" name="setheight" size="7">
-        		<input type="button" value="Change Size" onclick="canvassize()">
-		</div>
-    
-    		<canvas class = "canvas" id="userpaint" style="border:1px solid black;"></canvas>
-   		 <div>
-        		<label for="paintclr">Choose Color:</label>
-       			 <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
-			<input type ="button" id = "paintcolorcommit" value = "Commit Color">
-        		<label for="brushsldr">Brush Size:</label>
-        		<input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
-			<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
-   		 </div>
-	</div>
+</div>
+
+<div style = "padding-left : 50px;">
+<h1> Draw your own picture!! </h1>
+    <p>
+        <label for="setwidth">Set Width:</label>
+        <input type="text" id="setwidth" name="setwidth" size="7">
+        <label for="setheight">Set Height:</label>
+        <input type="text" id="setheight" name="setheight" size="7">
+        <input type="button" value="Change Size" onclick="canvassize()">
+    </p>
+    <canvas id="userpaint" style="border:1px solid black;"></canvas>
+    <p>
+        <label for="paintclr">Choose Color:</label>
+        <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
+        <label for="brushsldr">Brush Size:</label>
+        <input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
+	<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
+    </p>
+</div>
 
 
-	<div>
-		<canvas id="userstorycanvas" class = "canvas"></canvas>
-		<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
-		<div>
-		<input type = "button" value = "Upload" onclick="storyupload()">
-		<input type = "button" value = "Story Time" onclick ="storyoutloud()">
-		<input type = "button" value = "Clear Canvas" onclick = "clearstoryboard()">
-		</div>
-	</div>
+<div style="padding-left: 50px;" class="align responsive-container">
+	<canvas id="userstorycanvas" class = "canvas"></canvas>
+	<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
+	<input type = "button" value = "Upload" onclick="storyupload()">
+	<input type = "button" value = "Story Time" onclick ="storyoutloud()">
+	<input type = "button" value = "Clear Canvas" onclick = "clearstoryboard()">
 
-	<div>
-		<canvas class = "canvas" id="userphotoinput" style="border:1px solid black;"></canvas>
-		<label for="photofileinput" style="cursor: pointer; background-color: #007bff; color: white; padding: 10px; border-radius: 5px;">Upload Photo</label>
-		<input type = "file" multiple="false" accept="image/*" style = "display:none;" id="photofileinput" onchange="userPhotoUpload()">
+</div>
+
+<div style="padding-left: 83px;" class= "align responsive-container">
+	<canvas id="userphotoinput" style="border:1px solid black;"></canvas>
+	<label for="photofileinput" style="cursor: pointer; background-color: #007bff; color: white; padding: 10px; border-radius: 5px;">
+    Upload Photo
+</label>
+	<input type = "file" multiple="false" accept="image/*" style = "display:none;" id="photofileinput" onchange="userPhotoUpload()">
 	
-	</div>
-</div>
-<div class = "column-right">
-	<p>Testing12</p>
-</div>
-
 </div>
 
 <br>
