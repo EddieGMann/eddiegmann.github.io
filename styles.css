@@ -197,7 +197,7 @@
 .column-left {
     flex: 6; /* Takes up 6 parts */
     background-color: #f0f0f0;
-    padding: 20px;
+
 }
 
 /* Right column */
