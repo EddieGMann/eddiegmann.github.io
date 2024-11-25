@@ -175,8 +175,6 @@
 
   .responsive-container {
     display: flex;
-    flex-wrap: wrap; /* Enables wrapping onto a new line */
-    word-wrap: break-word;
     gap: 10px; /* Optional: spacing between elements */
     justify-content: center;
   }
