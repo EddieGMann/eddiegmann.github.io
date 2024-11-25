@@ -33,21 +33,23 @@
 <div style = "padding-left : 50px;">
 <h1 style = "text-align:center" > Draw your own picture!! </h1>
     <p>Choose a height and width for your canvas, then choose a color and paintbrush size.  From there, create your masterpiece.</p>
+	<div>
         <label for="setwidth">Set Width:</label>
         <input type="text" id="setwidth" name="setwidth" size="7">
         <label for="setheight">Set Height:</label>
         <input type="text" id="setheight" name="setheight" size="7">
         <input type="button" value="Change Size" onclick="canvassize()">
+	</div>
     
     <canvas id="userpaint" style="border:1px solid black;"></canvas>
-    <p>
+    <div>
         <label for="paintclr">Choose Color:</label>
         <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
 	<input type ="button" id = "paintcolorcommit" value = "Commit Color">
         <label for="brushsldr">Brush Size:</label>
         <input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
 	<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
-    </p>
+    </div>
 </div>
 
 
