@@ -176,7 +176,6 @@
   .responsive-container {
     display: flex;
     gap: 10px; /* Optional: spacing between elements */
-    justify-content: center;
   }
 
   .userstorytime {
