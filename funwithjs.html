@@ -17,12 +17,14 @@
     </div>
 
     <div style="padding-left: 50px;">
+	<p>Here, one can use the color picker to choose a color for the canvas, and use the input slider to create a rectangle using that same color.</p>
 	<canvas class = "canvas" id = "userinputcolor"></canvas>
 	<canvas class = "canvas" id = "squaresizeslide"></canvas>
 <div>
 
 	<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
-	<label for "sqsldr"> Blue Rectangle:</label>
+	<input type ="button" id = "clrchange" value = "Commit Color">
+	<label for "sqsldr"> Your color choice rectangle:</label>
 	<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
 </div>
 
