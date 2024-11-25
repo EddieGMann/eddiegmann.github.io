@@ -18,9 +18,12 @@ function dosquare() {
 	var szchoice = document.getElementById("sqsldr");
 	var size = szchoice.value;
 	var ctxsq = squarebox.getContext("2d");
+	var colbox = document.getElementById("userinputcolor");
+	var clrchoice = document.getElementById("clr");
+	var color = clrchoice.value;
 	ctxsq.clearRect(0,0, squarebox.width, squarebox.height);
-	ctxsq.fillStyle = "blue";
-	ctxsq.fillRect(10,10, size,size);
+	ctxsq.fillStyle = "color";
+	ctxsq.fillRect(25,25, size,size);
 
 }
 
