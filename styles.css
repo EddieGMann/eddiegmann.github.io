@@ -171,6 +171,7 @@
   .responsive-container {
     display: flex;
     gap: 10px; /* Optional: spacing between elements */
+	  flex-wrap: wrap;
   }
 
   .userstorytime {
