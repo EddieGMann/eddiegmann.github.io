@@ -227,6 +227,9 @@
 .column-left div {
 	padding-bottom:25px;
 }
+.column-left ul{
+	align-text:right;
+}
 
 .sidebarcontainer{
 	flex:1;
