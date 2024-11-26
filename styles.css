@@ -174,13 +174,16 @@
 	  flex-wrap: wrap;
   }
 
-.columnflex{
-	display: flex
-	gap: 10px;
-	flex-warp: wrap;
-	justify-content: center;
-	flex-direction: column;
+.columnflex {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Spacing between items */
+    height: 100%; /* Ensure the container allows wrapping if constrained */
+    flex-wrap: wrap; /* Allow items to wrap vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
 }
+
 
   .userstorytime {
     width: 100%; /* Make input responsive */
