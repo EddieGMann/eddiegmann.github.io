@@ -180,6 +180,7 @@
     gap: 10px; /* Spacing between items */
     height: 100%; /* Ensure the container allows wrapping if constrained */
     flex-wrap: wrap; /* Allow items to wrap vertically */
+	padding: 20px;
 }
 
 
