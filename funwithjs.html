@@ -11,65 +11,65 @@
 
 
 <body>
- <div id="navbar"></div>
+<div id="navbar"></div>
 <div class = "columnflex">
 	<div class = "sidebarcontainer">
 	</div>
 	<div class = "columnleft">
-    <div>
-        <p>JavaScript Showcase</p>
-    </div>
+    		<div>
+        		<p>JavaScript Showcase</p>
+    		</div>
 
-    <div style="padding-left: 50px;">
-	<canvas class = "canvas" id = "userinputcolor"></canvas>
-	<canvas class = "canvas" id = "squaresizeslide"></canvas>
- <p>
+    		<div>
+		<canvas class = "canvas" id = "userinputcolor"></canvas>
+		<canvas class = "canvas" id = "squaresizeslide"></canvas>
+			<div>
+				<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
+				<label for "sqsldr"> Blue Rectangle:</label>
+				<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
+			</div>
 
-	<input type = "color" value = "001A57" id = "clr" onchange="docolor()">
-	<label for "sqsldr"> Blue Rectangle:</label>
-	<input type="range" min="0" max="150" value = "10" id="sqsldr" name = "sqsldr" oninput="dosquare()">
- </p>
+		</div>
 
-</div>
-
-<div style = "padding-left : 50px;">
-<h1> Draw your own picture!! </h1>
-    <p>
-        <label for="setwidth">Set Width:</label>
-        <input type="text" id="setwidth" name="setwidth" size="7">
-        <label for="setheight">Set Height:</label>
-        <input type="text" id="setheight" name="setheight" size="7">
-        <input type="button" value="Change Size" onclick="canvassize()">
-    </p>
-    <canvas id="userpaint" style="border:1px solid black;"></canvas>
-    <p>
-        <label for="paintclr">Choose Color:</label>
-        <input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
-        <label for="brushsldr">Brush Size:</label>
-        <input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
-	<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
-    </p>
-</div>
+		<div>
+			<h1> Draw your own picture!! </h1>
+    			<div>
+       				 <label for="setwidth">Set Width:</label>
+       				 <input type="text" id="setwidth" name="setwidth" size="7">
+        			 <label for="setheight">Set Height:</label>
+        			 <input type="text" id="setheight" name="setheight" size="7">
+        			<input type="button" value="Change Size" onclick="canvassize()">
+			</div>
+			<div>
+    				<canvas id="userpaint" style="border:1px solid black;"></canvas>
+			</div>
+			<div>
+        			<label for="paintclr">Choose Color:</label>
+        			<input type="color" value="#00BB00" id="paintclr" name="paintclr" onchange="updateColor()">
+        			<label for="brushsldr">Brush Size:</label>
+        			<input type="range" min="5" max="100" value="10" id="brushsldr" name="brushsldr" onchange="updateBrushSize()">
+				<input type ="button" value = "Clear Canvas" onclick = "clrcanvas()">
+    			</div>
+		</div>
 
 
-<div style="padding-left: 50px;" class="align">
-	<canvas id="userstorycanvas" class = "canvas"></canvas>
-	<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
-	<input type = "button" value = "Upload" onclick="storyupload()">
-	<input type = "button" value = "Story Time" onclick ="storyoutloud()">
-	<input type = "button" value = "Clear Canvas" onclick = "clearstoryboard()">
+		<div style="padding-left: 50px;" class="align">
+			<canvas id="userstorycanvas" class = "canvas"></canvas>
+			<textarea rows = "4" cols = "53"  id = "userstorytime"></textarea>
+			<input type = "button" value = "Upload" onclick="storyupload()">
+			<input type = "button" value = "Story Time" onclick ="storyoutloud()">
+			<input type = "button" value = "Clear Canvas" onclick = "clearstoryboard()">
 
-</div>
+		</div>
 
-<div style="padding-left: 83px;" class= "align">
-	<canvas id="userphotoinput" style="border:1px solid black;"></canvas>
-	<label for="photofileinput" style="cursor: pointer; background-color: #007bff; color: white; padding: 10px; border-radius: 5px;">
-    Upload Photo
-</label>
-	<input type = "file" multiple="false" accept="image/*" style = "display:none;" id="photofileinput" onchange="userPhotoUpload()">
-</div>
-<div class = "columnright">
-	<p> testing</p>
+		<div style="padding-left: 83px;" class= "align">
+			<canvas id="userphotoinput" style="border:1px solid black;"></canvas>
+			<label for="photofileinput" style="cursor: pointer; background-color: #007bff; color: white; padding: 10px; border-radius: 5px;">Upload Photo</label>
+			<input type = "file" multiple="false" accept="image/*" style = "display:none;" id="photofileinput" onchange="userPhotoUpload()">
+		</div>
+		<div class = "columnright">
+		<p> testing</p>
+		</div>
 </div>
 </div>
 <br>
