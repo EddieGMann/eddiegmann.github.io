@@ -208,6 +208,17 @@
         flex: 6; /* Takes up available space */
         display: flex;
         flex-direction: column; /* Stack items vertically */
+        background-color: #f0f0f0;
+        padding: 20px;
+        border: 2px solid #000;
+        
+
+}
+
+.column-leftjs {
+        flex: 6; /* Takes up available space */
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
         justify-content: center; /* Center items vertically in this column */
         align-items: center; /* Center items horizontally in this column */
         background-color: #f0f0f0;
