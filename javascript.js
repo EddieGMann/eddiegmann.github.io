@@ -230,6 +230,52 @@ function userPhotoUpload() {
     reader.readAsDataURL(uploadedFile);
 }
 
+function qrcode(url, logoSrc = null) {
+    const qrCodeContainer = document.getElementById('qrcode');
+
+    // Clear previous QR code
+    qrCodeContainer.innerHTML = '';
+
+    if (url) {
+        // Generate the QR code
+        QRCode.toCanvas(document.createElement('canvas'), url, {
+            width: 150,
+            height: 150,
+            errorCorrectionLevel: 'H' // High error correction to allow for an image overlay
+        }, function (error, canvas) {
+            if (error) {
+                console.error(error);
+                alert('Failed to generate QR code.');
+                return;
+            }
+
+            // Append the QR code canvas
+            qrCodeContainer.appendChild(canvas);
+
+            // Optionally add the overlay image
+            if (logoSrc) {
+                const img = document.createElement('img');
+                img.src = logoSrc; // Logo source
+                img.style.width = '50px'; // Adjust size of the image
+                img.style.height = '50px';
+                img.style.position = 'absolute';
+                img.style.top = '50%';
+                img.style.left = '50%';
+                img.style.transform = 'translate(-50%, -50%)';
+                img.style.borderRadius = '10%'; // Optional: rounded logo
+                qrCodeContainer.appendChild(img);
+            }
+        });
+    } else {
+        alert('Please enter a valid URL.');
+    }
+}
+
+document.getElementById('generateButton').addEventListener('click', function () {
+    const url = document.getElementById('urlInput').value.trim();
+    const logoSrc = 'https://via.placeholder.com/50'; // Replace with your logo URL or make dynamic
+    qrcode(url, logoSrc); // Call the function with the URL and optional logo
+});
 
 
 
