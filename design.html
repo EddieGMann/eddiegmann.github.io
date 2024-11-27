@@ -6,6 +6,8 @@
     <title>Matthew Franco</title>
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script> <!-- Link to external JavaScript file with defer -->
+        <!-- Include the QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 
 
@@ -20,9 +22,11 @@
             <h2> The Learning Technology Program Coordinator's design influence</h2>
         </div>
         <div>
-            <ul class = "normallocation">
-                <li>Yup</li>
-            </ul>
+            <h1>Generate QR Code</h1>
+            <label for="urlInput">Enter URL:</label>
+            <input type="text" id="urlInput" placeholder="https://example.com">
+            <button id="generateButton">Generate QR Code</button>
+    <div id="qrcode"></div>
         </div>
     </div>
     <div class = "column-right">
