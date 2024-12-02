@@ -25,7 +25,6 @@ function qrcode(url) {
         console.log('QR Code generated successfully.');
     }).catch((error) => {
         console.error('Error generating QR code:', error);
-        alert('Failed to generate QR code. Please check your input.');
     });
 }
 
