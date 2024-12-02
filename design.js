@@ -9,12 +9,6 @@ function qrcode(url) {
         width: canvas.width,
         height: canvas.height,
         errorCorrectionLevel: 'H', // High error correction
-    }).then(() => {
-        console.log('QR Code generated successfully.');
-    }).catch((error) => {
-        console.error(error);
-        alert('Failed to generate QR code.');
-    });
 }
 
 document.getElementById('generateButton').addEventListener('click', function () {
