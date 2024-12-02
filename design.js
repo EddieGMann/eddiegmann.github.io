@@ -30,7 +30,6 @@ document.getElementById('generateButton').addEventListener('click', function () 
         const validatedUrl = new URL(url);
         qrcode(validatedUrl.href); // Call the function with the validated URL
     } catch (e) {
-        alert('Invalid URL format. Please enter a valid URL starting with http:// or
-
-
-
+        alert('Invalid URL format. Please enter a valid URL starting with http:// or https://');
+    }
+});
