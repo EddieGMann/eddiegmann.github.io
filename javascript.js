@@ -231,39 +231,34 @@ function userPhotoUpload() {
 }
 
 function qrcode(url, logoSrc = null) {
-    const qrCodeContainer = document.getElementById('qrcode');
+    const canvas = document.getElementById('qrcodecanvas');
+    const ctx = canvas.getContext('2d');
 
-    // Clear previous QR code
-    qrCodeContainer.innerHTML = '';
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (url) {
-        // Generate the QR code
-        QRCode.toCanvas(document.createElement('canvas'), url, {
-            width: 150,
-            height: 150,
-            errorCorrectionLevel: 'H' // High error correction to allow for an image overlay
-        }, function (error, canvas) {
+        QRCode.toCanvas(canvas, url, {
+            width: canvas.width,
+            height: canvas.height,
+            errorCorrectionLevel: 'H', // High error correction to allow for an image overlay
+        }, function (error) {
             if (error) {
                 console.error(error);
                 alert('Failed to generate QR code.');
                 return;
             }
 
-            // Append the QR code canvas
-            qrCodeContainer.appendChild(canvas);
-
             // Optionally add the overlay image
             if (logoSrc) {
-                const img = document.createElement('img');
+                const img = new Image();
                 img.src = logoSrc; // Logo source
-                img.style.width = '50px'; // Adjust size of the image
-                img.style.height = '50px';
-                img.style.position = 'absolute';
-                img.style.top = '50%';
-                img.style.left = '50%';
-                img.style.transform = 'translate(-50%, -50%)';
-                img.style.borderRadius = '10%'; // Optional: rounded logo
-                qrCodeContainer.appendChild(img);
+                img.onload = function () {
+                    const imgSize = canvas.width / 5; // Adjust logo size (1/5 of canvas width)
+                    const x = (canvas.width - imgSize) / 2; // Center X
+                    const y = (canvas.height - imgSize) / 2; // Center Y
+                    ctx.drawImage(img, x, y, imgSize, imgSize);
+                };
             }
         });
     } else {
