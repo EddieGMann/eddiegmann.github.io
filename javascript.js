@@ -230,28 +230,33 @@ function userPhotoUpload() {
     reader.readAsDataURL(uploadedFile);
 }
 
-function qrcode(url, logoSrc = null) {
+function qrcode(url) {
     const canvas = document.getElementById('qrcodecanvas');
-    const ctx = canvas.getContext('2d');
 
     // Clear the canvas
+    const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (url) {
         QRCode.toCanvas(canvas, url, {
             width: canvas.width,
             height: canvas.height,
-            errorCorrectionLevel: 'H', // High error correction to allow for an image overlay
+            errorCorrectionLevel: 'H', // High error correction
         }, function (error) {
             if (error) {
                 console.error(error);
                 alert('Failed to generate QR code.');
-                return;
             }
-
-
+        });
+    } else {
+        alert('Please enter a valid URL.');
+    }
 }
 
+document.getElementById('generateButton').addEventListener('click', function () {
+    const url = document.getElementById('urlInput').value.trim();
+    qrcode(url); // Call the function with the URL
+});
 
 
 
