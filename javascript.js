@@ -237,7 +237,9 @@ function qrcode(url) {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Check if the URL is non-empty
     if (url) {
+        // Generate the QR code
         QRCode.toCanvas(canvas, url, {
             width: canvas.width,
             height: canvas.height,
@@ -255,8 +257,17 @@ function qrcode(url) {
 
 document.getElementById('generateButton').addEventListener('click', function () {
     const url = document.getElementById('urlInput').value.trim();
-    qrcode(url); // Call the function with the URL
+    console.log('Input URL:', url); // Debugging: Log the URL to the console
+
+    // Optional: Basic URL validation
+    try {
+        new URL(url); // Validate URL format
+        qrcode(url); // Call the function with the valid URL
+    } catch (e) {
+        alert('Please enter a valid URL.'); // Invalid URL format
+    }
 });
+
 
 
 
