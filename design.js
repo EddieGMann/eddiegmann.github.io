@@ -25,7 +25,7 @@ function qrcode(url) {
         console.log('QR Code generated successfully.');
 })
 
-document.getElementById('generateButton').addEventListener('click', function () {
+document.getElementById('generateButton').addEventListener('click', function qrcode() {
     const url = document.getElementById('urlInput').value.trim();
 
     if (!url) {
