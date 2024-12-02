@@ -23,9 +23,6 @@ function qrcode(url) {
         errorCorrectionLevel: 'H', // High error correction
     }).then(() => {
         console.log('QR Code generated successfully.');
-    }).catch((error) => {
-        console.error('Error generating QR code:', error);
-    });
 }
 
 document.getElementById('generateButton').addEventListener('click', function () {
