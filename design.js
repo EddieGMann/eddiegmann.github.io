@@ -21,7 +21,25 @@ function qrcode(url) {
         width: canvas.width,
         height: canvas.height,
         errorCorrectionLevel: 'H', // High error correction
-    })
+    }).then(() => {
+        console.log('QR Code generated successfully.');
+
+        // Add an empty circle in the middle
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 50; // Radius of the circle
+
+        // Clear a circular area in the middle
+        ctx.save(); // Save the current state
+        ctx.globalCompositeOperation = 'destination-out'; // Cut out the circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore(); // Restore the canvas state to avoid affecting future drawings
+    }).catch((error) => {
+        console.error('Error generating QR code:', error);
+        alert('Failed to generate the QR code. Please check your input and try again.');
+    });
 }
 
 document.getElementById('generateButton').addEventListener('click', function () {
