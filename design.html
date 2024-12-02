@@ -25,6 +25,7 @@
             <h1>Generate QR Code</h1>
             <label for="urlInput">Enter URL:</label>
             <input type="text" id="urlInput" placeholder="https://example.com">
+            <input type="file" id="imageInput" accept="image/*" />
             <button id="generateButton" onclick = "qrcode()">Generate QR Code</button>
         <div>
             <canvas class = "canvas" id = "qrcodecanvas"></canvas>
