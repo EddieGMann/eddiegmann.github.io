@@ -1,14 +1,38 @@
 function qrcode(url) {
     const canvas = document.getElementById('qrcodecanvas');
 
-    // Clear the canvas
+    // Ensure the canvas exists
+    if (!canvas) {
+        alert('Canvas element not found.');
+        return;
+    }
+
     const ctx = canvas.getContext('2d');
+    if (!ctx) {
+        alert('Failed to get canvas context.');
+        return;
+    }
+
+    // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Generate the QR Code
     QRCode.toCanvas(canvas, url, {
         width: canvas.width,
         height: canvas.height,
         errorCorrectionLevel: 'H', // High error correction
+    }).then(() => {
+        console.log('QR Code generated successfully.');
+    }).catch((error) => {
+        console.error('Error generating QR code:', error);
+
+        // Only alert the user if the canvas remains empty
+        if (!ctx.getImageData(0, 0, canvas.width, canvas.height).data.some((pixel) => pixel !== 0)) {
+            alert('Failed to generate QR code. Please check your input.');
+        } else {
+            console.log('QR Code generated despite minor errors.');
+        }
+    });
 }
 
 document.getElementById('generateButton').addEventListener('click', function () {
@@ -25,5 +49,6 @@ document.getElementById('generateButton').addEventListener('click', function () 
         qrcode(validatedUrl.href); // Call the function with the validated URL
     } catch (e) {
         alert('Invalid URL format. Please enter a valid URL starting with http:// or https://');
+        console.error('URL validation error:', e);
     }
 });
