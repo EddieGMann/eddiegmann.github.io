@@ -36,10 +36,7 @@ function qrcode(url) {
         ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore(); // Restore the canvas state to avoid affecting future drawings
-    }).catch((error) => {
-        console.error('Error generating QR code:', error);
-        alert('Failed to generate the QR code. Please check your input and try again.');
-    });
+    })
 }
 
 document.getElementById('generateButton').addEventListener('click', function () {
