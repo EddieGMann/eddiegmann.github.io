@@ -43,8 +43,8 @@ function qrcode(url, imageSource) {
                 // Draw the image
                 ctx.drawImage(
                     img,
-                    centerX - imageSize / 2,
-                    centerY - imageSize / 2,
+                    centerX - radius,
+                    centerY - radius,
                     imageSize,
                     imageSize
                 );
