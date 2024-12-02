@@ -249,28 +249,8 @@ function qrcode(url, logoSrc = null) {
                 return;
             }
 
-            // Optionally add the overlay image
-            if (logoSrc) {
-                const img = new Image();
-                img.src = logoSrc; // Logo source
-                img.onload = function () {
-                    const imgSize = canvas.width / 5; // Adjust logo size (1/5 of canvas width)
-                    const x = (canvas.width - imgSize) / 2; // Center X
-                    const y = (canvas.height - imgSize) / 2; // Center Y
-                    ctx.drawImage(img, x, y, imgSize, imgSize);
-                };
-            }
-        });
-    } else {
-        alert('Please enter a valid URL.');
-    }
-}
 
-document.getElementById('generateButton').addEventListener('click', function () {
-    const url = document.getElementById('urlInput').value.trim();
-    const logoSrc = 'https://via.placeholder.com/50'; // Replace with your logo URL or make dynamic
-    qrcode(url, logoSrc); // Call the function with the URL and optional logo
-});
+}
 
 
 
