@@ -25,13 +25,7 @@ function qrcode(url) {
         console.log('QR Code generated successfully.');
     }).catch((error) => {
         console.error('Error generating QR code:', error);
-
-        // Only alert the user if the canvas remains empty
-        if (!ctx.getImageData(0, 0, canvas.width, canvas.height).data.some((pixel) => pixel !== 0)) {
-            alert('Failed to generate QR code. Please check your input.');
-        } else {
-            console.log('QR Code generated despite minor errors.');
-        }
+        alert('Failed to generate QR code. Please check your input.');
     });
 }
 
