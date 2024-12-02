@@ -23,7 +23,7 @@ function qrcode(url) {
         errorCorrectionLevel: 'H', // High error correction
     }).then(() => {
         console.log('QR Code generated successfully.');
-}
+})
 
 document.getElementById('generateButton').addEventListener('click', function () {
     const url = document.getElementById('urlInput').value.trim();
