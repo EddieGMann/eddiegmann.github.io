@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code on Canvas</title>
-    <style>
-        canvas {
-            border: 1px solid #000;
-        }
-    </style>
-</head>
-<body>
-    <h1>Generate QR Code on Canvas</h1>
-    <label for="urlInput">Enter URL:</label>
-    <input type="text" id="urlInput" placeholder="https://example.com">
-    <button id="generateButton">Generate QR Code</button>
-    <br><br>
-    <canvas id="qrcodecanvas" width="250" height="250"></canvas>
+function qrcode(url) {
+    const canvas = document.getElementById('qrcodecanvas');
 
-    <!-- Include the QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <!-- Link to external JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
+    // Clear the canvas
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (url) {
+        // Generate the QR code
+        QRCode.toCanvas(canvas, url, {
+            width: canvas.width,
+            height: canvas.height,
+            errorCorrectionLevel: 'H', // High error correction
+        }).then(() => {
+            console.log('QR Code generated successfully.');
+        }).catch((error) => {
+            console.error(error);
+            alert('Failed to generate QR code.');
+        });
+    } else {
+        alert('Please enter a valid URL.');
+    }
+}
+
+document.getElementById('generateButton').addEventListener('click', function () {
+    const url = document.getElementById('urlInput').value.trim();
+
+    if (!url) {
+        alert('Please enter a valid URL.');
+        return;
+    }
+
+    try {
+        // Validate URL
+        new URL(url);
+        qrcode(url); // Call the function with the validated URL
+    } catch (e) {
+        alert('Invalid URL format. Please enter a valid URL starting with http:// or https://');
+    }
+});
+
 
