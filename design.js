@@ -31,7 +31,7 @@ function qrcode(url, imageSource) {
                 const centerX = canvas.width / 2;
                 const centerY = canvas.height / 2;
                 const radius = 50; // Circle radius
-                const imageSize = 40; // Ensure the image fits within the circle
+                const imageSize = radius * 2; // Ensure the image fits within the circle
 
                 // Clip the canvas to the circle
                 ctx.save();
