@@ -183,7 +183,7 @@
     padding: 20px;
 }
 
-.higlighteddiv{
+.highlighteddiv{
 	transition: filter 0.3s, opacity .3s;
 }
 .dimmed{
