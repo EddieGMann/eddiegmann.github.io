@@ -187,12 +187,12 @@
 	transition: filter 0.3s, opacity .3s;
 }
 .dimmed{
-	filter: brightness(50%);
+	filter: brightness(30%);
 	opacity: .5;
 }
 .highlight{
-	filter: birghtness(150%);
-	position:relative;
+	filter: brightness(250%);
+
 }
 
   .userstorytime {
