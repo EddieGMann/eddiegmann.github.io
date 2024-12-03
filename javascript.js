@@ -275,7 +275,7 @@ document.getElementById('generateButton').addEventListener('click', function () 
 
 document.getElementById('highlightexp').addEventListener('click', function () {
     const highlightSection = document.getElementById('highlightSection');
-    const allSections = document.querySelectorAll('.section');
+    const allSections = document.querySelectorAll('.highlighteddiv');
 
     // Dim all sections
     allSections.forEach(section => {
