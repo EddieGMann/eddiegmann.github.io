@@ -34,7 +34,17 @@
     text-decoration: underline;
 }
 
+.highlighteddiv{
+	transition: filter 0.3s, opacity .3s;
+}
+.dimmed{
+	filter: brightness(30%);
+	opacity: .1;
+}
+.highlight{
+	filter: brightness(115%);
 
+}
 .pagecolor{
 	background-color: #008000;
   }
@@ -181,18 +191,6 @@
     height: 100%; /* Ensure the container allows wrapping if constrained */
     flex-wrap: wrap; /* Allow items to wrap vertically */
     padding: 20px;
-}
-
-.highlighteddiv{
-	transition: filter 0.3s, opacity .3s;
-}
-.dimmed{
-	filter: brightness(30%);
-	opacity: .5;
-}
-.highlight{
-	filter: brightness(250%);
-
 }
 
   .userstorytime {
