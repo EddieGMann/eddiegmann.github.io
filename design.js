@@ -45,8 +45,8 @@ function qrcode(url, imageSource) {
                     img,
                     centerX - radius,
                     centerY - radius,
-                    imageSize * .8,
-                    imageSize * .8
+                    imageSize,
+                    imageSize
                 );
 
                 ctx.restore(); // Restore the canvas state to remove clipping
