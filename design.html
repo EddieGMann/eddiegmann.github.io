@@ -23,17 +23,23 @@
         </div>
         <div>
             <h1>Generate QR Code</h1>
+        </div>
+        <div>
             <label for="urlInput">Enter URL:</label>
             <input type="text" id="urlInput" placeholder="https://example.com">
+      
 <label for="imageOptions">Select an image:</label>
     <select id="imageOptions">
         <option value="none" selected>No Image</option>
         <option value="image1">CRTP</option>
     </select>
-    <br /><br />
     <label for="imageInput">Or upload a custom image:</label>
+
     <input type="file" id="imageInput" accept="image/*" />
+        </div>
+        <div>
             <button id="generateButton" onclick = "qrcode()">Generate QR Code</button>
+        </div>
         <div>
             <canvas class = "canvas" id = "qrcodecanvas"></canvas>
         </div>
