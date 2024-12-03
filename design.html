@@ -34,14 +34,12 @@
         <option value="none" selected>No Image</option>
         <option value="image1">CRTP</option>
     </select>
-   </div>
-        <div>
     <label for="imageInput">Or upload a custom image:</label>
 
     <input type="file" id="imageInput" accept="image/*" />
         </div>
         <div>
-            <button id="generateButton" onclick = "qrcode()">Generate QR Code</button>
+            <button style = "background-color: #04AA46 color: white; padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block; font-size: 16px;" "id="generateButton" onclick = "qrcode()">Generate QR Code</button>
         </div>
         <div>
             <canvas class = "canvas" id = "qrcodecanvas"></canvas>
