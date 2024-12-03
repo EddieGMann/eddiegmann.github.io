@@ -189,6 +189,7 @@
 .dimmed{
 	filter: brightness(50%);
 	opacity: .5;
+}
 .highlight{
 	filter: birghtness(150%);
 	z-index:2;
