@@ -273,7 +273,19 @@ document.getElementById('generateButton').addEventListener('click', function () 
 
 
 
+document.getElementById('highlightexp').addEventListener('click', function () {
+    const highlightSection = document.getElementById('highlightSection');
+    const allSections = document.querySelectorAll('.section');
 
+    // Dim all sections
+    allSections.forEach(section => {
+        section.classList.add('dimmed');
+    });
+
+    // Highlight the target section
+    highlightSection.classList.remove('dimmed');
+    highlightSection.classList.add('highlight');
+});
 
 
 
