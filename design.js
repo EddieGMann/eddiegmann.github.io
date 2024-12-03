@@ -33,6 +33,12 @@ function qrcode(url, imageSource) {
                 const radius = 50; // Circle radius
                 const imageSize = radius * 2; // Ensure the image fits within the circle
 
+                 const offCanvas = document.createElement('canvas');
+                const offCtx = offCanvas.getContext('2d');
+                offCanvas.width = imageSize;
+                offCanvas.height = imageSize;
+                offCtx.drawImage(img, 0, 0, imageSize, imageSize);
+
                 // Clip the canvas to the circle
                 ctx.save();
                 ctx.beginPath();
@@ -41,12 +47,12 @@ function qrcode(url, imageSource) {
                 ctx.clip();
 
                 // Draw the image
-                ctx.drawImage(
-                    img,
-                    centerX - radius,
-                    centerY - radius,
-                    imageSize,
-                    imageSize
+                    ctx.drawImage(
+                    offCanvas,
+                    centerX - radius, // Top-left X
+                    centerY - radius, // Top-left Y
+                    imageSize, // Width
+                    imageSize  // Height
                 );
 
                 ctx.restore(); // Restore the canvas state to remove clipping
