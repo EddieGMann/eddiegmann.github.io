@@ -183,6 +183,17 @@
     padding: 20px;
 }
 
+.higlighteddiv{
+	transition: filter 0.3s, opacity .3s;
+}
+.dimmed{
+	filter: brightness(50%);
+	opacity: .5;
+.highlight{
+	filter: birghtness(150%);
+	z-index:2;
+	position:relative;
+}
 
   .userstorytime {
     width: 100%; /* Make input responsive */
