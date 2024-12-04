@@ -6,7 +6,7 @@ fetch('navigationpane.html')
  });
 
 
-document.getElementById('highlightexp').addEventListener('click', function () {
+document.getElementById('highlightexp').addEventListener('click', function (event) {
     const highlightSection = document.getElementById('highlightSection');
     const allSections = document.querySelectorAll('.highlighteddiv');
 
@@ -30,7 +30,23 @@ document.getElementById('highlightexp').addEventListener('click', function () {
         // Scroll to the highlighted section
         highlightSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+
+    // Stop event propagation to prevent immediate toggle-off
+    event.stopPropagation();
 });
+
+// Add a click listener to the document to toggle off highlighting
+document.addEventListener('click', function () {
+    const highlightSection = document.getElementById('highlightSection');
+    const allSections = document.querySelectorAll('.highlighteddiv');
+
+    // Remove all effects
+    allSections.forEach(section => {
+        section.classList.remove('dimmed');
+    });
+    highlightSection.classList.remove('highlight');
+});
+
 
 
 
