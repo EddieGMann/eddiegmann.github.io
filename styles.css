@@ -44,7 +44,7 @@
 .highlight{
 	filter: brightness(115%);
 	transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
 
 }
 .pagecolor{
