@@ -10,15 +10,25 @@ document.getElementById('highlightexp').addEventListener('click', function () {
     const highlightSection = document.getElementById('highlightSection');
     const allSections = document.querySelectorAll('.highlighteddiv');
 
-    // Dim all sections
-    allSections.forEach(section => {
-        section.classList.add('dimmed');
-    });
+    // Check if the highlight class is already applied
+    const isHighlighted = highlightSection.classList.contains('highlight');
 
-    // Highlight the target section
-    highlightSection.classList.remove('dimmed');
-    highlightSection.classList.add('highlight');
+    if (isHighlighted) {
+        // If already highlighted, remove all effects
+        allSections.forEach(section => {
+            section.classList.remove('dimmed');
+        });
+        highlightSection.classList.remove('highlight');
+    } else {
+        // Otherwise, apply the effects
+        allSections.forEach(section => {
+            section.classList.add('dimmed');
+        });
+        highlightSection.classList.remove('dimmed');
+        highlightSection.classList.add('highlight');
+    }
 });
+
 
 
 
