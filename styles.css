@@ -214,6 +214,7 @@
     display: flex;
     gap: 20px; /* Optional: spacing between columns */
     padding: 20px;
+	position:relative;
 }
 
 .column-left {
