@@ -26,8 +26,12 @@ document.getElementById('highlightexp').addEventListener('click', function () {
         });
         highlightSection.classList.remove('dimmed');
         highlightSection.classList.add('highlight');
+
+        // Scroll to the highlighted section
+        highlightSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 });
+
 
 
 
