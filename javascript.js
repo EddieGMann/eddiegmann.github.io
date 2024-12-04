@@ -48,6 +48,49 @@ document.addEventListener('click', function () {
 });
 
 
+document.getElementById('highlightedu').addEventListener('click', function (event) {
+    const HLSection = document.getElementById('eduSection');
+    const allSections = document.querySelectorAll('.highlighteddiv');
+
+    // Check if the highlight class is already applied
+    const isHighlighted = HLSection.classList.contains('highlight');
+
+    if (isHighlighted) {
+        // If already highlighted, remove all effects
+        allSections.forEach(section => {
+            section.classList.remove('dimmed');
+        });
+        HLSection.classList.remove('highlight');
+    } else {
+        // Otherwise, apply the effects
+        allSections.forEach(section => {
+            section.classList.add('dimmed');
+        });
+        HLSection.classList.remove('dimmed');
+        HLSection.classList.add('highlight');
+
+        // Scroll to the highlighted section
+        HLSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Stop event propagation to prevent immediate toggle-off
+    event.stopPropagation();
+});
+
+// Add a click listener to the document to toggle off highlighting
+document.addEventListener('click', function () {
+    const HLSection = document.getElementById('eduSection');
+    const allSections = document.querySelectorAll('.highlighteddiv');
+
+    // Remove all effects
+    allSections.forEach(section => {
+        section.classList.remove('dimmed');
+    });
+    HLSection.classList.remove('highlight');
+});
+
+
+
 
 
 
