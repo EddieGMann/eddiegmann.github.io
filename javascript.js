@@ -7,28 +7,28 @@ fetch('navigationpane.html')
 
 
 document.getElementById('highlightexp').addEventListener('click', function (event) {
-    const highlightSection = document.getElementById('highlightSection');
+    const HLSection = document.getElementById('expSection');
     const allSections = document.querySelectorAll('.highlighteddiv');
 
     // Check if the highlight class is already applied
-    const isHighlighted = highlightSection.classList.contains('highlight');
+    const isHighlighted = HLSection.classList.contains('highlight');
 
     if (isHighlighted) {
         // If already highlighted, remove all effects
         allSections.forEach(section => {
             section.classList.remove('dimmed');
         });
-        highlightSection.classList.remove('highlight');
+        HLSection.classList.remove('highlight');
     } else {
         // Otherwise, apply the effects
         allSections.forEach(section => {
             section.classList.add('dimmed');
         });
-        highlightSection.classList.remove('dimmed');
-        highlightSection.classList.add('highlight');
+        HLSection.classList.remove('dimmed');
+        HLSection.classList.add('highlight');
 
         // Scroll to the highlighted section
-        highlightSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        HLSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // Stop event propagation to prevent immediate toggle-off
@@ -37,14 +37,14 @@ document.getElementById('highlightexp').addEventListener('click', function (even
 
 // Add a click listener to the document to toggle off highlighting
 document.addEventListener('click', function () {
-    const highlightSection = document.getElementById('highlightSection');
+    const HLSection = document.getElementById('expSection');
     const allSections = document.querySelectorAll('.highlighteddiv');
 
     // Remove all effects
     allSections.forEach(section => {
         section.classList.remove('dimmed');
     });
-    highlightSection.classList.remove('highlight');
+    HLSection.classList.remove('highlight');
 });
 
 
