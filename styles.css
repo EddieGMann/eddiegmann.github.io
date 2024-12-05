@@ -284,6 +284,20 @@
     text-decoration: underline;
 }
 
+.topbutton {
+  background-color: #FF69B4; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;	
+}
+
+.topbutton:hover{
+	text-decoration: underline;
+}
+
 .normalname{
 	font-family: Georgia, serif;
 	font-size: 47px;
