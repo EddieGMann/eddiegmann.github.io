@@ -281,6 +281,10 @@
   font-size: 16px;
 }
 
+.button:hover {
+    text-decoration: underline;
+}
+
 .normalname{
 	font-family: Georgia, serif;
 	font-size: 47px;
