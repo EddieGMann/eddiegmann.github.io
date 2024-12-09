@@ -256,6 +256,19 @@ document.addEventListener('click', function () {
     HLSection.classList.remove('highlight');
 });
 
+// Select all buttons with the class 'return-to-top'
+const buttons = document.querySelectorAll('.return-to-top');
+
+// Add event listener to each button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scrolling animation
+        });
+    });
+});
+
 
 
 
