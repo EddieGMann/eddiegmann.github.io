@@ -256,9 +256,8 @@
 }
 
 .sidebarcontainer{
-	background-color: blue;
+	background-color: #d9d9d9;
 	padding: 20px;
-	color: green;
 	height: 350px;
 	width:225px;
 	position:fixed;
@@ -272,10 +271,9 @@
 }
 
 .button{
-	  background-color: #FF69B4; /* Green */
+	  background-color: #5a5a5a;
   border: none;
-  color: white;
-  padding: 15px 32px;
+  padding: 15px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
