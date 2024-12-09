@@ -328,5 +328,10 @@
 	color: #E2E6ED;
 }
 
+.column-right a {
+	color: #E89923;
+}
 
-
+.column-right a.clicked {
+	color: #FFD960;
+}
