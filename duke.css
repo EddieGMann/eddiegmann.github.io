@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url('https://www.symbols.com/images/symbol/2053_duke-university-seal.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+}
 /* Container for top-frame */
 .top-frame {
     display: flex; /* Enable flexbox layout */
