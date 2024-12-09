@@ -328,10 +328,14 @@
 	color: #E2E6ED;
 }
 
-.column-right a {
+.column-right a:link {
 	color: #E89923;
 }
 
-.column-right a.clicked {
+.column-right a:visited {
 	color: #FFD960;
+}
+
+.column-right a:hover {
+	color: #F3F2F1;
 }
