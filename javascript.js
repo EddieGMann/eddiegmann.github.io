@@ -269,6 +269,16 @@ buttons.forEach(button => {
     });
 });
 
+document.getElementById('dukestyle').addEventListener('click', function () {
+    const stylesheet = document.getElementById('stylesheet');
+
+    // Toggle between stylesheets
+    if (stylesheet.getAttribute('href') === 'styles.css') {
+        stylesheet.setAttribute('href', 'dukestyle.css');
+    } else {
+        stylesheet.setAttribute('href', 'styles.css');
+    }
+});
 
 
 
