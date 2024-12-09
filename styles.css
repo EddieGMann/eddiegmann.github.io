@@ -284,13 +284,12 @@
 }
 
 .return-to-top {
-  background-color: #FF69B4; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
+	  background-color: #5a5a5a;
+  border: 2px solid #787878;
+  padding: 8px;
   text-align: center;
-  display: inline-block;
-  font-size: 16px;	
+  font-size: 12px;
+	border-radius: 6px;	
 }
 
 .return-to-top:hover{
