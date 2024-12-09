@@ -266,19 +266,19 @@
 }
 
 .normalname{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 43px;
 	color: #E2E6ED;
 }
 
 .normalcurrentposition{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 15px;
 	color: #E2E6ED;
 }
 
 .normalsubheaders{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 25px;
 	color: #E2E6ED;
 	font-weight: bold;
@@ -287,7 +287,7 @@
 }
 
 .normallocation{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 17px;
 	color: #E2E6ED;
 	margin-left: 25px;
@@ -295,7 +295,7 @@
 	list-style: none;
 }
 .normaljobtitle{
-	font-family:Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 17px;
 	color: #E2E6ED;
 	line-height: 1.5; /* Standard line height for smaller font size */
@@ -303,7 +303,7 @@
 }
 
 .normaltimeperiod{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 16px;
 	color: #E2E6ED;
 	margin-left: 35px;
@@ -312,7 +312,7 @@
 }
 
 .normalduties{
-	font-family: Georgia, serif;
+	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 15px;
 	color: #E2E6ED;
 	margin-left: 45px;
