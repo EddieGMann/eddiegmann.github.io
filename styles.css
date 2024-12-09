@@ -223,7 +223,7 @@
         background-color: #f0f0f0;
         padding: 20px;
         border: 2px solid #000;
-	margin-left:230px;
+	margin-left:205px;
         
 
 }
@@ -258,8 +258,8 @@
 .sidebarcontainer{
 	background-color: #d9d9d9;
 	padding: 20px;
-	height: 350px;
-	width:225px;
+	height: 550px;
+	width:200px;
 	position:fixed;
 }
 
