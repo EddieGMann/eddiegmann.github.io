@@ -279,7 +279,7 @@
 
 .normalsubheaders{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
-	font-size: 35px;
+	font-size: 32px;
 	color: #E2E6ED;
 	font-weight: bold;
 	margin-left: 10px;
@@ -288,7 +288,7 @@
 
 .normallocation{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
-	font-size: 25px;
+	font-size: 23px;
 	color: #E2E6ED;
 	margin-left: 25px;
 	line-height: 1.5; /* Standard line height for smaller font size */
@@ -296,7 +296,7 @@
 }
 .normaljobtitle{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
-	font-size: 25px;
+	font-size: 23px;
 	color: #E2E6ED;
 	line-height: 1.5; /* Standard line height for smaller font size */
 	list-style: none;
@@ -304,7 +304,7 @@
 
 .normaltimeperiod{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
-	font-size: 22px;
+	font-size: 20px;
 	color: #E2E6ED;
 	margin-left: 35px;
 	line-height: 1.5; /* Standard line height for smaller font size */
@@ -313,7 +313,7 @@
 
 .normalduties{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
-	font-size: 20px;
+	font-size: 18px;
 	color: #E2E6ED;
 	margin-left: 45px;
 	line-height: 1.5; /* Standard line height for smaller font size */
@@ -321,7 +321,7 @@
 }
 
 .normalskillsheader{
-	font-size: 20px;
+	font-size: 18px;
 	font-style: italic;
 	color: #E2E6ED;
 		font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
