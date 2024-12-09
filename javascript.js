@@ -274,7 +274,7 @@ document.getElementById('dukestyle').addEventListener('click', function () {
 
     // Toggle between stylesheets
     if (stylesheet.getAttribute('href') === 'styles.css') {
-        stylesheet.setAttribute('href', 'dukestyle.css');
+        stylesheet.setAttribute('href', 'duke.css');
     } else {
         stylesheet.setAttribute('href', 'styles.css');
     }
