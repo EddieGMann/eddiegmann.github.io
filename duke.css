@@ -45,7 +45,7 @@
 	filter: brightness(115%);
 	transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
-	  background-color: rgba(243, 238, 225, 0.95); /* blue with transparency */
+	  background-color: rgba(0, 83, 155, 0.95); /* blue with transparency */
 
 }
 
@@ -275,7 +275,7 @@
 .normalname{
 	font-family: Georgia, serif;
 	font-size: 43px;
-	color: black;
+	color: #E2E6ED;
 }
 
 .normalcurrentposition{
