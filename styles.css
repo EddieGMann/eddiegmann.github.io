@@ -261,6 +261,8 @@
 	padding: 20px;
 	color: green;
 	height: 350px;
+	position: sticky;
+	align-self: flex-start;
 }
 
 .canvas {
