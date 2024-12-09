@@ -218,7 +218,8 @@
 /* Right column */
 .column-right {
     flex: 1; /* Takes up 1 part */
-    background-color: #d9d9d9;
+        background-color: #012169;
+	color: #E2E6ED;
     padding: 20px;
 }
 
@@ -230,18 +231,12 @@
 }
 
 .sidebarcontainer{
-	background-color: #d9d9d9;
+        background-color: #012169;
+	color: #E2E6ED;
 	padding: 20px;
 	height: 470px;
 	width:200px;
 	position:fixed;
-}
-
-.canvas {
-	width: 200px;
-	height: 200px;
-	border: 2px solid #000000;
-
 }
 
 .button{
@@ -326,24 +321,12 @@
 .normalskillsheader{
 	font-size: 15px;
 	font-style: italic;
+	color: #E2E6ED;
+}
+
+.column-right p {
+	color: #E2E6ED;
 }
 
 
-.roomsystemsimages{
-	width: 300px;
-	height: auto;
-}
-.roomsystemsimagescontainer{
-	text-align:center;
-	margin: 35px auto;
-	width: fit-content;
-}
-.roomsystemsimagescontainer img{
-	max-width: 100%;
-	display: block;
-}
-.roomsystemsimagescontainer .systemcaption{
-	margin-bottom: 15px; /* Adds space between the image and the caption */
-    font-size: 16px; /* Optional: Adjusts the caption font size */
-    color: #555; /* Optional: Sets a softer color for the caption */
-}
+
