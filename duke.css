@@ -265,6 +265,19 @@
 	text-decoration: underline;
 }
 
+.returnbuttonright{
+	display: flex;
+	justify-content: space-between;
+}
+
+.awdstopmargin{
+	margin-top:55px;
+}
+
+.skillstopmargin{
+	margin-top:15px;
+}
+
 .normalname{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 45px;
