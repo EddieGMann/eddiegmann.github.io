@@ -204,6 +204,7 @@ body{
     background-image: url('images/dukechapel.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
+	z-index:-1;
 }
 
 .column-leftjs {
