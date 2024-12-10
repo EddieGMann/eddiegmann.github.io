@@ -6,7 +6,37 @@
 }
 
 body{
-	background-color:#666666;
+    background-image: url('images/Duke Background.png'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the element */
+    background-repeat: no-repeat; /* Prevent image tiling */
+}
+/* Container for top-frame */
+.top-frame {
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    background-color: #333; /* Background color */
+    padding: 15px;
+}
+
+/* Nav inside the top-frame */
+.top-frame nav {
+    display: flex; /* Arrange children (links) in a horizontal row */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between items */
+}
+
+/* Style for the links */
+.top-frame nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+/* Hover effect on links */
+.top-frame nav a:hover {
+    text-decoration: underline;
 }
 
 .highlighteddiv{
