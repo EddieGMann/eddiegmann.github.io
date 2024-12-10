@@ -303,6 +303,14 @@
 	justify-content: space-between;
 }
 
+.awdstopmargin{
+	margin-top:55px;
+}
+
+.skillstopmargin{
+	margin-top:15px;
+}
+
 .normalname{
 	font-family: Georgia, serif;
 	font-size: 43px;
