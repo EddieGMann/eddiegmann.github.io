@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+body{
+	background-color:#666666;
+}
+
 /* Container for top-frame */
 .top-frame {
     display: flex; /* Enable flexbox layout */
