@@ -192,13 +192,15 @@ body{
 }
 
 .column-left::after {
-    top: 10px; /* Distance from the top */
-    right: 10px; /* Distance from the right */
-    width: 40px; /* Set the width of the image */
-    height: 40px; /* Set the height of the image */
-    background-image: url('images/dukeu.png');
-    background-size: cover; /* Ensure the image covers the element */
-    background-repeat: no-repeat; /* Prevent image tiling */
+    content: ""; /* Required for pseudo-elements to display */
+    position: absolute; /* Allows positioning relative to the parent */
+    top: 10px; /* Distance from the top of the parent */
+    right: 10px; /* Distance from the right of the parent */
+    width: 40px; /* Width of the pseudo-element */
+    height: 40px; /* Height of the pseudo-element */
+    background-image: url('images/dukeu.png'); /* Path to your image */
+    background-size: cover; /* Scale the image to fill the pseudo-element */
+    background-repeat: no-repeat; /* Prevent tiling */
 }
 
 .column-leftjs {
