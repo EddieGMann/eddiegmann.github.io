@@ -18,6 +18,7 @@ body{
     background-color:#FCF7E5;
     color: #993399; 
     padding: 15px;
+	z-index:5;
 }
 
 /* Nav inside the top-frame */
@@ -25,6 +26,7 @@ body{
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
     gap: 15px; /* Space between items */
+	z-index:5;
 }
 
 /* Style for the links */
@@ -33,11 +35,13 @@ body{
     text-decoration: none;
     padding: 10px 20px;
     font-weight: bold;
+	z-index:5;
 }
 
 /* Hover effect on links */
 .top-frame nav a:hover {
     text-decoration: underline;
+	z-index:5;
 }
 
 .highlighteddiv{
@@ -63,6 +67,7 @@ body{
   	font-size: 16px;
   	border: none;
   	cursor: pointer;
+	z-index:5;
 }
 
 /* General Dropdown Styling */
@@ -70,6 +75,7 @@ body{
   margin-top: 75px;
   position: relative;
   display: inline-block;
+	z-index:5;
 }
 
 .dropdowncontent {
@@ -80,6 +86,7 @@ body{
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
+	z-index:5;
 }
 
 /* Links inside the dropdown */
@@ -89,21 +96,25 @@ body{
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+	z-index:5;
 }
 
 .dropdowncontent a:hover {
   background-color:#FCF7E5;
+	z-index:5;
 }
 
 /* Show dropdown on hover */
 .dropdown:hover .dropdowncontent {
   display: block;
+	z-index:5;
 }
 
 /* Parent Dropdown */
 .dropdownnavbar {
   position: relative;
   display: inline-block;
+	z-index:5;
 }
 
 .dropdowncontentnavbar {
@@ -112,7 +123,7 @@ body{
   background-color:#FCF7E5;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 5;
 }
 
 .dropdowncontentnavbar a {
@@ -121,15 +132,18 @@ body{
   text-decoration: none;
   display: block;
   text-align: left;
+	z-index:5;
 }
 
 .dropdownnavbar:hover .dropdowncontentnavbar {
   display: block;
+	z-index:5;
 }
 
 /* Nested Dropdown (LMS) */
 .dropdownnavbar .dropdowncontentnavbar .dropdownnavbarlms {
   position: relative;
+	z-index:5;
 }
 
 .dropdownnavbar .dropdowncontentnavbarlms {
@@ -140,11 +154,12 @@ body{
   background-color:#FCF7E5;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 5;
 }
 
 .dropdownnavbar .dropdowncontentnavbar .dropdownnavbarlms:hover .dropdowncontentnavbarlms {
   display: block; /* Show nested dropdown on hover */
+	z-index:5;
 }
 
 .dropdowncontentnavbarlms a {
@@ -153,10 +168,12 @@ body{
   text-decoration: none;
   display: block;
   text-align: left;
+	z-index:5;
 }
 
 .dropdowncontentnavbarlms a:hover {
   text-decoration: underline;
+	z-index:5;
 }
   .responsive-container {
     display: flex;
