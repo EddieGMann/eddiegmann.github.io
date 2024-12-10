@@ -195,10 +195,10 @@ body{
 .column-left::after {
     content: ""; /* Required for pseudo-elements to display */
     position: absolute; /* Allows positioning relative to the parent */
-    top: 10px; /* Distance from the top of the parent */
+    top: 50px; /* Distance from the top of the parent */
     right: 10px; /* Distance from the right of the parent */
-    width: 175px; /* Width of the pseudo-element */
-    height: 90px; /* Height of the pseudo-element */
+    width: 185px; /* Width of the pseudo-element */
+    height: 100px; /* Height of the pseudo-element */
     background-image: url('images/dukechapel.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
