@@ -172,7 +172,7 @@ font-family: "Creepster", system-ui;
 
 .grid{
 	display:grid; 
-	grid-template-columns:25px 25px; 
+	grid-template-columns:75px 75px; 
 	justify-content: space-evenly;
 }
 .columnflex {
