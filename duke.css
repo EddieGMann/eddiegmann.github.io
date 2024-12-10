@@ -197,9 +197,9 @@ body{
     position: absolute; /* Allows positioning relative to the parent */
     top: 10px; /* Distance from the top of the parent */
     right: 10px; /* Distance from the right of the parent */
-    width: 40px; /* Width of the pseudo-element */
-    height: 40px; /* Height of the pseudo-element */
-    background-image: url('images/dukeu.png'); /* Path to your image */
+    width: 75px; /* Width of the pseudo-element */
+    height: 50px; /* Height of the pseudo-element */
+    background-image: url('images/dukechapel.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
 }
