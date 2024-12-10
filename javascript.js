@@ -273,14 +273,23 @@ document.getElementById('dukestyle').addEventListener('click', function () {
     const stylesheet = document.getElementById('stylesheet');
 
     // Toggle between stylesheets
-    if (stylesheet.getAttribute('href') === 'styles.css') {
+    if (stylesheet.getAttribute('href') !== 'duke.css') {
         stylesheet.setAttribute('href', 'duke.css');
     } else {
         stylesheet.setAttribute('href', 'styles.css');
     }
 });
 
+document.getElementById('halloween').addEventListener('click', function () {
+    const stylesheet = document.getElementById('stylesheet');
 
+    // Toggle between stylesheets
+    if (stylesheet.getAttribute('href') !== 'halloween.css') {
+        stylesheet.setAttribute('href', 'halloween.css');
+    } else {
+        stylesheet.setAttribute('href', 'styles.css');
+    }
+});
 
 
 
