@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+hr{
+	margin-top:35px; 
+	margin-bottom:30px;
+}
 /* Container for top-frame */
 .top-frame {
     display: flex; /* Enable flexbox layout */
@@ -186,6 +190,12 @@
     gap: 10px; /* Optional: spacing between elements */
 	  flex-wrap: wrap;
   }
+
+.grid{
+	display:grid; 
+	grid-template-columns:75px 75px; 
+	justify-content: space-evenly;
+}
 
 .columnflex {
     display: flex;
