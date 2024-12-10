@@ -395,3 +395,11 @@
     margin-right: 10px; /* Space between the bullet and the text */
     vertical-align: middle; /* Align the bullet with text */
 }
+
+.awdstopmargin{
+	margin-top:55px;
+}
+
+.skillstopmargin{
+	margin-top:15px;
+}
