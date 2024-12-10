@@ -230,11 +230,11 @@ body{
 .column-right::after{
     content: ""; /* Required for pseudo-elements to display */
     position: absolute; /* Allows positioning relative to the parent */
-    bottom: 165px; /* Distance from the top of the parent */
+    bottom: 265px; /* Distance from the top of the parent */
     right: 10px; /* Distance from the right of the parent */
-    width: 185px; /* Width of the pseudo-element */
-    height: 85px; /* Height of the pseudo-element */
-    background-image: url('images/dukechapel.jfif'); /* Path to your image */
+    width: 165px; /* Width of the pseudo-element */
+    height: 185px; /* Height of the pseudo-element */
+    background-image: url('images/dukecartoon.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
 }
