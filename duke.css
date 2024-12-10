@@ -9,6 +9,10 @@ body{
     background-image: url('images/Duke Background.png'); /* Replace with your image path */
     background-size: cover; /* Ensure the image covers the element */
     background-repeat: no-repeat; /* Prevent image tiling */
+
+hr{
+	margin-top:35px; 
+	margin-bottom:30px;
 }
 /* Container for top-frame */
 .top-frame {
@@ -180,6 +184,12 @@ body{
     gap: 10px; /* Optional: spacing between elements */
 	  flex-wrap: wrap;
   }
+
+.grid{
+	display:grid; 
+	grid-template-columns:75px 75px; 
+	justify-content: space-evenly;
+}
 
 .columnflex {
     display: flex;
