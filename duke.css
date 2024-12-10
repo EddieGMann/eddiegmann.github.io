@@ -51,6 +51,7 @@ body{
 	transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
 	  background-color: rgba(0, 83, 155, 0.95); /* blue with transparency */
+	z-index:2;
 
 }
 
