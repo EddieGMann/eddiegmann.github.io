@@ -223,7 +223,7 @@ font-family: "Creepster", system-ui;
         background-color: #000000;
 	color: #E2E6ED;
 	padding: 10px;
-	height: 50%;
+	height: auto;
 	width:50%;
 	margin-left: 25%;
 }
