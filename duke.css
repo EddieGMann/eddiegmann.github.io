@@ -92,7 +92,7 @@ body{
 }
 
 .dropdowncontent a:hover {
-  background-color:#FCF7E5;;
+  background-color:#FCF7E5;
 }
 
 /* Show dropdown on hover */
@@ -109,7 +109,7 @@ body{
 .dropdowncontentnavbar {
   display: none;
   position: absolute;
-  background-color:#FCF7E5;;
+  background-color:#FCF7E5;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -137,7 +137,7 @@ body{
   position: absolute;
   top: 0;
   left: 100%; /* Align to the right of parent dropdown */
-  background-color: #81d4fa;
+  background-color:#FCF7E5;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -206,7 +206,6 @@ body{
     background-image: url('images/dukechapel.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
-	z-index:-1;
 }
 
 .column-leftjs {
@@ -304,6 +303,7 @@ body{
 	font-family: 'Roboto Mono', Garamond, Georgia, 'Times New Roman', Times, serif;
 	font-size: 45px;
 	color: #E2E6ED;
+	z-index:1;
 }
 
 .normalcurrentposition{
