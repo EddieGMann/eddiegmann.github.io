@@ -238,6 +238,7 @@ font-family: "Creepster", system-ui;
 	color: #E2E6ED;
     padding: 20px;
 	position: relative;
+	text-align:center;
 }
 
 
@@ -445,3 +446,5 @@ font-family: "Creepster", system-ui;
 .skillstopmargin{
 	margin-top:15px;
 }
+
+
