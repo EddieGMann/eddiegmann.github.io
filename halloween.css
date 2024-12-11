@@ -210,12 +210,11 @@ font-family: "Creepster", system-ui;
     position: absolute; /* Allows positioning relative to the parent */
     top: 15px; /* Distance from the top of the parent */
     left: 5px; /* Distance from the right of the parent */
-    width: 285px; /* Width of the pseudo-element */
-    height: 285px; /* Height of the pseudo-element */
+    width: 185px; /* Width of the pseudo-element */
+    height: 185px; /* Height of the pseudo-element */
     background-image: url('images/cuteghostright.jpg'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
-	z-index:-1;
 }
 
 .column-left::after{
@@ -223,12 +222,11 @@ font-family: "Creepster", system-ui;
     position: absolute; /* Allows positioning relative to the parent */
     top: 15px; /* Distance from the top of the parent */
     right: 5px; /* Distance from the right of the parent */
-    width: 285px; /* Width of the pseudo-element */
-    height: 285px; /* Height of the pseudo-element */
+    width: 185px; /* Width of the pseudo-element */
+    height: 185px; /* Height of the pseudo-element */
     background-image: url('images/cuteghostleft.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
-	z-index:-1;
 }
 
 
