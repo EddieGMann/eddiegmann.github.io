@@ -215,6 +215,7 @@ font-family: "Creepster", system-ui;
     background-image: url('images/cuteghostright.jpg'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
+	z-index:-1;
 }
 
 .column-left::after{
@@ -227,6 +228,7 @@ font-family: "Creepster", system-ui;
     background-image: url('images/cuteghostleft.jfif'); /* Path to your image */
     background-size: cover; /* Scale the image to fill the pseudo-element */
     background-repeat: no-repeat; /* Prevent tiling */
+	z-index:-1;
 }
 
 
