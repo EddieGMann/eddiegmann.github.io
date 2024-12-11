@@ -397,3 +397,6 @@ hr{
     color: #555; /* Optional: Sets a softer color for the caption */
 }
 
+.bh{
+	display:none;
+}
