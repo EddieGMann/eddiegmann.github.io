@@ -441,10 +441,12 @@ font-family: "Creepster", system-ui;
 
 .awdstopmargin{
 	margin-top:55px;
+	text-align:center;
 }
 
 .skillstopmargin{
 	margin-top:15px;
+	text-align:center;
 }
 
 
