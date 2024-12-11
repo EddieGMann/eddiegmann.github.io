@@ -57,7 +57,7 @@ font-family: "Creepster", system-ui;
 	filter: brightness(115%);
 	transform: scale(1.1);
     box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
-	  background-color: rgba(12, 12, 12, 0.95); /* blue with transparency */
+	  background-color: rgba(12, 12, 12, 0.95); 
 	z-index:2;
 
 }
@@ -116,7 +116,6 @@ font-family: "Creepster", system-ui;
 }
 
 .dropdowncontentnavbar a {
-  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -148,7 +147,6 @@ font-family: "Creepster", system-ui;
 }
 
 .dropdowncontentnavbarlms a {
-  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
