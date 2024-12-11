@@ -22,8 +22,9 @@ font-family: "Creepster", system-ui;
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
     background-color:#FCF7E5;
-    color: #993399; 
+    color: #ff2400; 
     padding: 15px;
+	font-family: "Creepster", system-ui;
 }
 
 /* Nav inside the top-frame */
@@ -35,7 +36,6 @@ font-family: "Creepster", system-ui;
 
 /* Style for the links */
 .top-frame nav a {
-    color: #993399;
     text-decoration: none;
     padding: 10px 20px;
     font-weight: bold;
@@ -62,9 +62,7 @@ font-family: "Creepster", system-ui;
 
 }
 
-.drpbutton{
-    background-color:#FCF7E5;
-    color: #993399; 
+.drpbutton{ 
 	padding: 16px;
   	font-size: 16px;
   	border: none;
@@ -81,17 +79,13 @@ font-family: "Creepster", system-ui;
 .dropdowncontent {
   display: none;
   position: absolute;
-      background-color:#FCF7E5;
-    color: #993399; 
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 /* Links inside the dropdown */
-.dropdowncontent a {
-      background-color:#FCF7E5;
-    color: #993399; 
+.dropdowncontent a { 
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -241,9 +235,6 @@ font-family: "Creepster", system-ui;
 	text-align:center;
 }
 
-
-
-
 .sidebarcontainer{
         background-color: #000000;
 	color: #E2E6ED;
@@ -255,7 +246,7 @@ font-family: "Creepster", system-ui;
 
 .button{
 	  background-color:#FCF7E5;
-	color: #993399;
+	color: #ff2400;
   border: 2px solid #787878;
   padding: 15px;
   font-size: 12px;
