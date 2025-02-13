@@ -23,7 +23,6 @@ hr{
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
     justify-content: space-between; /* Space between items */
-	text-align:center;
 }
 
 /* Style for the links */
@@ -32,6 +31,7 @@ hr{
     text-decoration: none;
     padding: .5rem 1rem;
     font-weight: bold;
+	text-align:center;
 }
 
 /* Hover effect on links */
