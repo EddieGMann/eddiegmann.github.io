@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +7,8 @@
 }
 
 hr{
-	margin-top:1%; 
-	margin-bottom:1%;
+	margin-top:35px; 
+	margin-bottom:30px;
 }
 /* Container for top-frame */
 .top-frame {
@@ -15,23 +16,22 @@ hr{
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
     background-color: #333; /* Background color */
-    padding: 5vh 5%;
+    padding: 15px;
 }
 
 /* Nav inside the top-frame */
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
-    justify-content: space-between; /* Space between items */
+    gap: 15px; /* Space between items */
 }
 
 /* Style for the links */
 .top-frame nav a {
     color: white;
     text-decoration: none;
-    padding: .5rem 1rem;
+    padding: 10px 20px;
     font-weight: bold;
-	text-align:center;
 }
 
 /* Hover effect on links */
@@ -48,9 +48,10 @@ hr{
 }
 .highlight{
 	filter: brightness(115%);
-	transform: scale(1.02);
-        box-shadow: 0rem 3rem 5rem rgba(25, 25, 25, 0.9);
-	  background-color: rgba(243, 238, 225, 0.95); 
+	transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
+	  background-color: rgba(243, 238, 225, 0.95); /* blue with transparency */
+
 }
 .pagecolor{
 	background-color: #008000;
@@ -59,15 +60,15 @@ hr{
 .drpbutton{
 	background-color: #ffd700;
 	color : #981518;
-	padding: 1.1%;
-  	font-size: 1.331em;
+	padding: 16px;
+  	font-size: 16px;
   	border: none;
   	cursor: pointer;
 }
 
 /* General Dropdown Styling */
 .dropdown {
-  margin-top: 7.5%;
+  margin-top: 75px;
   position: relative;
   display: inline-block;
 }
@@ -76,8 +77,8 @@ hr{
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 12rem;
-  box-shadow: 0rem .5rem 1rem rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -162,10 +163,10 @@ hr{
     background-color: #555;
     color: #fff;
     border: none;
-    padding: .3em;
-    margin: .3em 0;
+    padding: 10px;
+    margin: 10px 0;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 16px;
 }
 
 .sidebar button:hover {
@@ -174,8 +175,8 @@ hr{
 
 /* Main content area */
 .maincontent {
-    margin-left: 12.3%; /* Offset to make space for the sidebar */
-    padding: 2em;
+    margin-left: 220px; /* Offset to make space for the sidebar */
+    padding: 20px;
 }
 
 
@@ -187,23 +188,23 @@ hr{
 
   .responsive-container {
     display: flex;
-    gap: 1rem; /* Optional: spacing between elements */
+    gap: 10px; /* Optional: spacing between elements */
 	  flex-wrap: wrap;
   }
 
 .grid{
 	display:grid; 
-	grid-template-columns:4rem 4rem; 
+	grid-template-columns:75px 75px; 
 	justify-content: space-evenly;
 }
 
 .columnflex {
     display: flex;
     flex-direction: row; /* Stack items vertically */
-    gap: 1rem; /* Spacing between items */
+    gap: 10px; /* Spacing between items */
     height: 100%; /* Ensure the container allows wrapping if constrained */
     flex-wrap: wrap; /* Allow items to wrap vertically */
-    padding: 5rem;
+    padding: 20px;
 }
 
   .userstorytime {
@@ -233,7 +234,7 @@ hr{
         background-color: #f0f0f0;
         padding: 20px;
         border: 2px solid #000;
-	margin-left: 12%;
+	margin-left:205px;
         
 
 }
@@ -267,9 +268,9 @@ hr{
 
 .sidebarcontainer{
 	background-color: #d9d9d9;
-	padding: 1rem;
-	height: 73vh;
-	width:11.3%;
+	padding: 20px;
+	height: 470px;
+	width:200px;
 	position:fixed;
 }
 
@@ -286,7 +287,7 @@ hr{
   border: 2px solid #787878;
   padding: 8px;
   text-align: center;
-  font-size: 1em;
+  font-size: 12px;
 	border-radius: 6px;
 }
 
