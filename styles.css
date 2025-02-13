@@ -15,14 +15,14 @@ hr{
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
     background-color: #333; /* Background color */
-    padding: 1%;
+    padding: 5%;
 }
 
 /* Nav inside the top-frame */
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
-    gap: 2%; /* Space between items */
+    gap: 15%; /* Space between items */
 }
 
 /* Style for the links */
