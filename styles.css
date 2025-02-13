@@ -22,7 +22,7 @@ hr{
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
-    gap: 15%; /* Space between items */
+    gap: 22%; /* Space between items */
 }
 
 /* Style for the links */
