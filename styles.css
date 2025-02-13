@@ -193,7 +193,7 @@ hr{
 
 .grid{
 	display:grid; 
-	grid-template-columns:15rem 15rem; 
+	grid-template-columns:4rem 4rem; 
 	justify-content: space-evenly;
 }
 
@@ -233,7 +233,7 @@ hr{
         background-color: #f0f0f0;
         padding: 20px;
         border: 2px solid #000;
-	margin-left:15%;
+	margin-left:12%;
         
 
 }
