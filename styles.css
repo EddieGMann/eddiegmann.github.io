@@ -6,8 +6,8 @@
 }
 
 hr{
-	margin-top:35px; 
-	margin-bottom:30px;
+	margin-top:1%; 
+	margin-bottom:1%;
 }
 /* Container for top-frame */
 .top-frame {
@@ -15,21 +15,21 @@ hr{
     justify-content: center; /* Horizontally center items */
     align-items: center; /* Vertically center items */
     background-color: #333; /* Background color */
-    padding: 15px;
+    padding: 1%;
 }
 
 /* Nav inside the top-frame */
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
     align-items: center; /* Vertically align items */
-    gap: 15px; /* Space between items */
+    gap: 2%; /* Space between items */
 }
 
 /* Style for the links */
 .top-frame nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 1% 2%;
     font-weight: bold;
 }
 
@@ -48,7 +48,7 @@ hr{
 .highlight{
 	filter: brightness(115%);
 	transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(25, 25, 25, 0.9);
+    box-shadow: 0 1% 2% rgba(25, 25, 25, 0.9);
 	  background-color: rgba(243, 238, 225, 0.95); /* blue with transparency */
 
 }
@@ -59,15 +59,15 @@ hr{
 .drpbutton{
 	background-color: #ffd700;
 	color : #981518;
-	padding: 16px;
-  	font-size: 16px;
+	padding: 1.1%;
+  	font-size: 1.331em;
   	border: none;
   	cursor: pointer;
 }
 
 /* General Dropdown Styling */
 .dropdown {
-  margin-top: 75px;
+  margin-top: 7.5%;
   position: relative;
   display: inline-block;
 }
