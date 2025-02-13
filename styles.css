@@ -162,10 +162,10 @@ hr{
     background-color: #555;
     color: #fff;
     border: none;
-    padding: 10px;
-    margin: 10px 0;
+    padding: .3em;
+    margin: .3em 0;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .sidebar button:hover {
@@ -174,8 +174,8 @@ hr{
 
 /* Main content area */
 .maincontent {
-    margin-left: 220px; /* Offset to make space for the sidebar */
-    padding: 20px;
+    margin-left: 12.3%; /* Offset to make space for the sidebar */
+    padding: 2em;
 }
 
 
@@ -203,7 +203,7 @@ hr{
     gap: 1rem; /* Spacing between items */
     height: 100%; /* Ensure the container allows wrapping if constrained */
     flex-wrap: wrap; /* Allow items to wrap vertically */
-    padding: 2rem;
+    padding: 5rem;
 }
 
   .userstorytime {
@@ -233,7 +233,7 @@ hr{
         background-color: #f0f0f0;
         padding: 20px;
         border: 2px solid #000;
-	margin-left:12%;
+	margin-left: 12%;
         
 
 }
