@@ -21,7 +21,6 @@ hr{
 /* Nav inside the top-frame */
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
-	flex-wrap:wrap;
     align-items: center; /* Vertically align items */
     justify-content: space-between; /* Space between items */
 }
@@ -188,23 +187,23 @@ hr{
 
   .responsive-container {
     display: flex;
-    gap: 10px; /* Optional: spacing between elements */
+    gap: 1rem; /* Optional: spacing between elements */
 	  flex-wrap: wrap;
   }
 
 .grid{
 	display:grid; 
-	grid-template-columns:75px 75px; 
+	grid-template-columns:15rem 15rem; 
 	justify-content: space-evenly;
 }
 
 .columnflex {
     display: flex;
     flex-direction: row; /* Stack items vertically */
-    gap: 10px; /* Spacing between items */
+    gap: 1rem; /* Spacing between items */
     height: 100%; /* Ensure the container allows wrapping if constrained */
     flex-wrap: wrap; /* Allow items to wrap vertically */
-    padding: 20px;
+    padding: 2rem;
 }
 
   .userstorytime {
@@ -234,7 +233,7 @@ hr{
         background-color: #f0f0f0;
         padding: 20px;
         border: 2px solid #000;
-	margin-left:205px;
+	margin-left:15%;
         
 
 }
