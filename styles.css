@@ -21,6 +21,7 @@ hr{
 /* Nav inside the top-frame */
 .top-frame nav {
     display: flex; /* Arrange children (links) in a horizontal row */
+	flex-wrap:wrap;
     align-items: center; /* Vertically align items */
     justify-content: space-between; /* Space between items */
 }
