@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#394B58">
+  
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="apple-itunes-app" content="app-id=480883488">
+<link rel="manifest" href="/web-app-manifest/manifest.json">
+  <meta name="sentry-trace" content="98991e9cb80846339bbbb91b99e81a00-27746e181bcc4f86-0"/>
+  <title>  Syllabus for Introduction to Statistical Programming II (SAS) | BIOSTAT 722.01.Sp25
+</title>
+
+  <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/dist/fonts/lato/extended/Lato-Regular-bd03a2cc27.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/dist/fonts/lato/extended/Lato-Bold-cccb897485.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="https://du11hjcvx0uqb.cloudfront.net/dist/fonts/lato/extended/Lato-Italic-4eb103b4d1.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/no_variables/bundles/fonts-6ee09b0b2f.css" media="screen" />
+  <link rel="stylesheet" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/default/variables-high_contrast-7dd4b80918af0e0218ec0229e4bd5873.css" media="all" />
+  <link rel="stylesheet" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/new_styles_high_contrast/bundles/common-a1948cef39.css" media="all" />
+  <link rel="stylesheet" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/new_styles_high_contrast/bundles/tinymce-1cbd796348.css" media="screen" />
+  <link rel="stylesheet" href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/new_styles_high_contrast/bundles/syllabus-d7bb142b0a.css" media="screen" />
+  <link rel="apple-touch-icon" href="https://du11hjcvx0uqb.cloudfront.net/dist/images/apple-touch-icon-585e5d997d.png" />
+  <link rel="icon" type="image/x-icon" href="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico" />
+
+  <link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_230140000000000001/attachments/549674/canvas.css" media="all" />
+  
+  <script>if (navigator.userAgent.match(/(MSIE|Trident\/)/)) location.replace('/ie-is-not-supported.html')</script>
+  <script>
+    INST = {"environment":"production","allowMediaComments":true,"kalturaSettings":{"domain":"nv.instructuremedia.com","resource_domain":"nv.instructuremedia.com","rtmp_domain":"iad.rtmp.instructuremedia.com","partner_id":"9","subpartner_id":"0","player_ui_conf":"0","kcw_ui_conf":"0","upload_ui_conf":"0","max_file_size_bytes":534773760,"do_analytics":false,"hide_rte_button":false,"js_uploader":true},"disableGooglePreviews":true,"logPageViews":true,"editorButtons":[{"name":"YouTube","id":8,"favorite":false,"url":"https://www.edu-apps.org/lti_public_resources/?tool_id=youtube","icon_url":"https://www.edu-apps.org/assets/lti_public_resources/youtube_icon.png","canvas_icon_class":null,"width":560,"height":600,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eSearch publicly available YouTube videos. A new icon will show up in your course rich editor letting you search YouTube and click to embed videos in your course material.\u003c/p\u003e\n"},{"name":"Vimeo","id":9,"favorite":false,"url":"https://www.edu-apps.org/lti_public_resources/?tool_id=vimeo","icon_url":"https://www.edu-apps.org/assets/lti_public_resources/vimeo_icon.png","canvas_icon_class":null,"width":560,"height":600,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eVimeo is a video sharing website on which users can upload, share, and view videos. The community of Vimeo includes indie, professional, and novice filmmakers.\u003c/p\u003e\n"},{"name":"Commons Favorites","id":133,"favorite":false,"url":"https://lor.instructure.com/api/lti/favorite-resources/","icon_url":"https://lor.instructure.com/img/icon_commons.png","canvas_icon_class":"icon-commons","width":800,"height":400,"use_tray":true,"on_by_default":false,"description":"\u003cp\u003eFind and share course content\u003c/p\u003e\n"},{"name":"Microsoft Office 365","id":177,"favorite":false,"url":"https://office365-iad-prod.instructure.com/lti/rce-content-item","icon_url":"https://office365-iad-prod.instructure.com/images/office365_icon.png","canvas_icon_class":null,"width":900,"height":600,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eAllows you to pull in documents from Office 365 to Canvas\u003c/p\u003e\n"},{"name":"PlayPosit","id":182,"favorite":false,"url":"https://www.playposit.com/LTI/launch","icon_url":"https://cdn.playposit.com/images/favicon.ico","canvas_icon_class":null,"width":900,"height":675,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003ePlayPosit is interactive video engagement.\u003c/p\u003e\n"},{"name":"VoiceThread","id":183,"favorite":false,"url":"https://voicethread.com/lti/6fb50bc4-e0d5-4d61-862e-796534d1bb9d/","icon_url":"https://voicethread.com/image/branding/circle_logo_50x50.png","canvas_icon_class":null,"width":800,"height":400,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eTransforming media into collaborative spaces with video, voice, and text commenting.\u003c/p\u003e\n"},{"name":"Box","id":203,"favorite":false,"url":"https://www.edu-apps.org/box/","icon_url":"https://www.edu-apps.org/assets/lti_box_engine/icon.png","canvas_icon_class":{"enabled":true},"width":430,"height":200,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eEmbed files from Box\u003c/p\u003e\n"},{"name":"Warpwire","id":214,"favorite":true,"url":"https://warpwire.duke.edu/api/ltix/?mode=plugin","icon_url":"https://www.warpwire.com/media/image/icon-warpwire-integration.gif","canvas_icon_class":null,"width":400,"height":500,"use_tray":false,"on_by_default":false,"description":""},{"name":"SAGE Vantage","id":1268,"favorite":false,"url":"https://vantage.sagepub.com/lti1p3/tool/54QsAsm0etvUSo6X","icon_url":"https://vantage.sagepub.com/images/sagent/Bird-blue-right.svg","canvas_icon_class":null,"width":1000,"height":1000,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eSAGE Vantage 1.3 Tool\u003c/p\u003e\n"},{"name":"LinkedIn Learning","id":1292,"favorite":false,"url":"https://www.linkedin.com/checkpoint/enterprise/lti/77842946/auth/82782602/7095475754087444480","icon_url":"http://static-exp1.licdn.com/sc/h/3dio89ba7ceqktt0kek3tla5w","canvas_icon_class":null,"width":1000,"height":800,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eAssign courses or videos from the LinkedIn Learning online training library for free.\u003c/p\u003e\n"},{"name":"Pearson Links","id":2610,"favorite":false,"url":"https://interop.pearson.com/launch","icon_url":"https://www.pearson.com/us/content/dam/one-dot-com/one-dot-com/us/en/images/PearsonThumbprint-RGB-127x138.png/_jcr_content/renditions/cq5dam.web.1600.9600.png","canvas_icon_class":null,"width":800,"height":400,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003eAccess Pearson\u003c/p\u003e\n"},{"name":"Panopto","id":2980,"favorite":true,"url":"https://duke.hosted.panopto.com/Panopto/LTI/LTI.aspx","icon_url":"https://static-contents.panopto.com/prod/panopto_logo_canvas_tool_50x50.png","canvas_icon_class":null,"width":800,"height":400,"use_tray":false,"on_by_default":false,"description":"\u003cp\u003ePanopto for Canvas\u003c/p\u003e\n"}]};
+    ENV = {"ASSET_HOST":"https://du11hjcvx0uqb.cloudfront.net","active_brand_config_json_url":"https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/default/variables-high_contrast-7dd4b80918af0e0218ec0229e4bd5873.json","active_brand_config":null,"confetti_branding_enabled":false,"url_to_what_gets_loaded_inside_the_tinymce_editor_css":["https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/default/variables-high_contrast-7dd4b80918af0e0218ec0229e4bd5873.css","https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/new_styles_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-795277483f.css","https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/no_variables/bundles/fonts-6ee09b0b2f.css"],"url_for_high_contrast_tinymce_editor_css":["https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/default/variables-high_contrast-7dd4b80918af0e0218ec0229e4bd5873.css","https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/new_styles_high_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor-795277483f.css","https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/no_variables/bundles/fonts-6ee09b0b2f.css"],"current_user_id":"668","current_user_global_id":"230140000000000668","current_user_usage_metrics_id":"184286f2344c768677465382a1f60bbc3ac732506eb9f0fb876b21f91234fabf","current_user_roles":["user","student","observer","teacher"],"current_user_is_student":false,"current_user_types":[],"current_user_disabled_inbox":false,"current_user_visited_tabs":null,"discussions_reporting":true,"files_domain":"cluster336.canvas-user-content.com","group_information":null,"DOMAIN_ROOT_ACCOUNT_ID":"230140000000000001","DOMAIN_ROOT_ACCOUNT_UUID":"aSv0eXf2o2liik7LauscbHJllzIjnV1XuSfipj9L","k12":false,"help_link_name":"Help","help_link_icon":"help","use_high_contrast":true,"auto_show_cc":false,"disable_celebrations":true,"disable_keyboard_shortcuts":false,"LTI_LAUNCH_FRAME_ALLOWANCES":["geolocation *","microphone *","camera *","midi *","encrypted-media *","autoplay *","clipboard-write *","display-capture *"],"DEEP_LINKING_POST_MESSAGE_ORIGIN":"https://canvas.duke.edu","comment_library_suggestions_enabled":false,"SETTINGS":{"open_registration":false,"collapse_global_nav":false,"release_notes_badge_disabled":true,"can_add_pronouns":true,"show_sections_in_course_tray":false},"RAILS_ENVIRONMENT":"Production","IN_PACED_COURSE":false,"SENTRY_FRONTEND":{"dsn":"https://355a1d96717e4038ac25aa852fa79a8f@relay-iad.sentry.insops.net/388","org_slug":"instructure","base_url":"https://sentry.insops.net","normalized_route":"/courses/{course_id}/assignments/syllabus","errors_sample_rate":"0.005","traces_sample_rate":"0.005","url_deny_pattern":"instructure-uploads.*amazonaws.com","revision":"canvas-lms@20250312.345"},"DATA_COLLECTION_ENDPOINT":"https://canvas-frontend-data-iad-prod.inscloudgate.net/submit","flashAlertTimeout":86400000,"DOMAIN_ROOT_ACCOUNT_SFID":"001A000000MCy0dIAD","DIRECT_SHARE_ENABLED":true,"CAN_VIEW_CONTENT_SHARES":true,"FEATURES":{"account_level_blackout_dates":false,"render_both_to_do_lists":false,"commons_new_quizzes":true,"course_paces_redesign":true,"course_paces_for_students":true,"explicit_latex_typesetting":false,"permanent_page_links":true,"enhanced_course_creation_account_fetching":false,"instui_for_import_page":false,"multiselect_gradebook_filters":true,"assignment_edit_placement_not_on_announcements":false,"instui_header":false,"rce_find_replace":true,"courses_popout_sisid":true,"dashboard_graphql_integration":false,"discussion_checkpoints":false,"discussion_default_sort":false,"discussion_default_expand":false,"speedgrader_studio_media_capture":true,"disallow_threaded_replies_fix_alert":true,"horizon_course_setting":false,"new_quizzes_media_type":true,"differentiation_tags":false,"validate_call_to_action":false,"product_tours":false,"create_course_subaccount_picker":true,"file_verifiers_for_quiz_links":true,"lti_deep_linking_module_index_menu_modal":true,"lti_registrations_next":false,"lti_registrations_page":false,"lti_asset_processor":false,"buttons_and_icons_root_account":true,"extended_submission_state":false,"scheduled_page_publication":true,"send_usage_metrics":false,"rce_transform_loaded_content":false,"mobile_offline_mode":false,"react_discussions_post":true,"instui_nav":false,"lti_registrations_discover_page":false,"account_level_mastery_scales":false,"non_scoring_rubrics":true,"top_navigation_placement":false,"rubric_criterion_range":true,"rce_lite_enabled_speedgrader_comments":true,"lti_toggle_placements":true,"login_registration_ui_identity":false,"lti_apps_page_instructors":false,"course_paces_skip_selected_days":false,"course_pace_download_document":false,"course_pace_draft_state":false,"course_pace_time_selection":false,"course_pace_pacing_status_labels":false,"course_pace_pacing_with_mastery_paths":false,"course_pace_weighted_assignments":false,"modules_requirements_allow_percentage":false,"course_pace_allow_bulk_pace_assign":false,"account_survey_notifications":true,"embedded_release_notes":true,"consolidated_media_player":false,"discussions_speedgrader_revisit":false,"canvas_k6_theme":false,"new_math_equation_handling":true},"current_user":{"id":"668","anonymous_id":"ik","display_name":"Matthew Franco","avatar_image_url":"https://canvas.duke.edu/images/messages/avatar-50.png","html_url":"https://canvas.duke.edu/about/668","pronouns":null,"avatar_is_fallback":true,"email":"matthew.franco@duke.edu"},"current_user_is_admin":false,"page_view_update_url":"/page_views/49c401be-74e9-4d86-8718-23279d528c8e?page_view_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpIjoiNDljNDAxYmUtNzRlOS00ZDg2LTg3MTgtMjMyNzlkNTI4YzhlIiwidSI6MjMwMTQwMDAwMDAwMDAwNjY4LCJjIjoiMjAyNS0wMy0xM1QxMjo0Nzo1My44NVoifQ.dnMo-qVfAwwt0r8JYQ38hznL-KucGFYCi8-Ca_yZXzg","context_asset_string":"course_53249","ping_url":"https://canvas.duke.edu/api/v1/courses/53249/ping","TIMEZONE":"America/New_York","CONTEXT_TIMEZONE":"America/New_York","LOCALES":["en"],"BIGEASY_LOCALE":"en_US","FULLCALENDAR_LOCALE":"en","MOMENT_LOCALE":"en","rce_auto_save_max_age_ms":86400000,"K5_USER":false,"USE_CLASSIC_FONT":false,"K5_HOMEROOM_COURSE":false,"K5_SUBJECT_COURSE":false,"LOCALE_TRANSLATION_FILE":"/dist/javascripts/translations/en-d4dfe69052.json","ACCOUNT_ID":"120","user_cache_key":"MVd6ZThEUjhLN3k3QkhtTnJ3VFduRXQwSjBDNUJNT0tubUhKcGtYNnZ5Zlc9\nO1twLTA/OntQXz1IVXBncmFxZTtuamFsa2hwdm9pdWxraW1tYXFld2c=\n","horizon_course":false,"current_context":{"id":"53249","name":"Introduction to Statistical Programming II (SAS) | BIOSTAT 722.01.Sp25","type":"Course","url":"https://canvas.duke.edu/courses/53249"},"RICH_CONTENT_APP_HOST":"rich-content-iad.inscloudgate.net","JWT":"ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJSME5OSWl3aWNtVm5hVzl1SWpvaWRYTXRaV0Z6ZEMweElpd2laVzUyYVhKdmJtMWxiblFpT2lKUWNtOWtkV04wYVc5dUluMC4ubnRhZ0NTOGcwUm5waTVUQS5jWVluRTB5Qk9lVDFROWU4UGg4SmlXYklDb1l6dFV5ZC0wS0ZDdnFlejZadEh3cnlaTHNiLWZkdEdFVGxhMjJzSlk2WWVLWGZUSUxvNVYwZjhPQ0tlcmFtemE2ZFVOS1g3d2J1OGxaRDJsUWRyRXMtMVY1Tm90MjFDOWdVSVNXTEx3WTF2bnZXZHU5bVNwcDY0WXg5QUNqQXhtdy0yb0tNM3JFNl9xMGF5T1Q5REtOQjBpZjlUbzJNWjAyTExyOXZUTjRGODVSN0hoSFZ1VHo3eF93NzhpMkphaHp1ZnQzMEdQcEMzS2k4alBwS2E5aEp4M0xEN3cwQm96eW5sS3hBbWFEN3lyX2taVVBNd091UmxpVC1uVHl2QXpUY1NMMk4tOEVOSGVHTjJIZGNTcW9yd1BhdEZjVHZQekItOXJtaGIxWjU2RmlMTHQ1c2RfenVlYU9zWGN4ZVRIaUJkTnlCcmhQSnYtYzBSZ2Q0WFRnVmExbXQySmpsU0l5bWJMSXBEdHdTNU5vUTBLZGtzNzBnTVhqZjRpaVZfS1NBMWdFbkoxQzJickZXSmZyWFFHXzI0a0o2VUNUZ1N1eExxaFFERVBMQmxlc1dvVldFMVNaVDdVc1BNRXFHTVpTQ29OVGVBRW9zWXFyN1JmY212S0UtNzd5dExjRXlLY3NCWjJyR0taelhvQWw2QUdXcW5sYlB1MDVpQXZHUjlBSUdXRnIyM21TVE1FNTNHX2hUa0JXLWNIYUlSejZuRDBsSGtnZUZHQmlwSm9NbjA4MGMwZlVDWkhJc2JyNUxidWxEdndBSWZ1bHlGUmlCekpDY0FMUmliRDMzRkFIWm1xTWlmTDNmbDY1V2w5SUV5QThtV0NldkJkRWc3R2NFdmgtaFJpRUVqZWROZ0h0amZrTGtqUmtSajhVV085NHYyd0dXYjFYVzBKS01SdnVWZWVmU3VQR0RSN0dXek9fLTJMMzFCTk9WYnNZYkZaRldJZXpmcVpuSDFLcEZYSGgwQVE5R3NGRk5odjJpQm9QOTZvdVpZZFd4MUdxd0RuOFdIdG5fYTNERl9YZnVRci1lTjF4MGc1WHRmVm9ZQWxMaUdIOGU0T0UuVnF2RUt4VndvUUpONlJPODduMVBVUQ==","RICH_CONTENT_CAN_UPLOAD_FILES":true,"RICH_CONTENT_CAN_EDIT_FILES":true,"RICH_CONTENT_FILES_TAB_DISABLED":false,"RICH_CONTENT_INST_RECORD_TAB_DISABLED":false,"RICH_CONTENT_AI_TEXT_TOOLS":false,"CONTEXT_ACTION_SOURCE":"syllabus","NEW_USER_TUTORIALS":{"is_enabled":false},"NEW_USER_TUTORIALS_ENABLED_AT_ACCOUNT":{"is_enabled":false},"SYLLABUS_PER_PAGE":100,"CAN_READ":true,"SYLLABUS_BODY":"\u003cp\u003e\u003ca class=\"instructure_file_link instructure_scribd_file inline_disabled\" title=\"BIOS722 syllabus.docx\" href=\"/courses/53249/files/2422062?wrap=1\" target=\"_blank\" data-canvas-previewable=\"false\"\u003eBIOS722 syllabus.docx\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n\u003cp\u003e\u003ca class=\"instructure_file_link instructure_scribd_file inline_disabled\" title=\"literate programming paper 1_12_25 draft.docx\" href=\"/courses/53249/files/2458171?wrap=1\" target=\"_blank\" data-canvas-previewable=\"false\"\u003eliterate programming paper 1_12_25 draft.docx\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u0026nbsp;\u003c/p\u003e\n\u003cp\u003e\u003ca class=\"instructure_file_link instructure_scribd_file inline_disabled\" title=\"Using coding interviews as a final examination JCT 2020.pdf\" href=\"/courses/53249/files/2458172?wrap=1\" target=\"_blank\" data-canvas-previewable=\"false\"\u003eUsing coding interviews as a final examination JCT 2020.pdf\u003c/a\u003e\u003c/p\u003e","badge_counts":{"submissions":0},"notices":[],"active_context_tab":"syllabus"};
+    BRANDABLE_CSS_HANDLEBARS_INDEX = [["new_styles_normal_contrast","new_styles_high_contrast","new_styles_normal_contrast_rtl","new_styles_high_contrast_rtl"],{"10":["908ffbc673",0,"d5c9044c6e",2],"15":["c8540c43a4",0,"0a2196be1d",2],"19":["df5777ed9c"],"61":["b8f6d0d1fa","c3396c44a9","cfc0690334","1c0f3762fa"],"67":["700335fb7b",0,"1cc2485e2c",2],"71":["8ac0336ef0","bf3093677a","a8146a011b","449171073f"],"06":["ba28819778",0,"96b99aafe5",2],"f0":["b349f31f5e",0,0,0],"c8":["718c8509f5","33cd4c40e3","03d0fbcbe8","ec23096f0d"],"1e":["6eb4ecac8e","4100cb65ce","0faf4716c8","bed54fd75e"],"b3":["e5da23fb43","0911fc8ed3","05b2bb5a6f","ba2585de5c"],"0c":["4dae5befd2",0,"c18876be89",2],"da":["b5a7f9cd8f","a4e5066985","773390ae11","8e9071910c"],"1d":["2128789890",0,"e568085637",2],"08":["64bff5a97d"],"e2":["272b92b386"],"9f":["d39b291ba6",0,0,0],"2b":["c491abf31e","b11dc54da6","b58622671f","6bb4a7ae9e"],"2c":["8a926fc28b",0,0,0],"c2":["6f2721ae01"],"9c":["c31821c764",0,"1693aba1da",2],"c5":["44c6024769","31150a4a27","53dd277fa9","5fe61c91c2"],"f2":["51574f9b13"]}]
+      REMOTES = {};
+  </script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/default/variables-high_contrast-7dd4b80918af0e0218ec0229e4bd5873.js" defer="defer"></script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/timezone/America/New_York-692f7d27e4.js" defer="defer"></script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/timezone/America/New_York-692f7d27e4.js" defer="defer"></script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/timezone/en_US-80a0ce259b.js" defer="defer"></script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/webpack-production/react-entry-d296c7f9fc2ea0eb.js" crossorigin="anonymous" defer="defer"></script>
+  <script src="https://du11hjcvx0uqb.cloudfront.net/dist/webpack-production/main-entry-094a818042911b04.js" crossorigin="anonymous" defer="defer"></script>
+<script>
+//<![CDATA[
+(window.deferredBundles || (window.deferredBundles = [])).push('syllabus');
+(window.bundles || (window.bundles = [])).push('navigation_header');
+//]]>
+</script>
+  
+  
+</head>
+
+<body class="with-left-side course-menu-expanded with-right-side syllabus primary-nav-expanded full-width context-course_53249 responsive_student_grades_page">
+
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+
+
+<div id="flash_message_holder"></div>
+<div id="flash_screenreader_holder"></div>
+
+<div id="application" class="ic-app">
+  
+
+
+
+
+<header id="mobile-header" class="no-print">
+  <button type="button" class="Button Button--icon-action-rev Button--large mobile-header-hamburger">
+    <i class="icon-solid icon-hamburger"></i>
+    <span id="mobileHeaderInboxUnreadBadge" class="menu-item__badge" style="min-width: 0; top: 12px; height: 12px; right: 6px; display:none;"></span>
+    <span class="screenreader-only">Dashboard</span>
+  </button>
+  <div class="mobile-header-space"></div>
+    <a class="mobile-header-title expandable" href="/courses/53249" role="button" aria-controls="mobileContextNavContainer">
+      <div>722</div>
+        <div>Syllabus</div>
+    </a>
+    <div id="immersive_reader_mobile_mount_point"></div>
+    <a class="Button Button--icon-action-rev Button--large mobile-header-student-view" id="mobile-student-view" aria-label="View as Student" role="button" rel="nofollow" data-method="post" href="/courses/53249/student_view/1">
+      <i class="icon-student-view"></i>
+</a>    <button type="button" class="Button Button--icon-action-rev Button--large mobile-header-arrow" aria-label="Navigation Menu">
+      <i class="icon-arrow-open-down" id="mobileHeaderArrowIcon"></i>
+    </button>
+</header>
+<nav id="mobileContextNavContainer"></nav>
+
+<header id="header" class="ic-app-header no-print " aria-label="Global Header">
+  <a href="#content" id="skip_navigation_link">Skip To Content</a>
+  <div role="region" class="ic-app-header__main-navigation" aria-label="Global Navigation">
+    <ul id="menu" class="ic-app-header__menu-list">
+        <li class="menu-item ic-app-header__menu-list-item ">
+          <a id="global_nav_profile_link" role="button" href="/profile/settings" class="ic-app-header__menu-list-link">
+            <div class="menu-item-icon-container">
+              <div aria-hidden="true" class="fs-exclude ic-avatar ">
+                <img src="https://canvas.duke.edu/images/messages/avatar-50.png" alt="Matthew Franco" />
+              </div>
+              <span class="menu-item__badge"></span>
+            </div>
+            <div class="menu-item__text">
+              Account
+            </div>
+          </a>
+        </li>
+      <li class="ic-app-header__menu-list-item ">
+        <a id="global_nav_dashboard_link" href="https://canvas.duke.edu/" class="ic-app-header__menu-list-link">
+          <div class="menu-item-icon-container" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0" y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve"><path d="M273.09,180.75H197.47V164.47h62.62A122.16,122.16,0,1,0,17.85,142a124,124,0,0,0,2,22.51H90.18v16.29H6.89l-1.5-6.22A138.51,138.51,0,0,1,1.57,142C1.57,65.64,63.67,3.53,140,3.53S278.43,65.64,278.43,142a137.67,137.67,0,0,1-3.84,32.57ZM66.49,87.63,50.24,71.38,61.75,59.86,78,76.12Zm147,0L202,76.12l16.25-16.25,11.51,11.51ZM131.85,53.82v-23h16.29v23Zm15.63,142.3a31.71,31.71,0,0,1-28-16.81c-6.4-12.08-15.73-72.29-17.54-84.25a8.15,8.15,0,0,1,13.58-7.2c8.88,8.21,53.48,49.72,59.88,61.81a31.61,31.61,0,0,1-27.9,46.45ZM121.81,116.2c4.17,24.56,9.23,50.21,12,55.49A15.35,15.35,0,1,0,161,157.3C158.18,152,139.79,133.44,121.81,116.2Z" /></svg>
+
+          </div>
+          <div class="menu-item__text">
+            Dashboard
+          </div>
+        </a>
+      </li>
+        <li class="menu-item ic-app-header__menu-list-item ic-app-header__menu-list-item--active">
+          <a id="global_nav_courses_link" role="button" href="/courses" class="ic-app-header__menu-list-link">
+            <div class="menu-item-icon-container" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M73.31,198c-11.93,0-22.22,8-24,18.73a26.67,26.67,0,0,0-.3,3.63v.3a22,22,0,0,0,5.44,14.65,22.47,22.47,0,0,0,17.22,8H200V228.19h-134V213.08H200V198Zm21-105.74h90.64V62H94.3ZM79.19,107.34V46.92H200v60.42Zm7.55,30.21V122.45H192.49v15.11ZM71.65,16.71A22.72,22.72,0,0,0,49,39.36V190.88a41.12,41.12,0,0,1,24.32-8h157V16.71ZM33.88,39.36A37.78,37.78,0,0,1,71.65,1.6H245.36V198H215.15v45.32h22.66V258.4H71.65a37.85,37.85,0,0,1-37.76-37.76Z"/></svg>
+
+            </div>
+            <div class="menu-item__text">
+              Courses
+            </div>
+          </a>
+        </li>
+      <li class="menu-item ic-app-header__menu-list-item ">
+        <a id="global_nav_calendar_link" href="/calendar" class="ic-app-header__menu-list-link">
+          <div class="menu-item-icon-container" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M197.07,213.38h16.31V197.07H197.07Zm-16.31,16.31V180.76h48.92v48.92Zm-48.92-16.31h16.31V197.07H131.85Zm-16.31,16.31V180.76h48.92v48.92ZM66.62,213.38H82.93V197.07H66.62ZM50.32,229.68V180.76H99.24v48.92Zm146.75-81.53h16.31V131.85H197.07Zm-16.31,16.31V115.54h48.92v48.92Zm-48.92-16.31h16.31V131.85H131.85Zm-16.31,16.31V115.54h48.92v48.92ZM66.62,148.15H82.93V131.85H66.62ZM50.32,164.46V115.54H99.24v48.92ZM34,262.29H246V82.93H34ZM246,66.62V42.16A8.17,8.17,0,0,0,237.84,34H213.38v8.15a8.15,8.15,0,1,1-16.31,0V34H82.93v8.15a8.15,8.15,0,0,1-16.31,0V34H42.16A8.17,8.17,0,0,0,34,42.16V66.62Zm-8.15-48.92a24.49,24.49,0,0,1,24.46,24.46V278.6H17.71V42.16A24.49,24.49,0,0,1,42.16,17.71H66.62V9.55a8.15,8.15,0,0,1,16.31,0v8.15H197.07V9.55a8.15,8.15,0,1,1,16.31,0v8.15Z"/></svg>
+
+          </div>
+          <div class="menu-item__text">
+            Calendar
+          </div>
+        </a>
+      </li>
+      <li class="menu-item ic-app-header__menu-list-item ">
+      <!-- TODO: Add back global search when available -->
+        <a id="global_nav_conversations_link" href="/conversations" class="ic-app-header__menu-list-link">
+          <div class="menu-item-icon-container">
+            <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--inbox" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M91.72,120.75h96.56V104.65H91.72Zm0,48.28h80.47V152.94H91.72Zm0-96.56h80.47V56.37H91.72Zm160.94,34.88H228.52V10.78h-177v96.56H27.34A24.17,24.17,0,0,0,3.2,131.48V244.14a24.17,24.17,0,0,0,24.14,24.14H252.66a24.17,24.17,0,0,0,24.14-24.14V131.48A24.17,24.17,0,0,0,252.66,107.34Zm0,16.09a8.06,8.06,0,0,1,8,8v51.77l-32.19,19.31V123.44ZM67.58,203.91v-177H212.42v177ZM27.34,123.44H51.48v79.13L19.29,183.26V131.48A8.06,8.06,0,0,1,27.34,123.44ZM252.66,252.19H27.34a8.06,8.06,0,0,1-8-8V202l30,18H230.75l30-18v42.12A8.06,8.06,0,0,1,252.66,252.19Z"/></svg>
+</span>
+            <span class="menu-item__badge"></span>
+          </div>
+          <div class="menu-item__text">
+            Inbox
+          </div>
+        </a>
+      </li>
+        <li class="menu-item ic-app-header__menu-list-item" >
+          <a id="global_nav_history_link" role="button" href="#" class="ic-app-header__menu-list-link">
+            <div class="menu-item-icon-container" aria-hidden="true">
+              <svg viewBox="0 0 1920 1920" class="ic-icon-svg menu-item__icon svg-icon-history" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M960 112.941c-467.125 0-847.059 379.934-847.059 847.059 0 467.125 379.934 847.059 847.059 847.059 467.125 0 847.059-379.934 847.059-847.059 0-467.125-379.934-847.059-847.059-847.059M960 1920C430.645 1920 0 1489.355 0 960S430.645 0 960 0s960 430.645 960 960-430.645 960-960 960m417.905-575.955L903.552 988.28V395.34h112.941v536.47l429.177 321.77-67.765 90.465z" stroke="none" stroke-width="1" fill-rule="evenodd"/>
+</svg>
+            </div>
+            <div class="menu-item__text">
+              History
+            </div>
+          </a>
+        </li>
+        
+    <li id="context_external_tool_133_menu_item" class="globalNavExternalTool menu-item ic-app-header__menu-list-item">
+      <a class='ic-app-header__menu-list-link' href="/accounts/1/external_tools/133?launch_type=global_navigation">
+          <svg version="1.1" class="ic-icon-svg ic-icon-svg--lti menu-item__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+            <path d="M9.4 32c0-7.8 6.5-14.3 14.4-14.3h11.7v-9.4h-11.8c-13.1 0-23.7 10.6-23.7 23.7s10.7 23.7 23.7 23.7h11.7v-9.4h-11.7c-7.9 0-14.3-6.5-14.3-14.3z m54.6 0l-19.1-17v11.3h-20.2c-3.1 0-5.6 2.5-5.6 5.6s2.5 5.6 5.6 5.7h20.2v11.2l19.1-16.8z"/>
+          </svg>
+        <div class="menu-item__text">
+          Commons
+        </div>
+      </a>
+    </li>
+    <li id="context_external_tool_137_menu_item" class="globalNavExternalTool menu-item ic-app-header__menu-list-item">
+      <a class='ic-app-header__menu-list-link' href="/accounts/1/external_tools/137?launch_type=global_navigation">
+          <svg version="1.1" class="ic-icon-svg ic-icon-svg--lti menu-item__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+            <path d="M37.5331419,41.3325083 L25.3997411,41.3325083 L25.3997411,52.8756632 C27.5972597,53.6451225 29.1733531,55.7378472 29.1733531,58.198822 C29.1733531,61.3127847 26.6499049,63.8371501 23.5370738,63.8371501 C20.4242427,63.8371501 17.9007945,61.3127847 17.9007945,58.198822 C17.9007945,55.7378472 19.4768879,53.6451225 21.6744065,52.8756632 L21.6744065,41.3325083 L17.5706263,41.3325083 L17.5717453,47.9192726 C17.5717453,50.4825483 15.4945548,52.5604939 12.9322104,52.5604939 L10.9667199,52.5588751 C10.2051449,54.7710384 8.10625368,56.3604121 5.63627929,56.3604121 C2.52344819,56.3604121 2.84217094e-14,53.8360466 2.84217094e-14,50.722084 C2.84217094e-14,47.6081214 2.52344819,45.0837559 5.63627929,45.0837559 C8.08603407,45.0837559 10.1707563,46.6472143 10.9477485,48.8310912 L12.9905507,48.8310912 C13.4625615,48.8310912 13.8452018,48.4483118 13.8452018,47.9761294 L13.8452018,41.3325083 L5.65400042,41.3325083 C4.57511859,41.3325083 3.70051205,40.4575839 3.70051205,39.3783099 L3.70051205,1.95419847 C3.70051205,0.874924458 4.57511859,-1.42108547e-14 5.65400042,-1.42108547e-14 L57.2376164,-1.42108547e-14 C58.3164983,-1.42108547e-14 59.1911048,0.874924458 59.1911048,1.95419847 L59.1911048,39.3783099 C59.1911048,40.4575839 58.3164983,41.3325083 57.2376164,41.3325083 L49.085452,41.3325083 L49.085452,47.9761294 C49.085452,48.4483118 49.4680923,48.8310912 49.9401031,48.8310912 L51.9829054,48.8310912 C52.7598976,46.6472143 54.8446197,45.0837559 57.2943745,45.0837559 C60.4072056,45.0837559 62.9306538,47.6081214 62.9306538,50.722084 C62.9306538,53.8360466 60.4072056,56.3604121 57.2943745,56.3604121 C54.8244001,56.3604121 52.725509,54.7710384 51.9639339,52.5588751 L49.9996524,52.5604938 C47.436099,52.5604939 45.3589085,50.4825483 45.3589085,47.9192726 L45.3600275,41.3325083 L41.2584765,41.3325083 L41.2584765,52.8756632 C43.4559951,53.6451225 45.0320885,55.7378472 45.0320885,58.198822 C45.0320885,61.3127847 42.5086403,63.8371501 39.3958092,63.8371501 C36.2829781,63.8371501 33.7595299,61.3127847 33.7595299,58.198822 C33.7595299,55.7378472 35.3356233,53.6451225 37.5331419,52.8756632 L37.5331419,41.3325083 Z M39.4407163,60.0484002 C40.4618389,60.0484002 41.2896223,59.2203158 41.2896223,58.198822 C41.2896223,57.1773282 40.4618389,56.3492439 39.4407163,56.3492439 C38.4195937,56.3492439 37.5918102,57.1773282 37.5918102,58.198822 C37.5918102,59.2203158 38.4195937,60.0484002 39.4407163,60.0484002 Z M23.5819809,60.0484002 C24.6031035,60.0484002 25.4308869,59.2203158 25.4308869,58.198822 C25.4308869,57.1773282 24.6031035,56.3492439 23.5819809,56.3492439 C22.5608582,56.3492439 21.7330748,57.1773282 21.7330748,58.198822 C21.7330748,59.2203158 22.5608582,60.0484002 23.5819809,60.0484002 Z M57.3392816,52.5716621 C58.3604042,52.5716621 59.1881877,51.7435778 59.1881877,50.722084 C59.1881877,49.7005902 58.3604042,48.8725058 57.3392816,48.8725058 C56.318159,48.8725058 55.4903755,49.7005902 55.4903755,50.722084 C55.4903755,51.7435778 56.318159,52.5716621 57.3392816,52.5716621 Z M5.59137222,52.5716621 C6.61249484,52.5716621 7.44027829,51.7435778 7.44027829,50.722084 C7.44027829,49.7005902 6.61249484,48.8725058 5.59137222,48.8725058 C4.57024959,48.8725058 3.74246615,49.7005902 3.74246615,50.722084 C3.74246615,51.7435778 4.57024959,52.5716621 5.59137222,52.5716621 Z M30.1554353,12.9293586 L35.7525093,16.2831044 C36.070684,16.5163802 36.2591714,16.8906762 36.2591714,17.2892282 C36.2591714,17.6877801 36.070684,18.0620761 35.7525093,18.2953519 L30.1554353,21.6490977 C29.7776345,21.8706324 29.3121961,21.8707698 28.9342686,21.6494581 C28.5563411,21.4281465 28.3232712,21.0189676 28.3227651,20.575899 L28.3227651,14.0025573 C28.3232712,13.5594887 28.5563411,13.1503099 28.9342686,12.9289982 C29.3121961,12.7076865 29.7776345,12.7078239 30.1554353,12.9293586 Z M55.6445081,31.031948 L55.6445081,4.52360758 C55.6445081,3.98397057 55.2072048,3.54650834 54.6677639,3.54650834 L8.22385298,3.54650834 C7.68441206,3.54650834 7.24710879,3.98397057 7.24710879,4.52360758 L7.24710879,31.031948 L55.6445081,31.031948 Z M55.6445081,34.5784563 L7.24710879,34.5784563 L7.24710879,36.8093831 C7.24710879,37.3490201 7.68441206,37.7864824 8.22385298,37.7864824 L54.6677639,37.7864824 C55.2072048,37.7864824 55.6445081,37.3490201 55.6445081,36.8093831 L55.6445081,34.5784563 Z"/>
+          </svg>
+        <div class="menu-item__text">
+          Studio
+        </div>
+      </a>
+    </li>
+
+      <li class="ic-app-header__menu-list-item">
+        <a id="global_nav_help_link" role="button" class="ic-app-header__menu-list-link" data-track-category="help system" data-track-label="help button" href="https://help.instructure.com">
+          <div class="menu-item-icon-container" role="presentation">
+              <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg menu-item__icon svg-icon-help" version="1.1" x="0" y="0" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve" fill="currentColor"><path d="M100,127.88A11.15,11.15,0,1,0,111.16,139,11.16,11.16,0,0,0,100,127.88Zm8.82-88.08a33.19,33.19,0,0,1,23.5,23.5,33.54,33.54,0,0,1-24,41.23,3.4,3.4,0,0,0-2.74,3.15v9.06H94.42v-9.06a14.57,14.57,0,0,1,11.13-14,22.43,22.43,0,0,0,13.66-10.27,22.73,22.73,0,0,0,2.31-17.37A21.92,21.92,0,0,0,106,50.59a22.67,22.67,0,0,0-19.68,3.88,22.18,22.18,0,0,0-8.65,17.64H66.54a33.25,33.25,0,0,1,13-26.47A33.72,33.72,0,0,1,108.82,39.8ZM100,5.2A94.8,94.8,0,1,0,194.8,100,94.91,94.91,0,0,0,100,5.2m0,178.45A83.65,83.65,0,1,1,183.65,100,83.73,83.73,0,0,1,100,183.65" transform="translate(-5.2 -5.2)"/></svg>
+
+            <span class="menu-item__badge"></span>
+          </div>
+          <div class="menu-item__text">
+            Help
+          </div>
+</a>      </li>
+    </ul>
+  </div>
+  <div class="ic-app-header__secondary-navigation">
+    <ul class="ic-app-header__menu-list">
+      <li class="menu-item ic-app-header__menu-list-item">
+        <a
+          id="primaryNavToggle"
+          role="button"
+          href="#"
+          class="ic-app-header__menu-list-link ic-app-header__menu-list-link--nav-toggle"
+          aria-label="Minimize global navigation"
+          title="Minimize global navigation"
+        >
+          <div class="menu-item-icon-container" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--navtoggle" version="1.1" x="0" y="0" width="40" height="32" viewBox="0 0 40 32" xml:space="preserve">
+  <path d="M39.5,30.28V2.48H37.18v27.8Zm-4.93-13.9L22.17,4,20.53,5.61l9.61,9.61H.5v2.31H30.14l-9.61,9.61,1.64,1.64Z"/>
+</svg>
+
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="global_nav_tray_container"></div>
+  <div id="global_nav_tour"></div>
+</header>
+
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="about:blank" style="border: 0;" title="Error"></iframe>
+  </div>
+
+  <div id="wrapper" class="ic-Layout-wrapper">
+        <div class="ic-app-nav-toggle-and-crumbs no-print">
+            <button type="button" id="courseMenuToggle" class="Button Button--link ic-app-course-nav-toggle" aria-live="polite" aria-label="Hide Courses Navigation Menu">
+              <i class="icon-hamburger" aria-hidden="true"></i>
+            </button>
+
+          <div class="ic-app-crumbs ">
+              <nav id="breadcrumbs" role="navigation" aria-label="breadcrumbs"><ul><li class="home"><a href="/"><span class="ellipsible"><i class="icon-home"
+   title="My Dashboard">
+  <span class="screenreader-only">My Dashboard</span>
+</i>
+</span></a></li><li><a href="/courses/53249"><span class="ellipsible">722</span></a></li><li><span class="ellipsible">Syllabus</span></li></ul></nav>
+          </div>
+
+
+          <div class="right-of-crumbs">
+              <div id="immersive_reader_mount_point"></div>
+              <a class="btn btn-top-nav" id="easy_student_view" aria-label="View as Student" rel="nofollow" data-method="post" href="/courses/53249/student_view/1">
+                <i class="icon-student-view"></i> View as Student
+</a>          </div>
+
+        </div>
+    <div id="main" class="ic-Layout-columns">
+        <div class="ic-Layout-watermark"></div>
+        <div id="left-side"
+          class="ic-app-course-menu ic-sticky-on list-view"
+          style="display: block"
+          >
+          <div id="sticky-container" class="ic-sticky-frame">
+              <span id="section-tabs-header-subtitle" class="ellipsis">2025 Spring Term</span>
+            <nav role="navigation" aria-label="Courses Navigation Menu"><ul id="section-tabs"><li class="section"><a href="/courses/53249" class="home">Home</a></li><li class="section"><a href="/courses/53249/announcements" class="announcements">Announcements</a></li><li class="section"><a href="/courses/53249/modules" class="modules">Modules</a></li><li class="section"><a href="/courses/53249/assignments" class="assignments">Assignments</a></li><li class="section"><a href="/courses/53249/grades" class="grades">Grades</a></li><li class="section"><a href="/courses/53249/assignments/syllabus" aria-current="page" class="syllabus active">Syllabus</a></li><li class="section"><a href="/courses/53249/wiki" class="pages">Pages</a></li><li class="section"><a href="/courses/53249/files" class="files">Files</a></li><li class="section section-hidden"><a href="/courses/53249/quizzes" title="No content. Not visible to students" aria-label="Quizzes. No content. Not visible to students" class="quizzes" data-tooltip="">Quizzes<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section"><a href="/courses/53249/external_tools/1960" class="context_external_tool_1960">Accessibility UDOIT</a></li><li class="section section-hidden"><a href="/courses/53249/lti_collaborations" title="Disabled. Not visible to students" aria-label="Collaborations. Disabled. Not visible to students" class="collaborations" data-tooltip="">Collaborations<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section section-hidden"><a href="/courses/53249/discussion_topics" title="Disabled. Not visible to students" aria-label="Discussions. Disabled. Not visible to students" class="discussions" data-tooltip="">Discussions<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section section-hidden"><a href="/courses/53249/outcomes" title="Disabled. Not visible to students" aria-label="Outcomes. Disabled. Not visible to students" class="outcomes" data-tooltip="">Outcomes<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section section-hidden"><a href="/courses/53249/users" title="Disabled. Not visible to students" aria-label="People. Disabled. Not visible to students" class="people" data-tooltip="">People<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section section-hidden"><a href="/courses/53249/rubrics" title="Disabled. Not visible to students" aria-label="Rubrics. Disabled. Not visible to students" class="rubrics" data-tooltip="">Rubrics<i class='nav-icon icon-off' aria-hidden='true' role='presentation'></i></a></li><li class="section"><a href="/courses/53249/settings" class="settings">Settings</a></li></ul></nav>
+          </div>
+        </div>
+      <div id="not_right_side" class="ic-app-main-content">
+        <div id="content-wrapper" class="ic-Layout-contentWrapper">
+          
+          <div id="content" class="ic-Layout-contentMain" role="main" aria-label="Global Content">
+            
+
+
+
+
+<div class="ic-Action-header">
+  <div class="ic-Action-header__Primary">
+    <h1 class="ic-Action-header__Heading">Course Syllabus</h1>
+  </div>
+  <div class="ic-Action-header__Secondary">
+    <a href="#" class="jump_to_today_link">Jump to Today</a>
+    <button class="edit_syllabus_link btn button-sidebar-wide" aria-expanded=”false”><i class="icon-edit"></i> Edit</button>
+  </div>
+</div>
+
+<div id="course_syllabus" style="margin-bottom: 10px;" class="user_content" data-resource-type="syllabus.body" data-resource-id="53249">
+  <p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="BIOS722 syllabus.docx" href="/courses/53249/files/2422062?wrap=1" target="_blank" data-canvas-previewable="false">BIOS722 syllabus.docx</a></p>
+<p>&nbsp;</p>
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="literate programming paper 1_12_25 draft.docx" href="/courses/53249/files/2458171?wrap=1" target="_blank" data-canvas-previewable="false">literate programming paper 1_12_25 draft.docx</a></p>
+<p>&nbsp;</p>
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Using coding interviews as a final examination JCT 2020.pdf" href="/courses/53249/files/2458172?wrap=1" target="_blank" data-canvas-previewable="false">Using coding interviews as a final examination JCT 2020.pdf</a></p>
+</div>
+<div id="course_syllabus_details" style="display: none;">
+  <p>The syllabus page shows a table-oriented view of the course schedule, and the basics of
+course grading.  You can add any other comments, notes, or thoughts you have about the course
+structure, course policies or anything else.</p>
+
+<p>To add some comments, click the &quot;Edit&quot; link at the top.</p>
+</div>
+<form id="edit_course_syllabus_form" style="display: none; margin-bottom: 10px;" action="/courses/53249" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="hidden" name="_method" value="put" autocomplete="off" /><input type="hidden" name="authenticity_token" value="Qaql8/rPM6u2j2sGRuYOKWC3ZimOCIP0370SvbakmzgR4+vFzeRg4dP5AjMB1ExTCNUoeqVm6JzsiHDshuD9Tw==" autocomplete="off" />
+    <label for="course_syllabus_body">Syllabus Description:</label>
+  <div class="clear"></div>
+  <textarea style="width: 100%; height: 300px;" id="course_syllabus_body" name="course[syllabus_body]">
+</textarea>
+
+    <div class="ic-Form-control ic-Form-control--checkbox">
+      <input name="course[syllabus_course_summary]" type="hidden" value="0" autocomplete="off" /><input type="checkbox" value="1" checked="checked" name="course[syllabus_course_summary]" id="course_syllabus_course_summary" />
+      <label class="ic-Label" for="course_syllabus_course_summary">Show Course Summary</label>
+    </div>
+
+  <div class='form-actions'>
+    <button type="button" class="btn cancel_button">Cancel</button>
+    <button type="submit" class='btn btn-primary'>Update Syllabus</button>
+  </div>
+</form>
+
+<h2>Course Summary:</h2>
+
+<div id="syllabusContainer">
+  <div id="syllabus_links">
+  </div>
+  <table id="syllabus" class="ic-Table ic-Table--condensed">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Details</th>
+        <th scope="col" class='due'>Due</th>
+      </tr>
+    </thead>
+    <tbody id="syllabusTableBody">
+      <tr>
+        <td scope="row" colspan="3">
+          <div id="loading_indicator" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+          </div>
+        </div>
+        <div id="right-side-wrapper" class="ic-app-main-content__secondary">
+          <aside id="right-side" role="complementary">
+            
+    
+<div id="sidebar_content">
+      
+<div class="mini_month">
+  <div class="mini-cal-header">
+    <button class="prev_month_link Button Button--icon-action"><i class="icon-arrow-open-left"></i><span class="screenreader-only">Prev month</span></button>
+    <button class="next_month_link Button Button--icon-action"><i class="icon-arrow-open-right"></i><span class="screenreader-only">Next month</span></button>
+    <span class="mini-cal-month-and-year">
+      <span class="month_name">March</span>
+      <span class="year_number">2025</span>
+    </span>
+  </div>
+  <div style="display: none;">
+    <span class="month_number">3</span>
+  </div>
+  <table class="mini_calendar" cellspacing="0">
+    <caption class="screenreader-only">Calendar</caption>
+    <thead>
+      <tr>
+          <th scope="col">
+            <span class="screenreader-only">
+              Sunday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Monday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Tuesday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Wednesday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Thursday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Friday
+            </span>
+          </th>
+          <th scope="col">
+            <span class="screenreader-only">
+              Saturday
+            </span>
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_02_23" class="mini_calendar_day day other_month previous_month date_02_23_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">23 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                23
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_02_24" class="mini_calendar_day day other_month previous_month date_02_24_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">24 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                24
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_02_25" class="mini_calendar_day day other_month previous_month date_02_25_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">25 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                25
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_02_26" class="mini_calendar_day day other_month previous_month date_02_26_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">26 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                26
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_02_27" class="mini_calendar_day day other_month previous_month date_02_27_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">27 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                27
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_02_28" class="mini_calendar_day day other_month previous_month date_02_28_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">28 February 2025</span>
+              <span class="day_number" aria-hidden="true">
+                28
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_01" class="mini_calendar_day day current_month date_03_01_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 1 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                1
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_03_02" class="mini_calendar_day day current_month date_03_02_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 2 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                2
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_03" class="mini_calendar_day day current_month date_03_03_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 3 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                3
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_04" class="mini_calendar_day day current_month date_03_04_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 4 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                4
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_05" class="mini_calendar_day day current_month date_03_05_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 5 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                5
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_06" class="mini_calendar_day day current_month date_03_06_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 6 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                6
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_07" class="mini_calendar_day day current_month date_03_07_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 7 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                7
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_08" class="mini_calendar_day day current_month date_03_08_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 8 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                8
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_03_09" class="mini_calendar_day day current_month date_03_09_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 9 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                9
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_10" class="mini_calendar_day day current_month date_03_10_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">10 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                10
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_11" class="mini_calendar_day day current_month date_03_11_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">11 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                11
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_12" class="mini_calendar_day day current_month date_03_12_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">12 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                12
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_13" class="mini_calendar_day day current_month today date_03_13_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">13 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                13
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_14" class="mini_calendar_day day current_month date_03_14_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">14 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                14
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_15" class="mini_calendar_day day current_month date_03_15_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">15 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                15
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_03_16" class="mini_calendar_day day current_month date_03_16_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">16 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                16
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_17" class="mini_calendar_day day current_month date_03_17_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">17 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                17
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_18" class="mini_calendar_day day current_month date_03_18_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">18 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                18
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_19" class="mini_calendar_day day current_month date_03_19_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">19 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                19
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_20" class="mini_calendar_day day current_month date_03_20_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">20 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                20
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_21" class="mini_calendar_day day current_month date_03_21_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">21 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                21
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_22" class="mini_calendar_day day current_month date_03_22_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">22 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                22
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_03_23" class="mini_calendar_day day current_month date_03_23_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">23 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                23
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_24" class="mini_calendar_day day current_month date_03_24_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">24 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                24
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_25" class="mini_calendar_day day current_month date_03_25_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">25 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                25
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_26" class="mini_calendar_day day current_month date_03_26_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">26 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                26
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_27" class="mini_calendar_day day current_month date_03_27_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">27 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                27
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_28" class="mini_calendar_day day current_month date_03_28_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">28 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                28
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_29" class="mini_calendar_day day current_month date_03_29_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">29 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                29
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+      <tr class="mini_calendar_week">
+          <td id="mini_day_2025_03_30" class="mini_calendar_day day current_month date_03_30_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">30 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                30
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_03_31" class="mini_calendar_day day current_month date_03_31_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only">31 March 2025</span>
+              <span class="day_number" aria-hidden="true">
+                31
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_04_01" class="mini_calendar_day day other_month next_month date_04_01_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 1 April 2025</span>
+              <span class="day_number" aria-hidden="true">
+                1
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_04_02" class="mini_calendar_day day other_month next_month date_04_02_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 2 April 2025</span>
+              <span class="day_number" aria-hidden="true">
+                2
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_04_03" class="mini_calendar_day day other_month next_month date_04_03_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 3 April 2025</span>
+              <span class="day_number" aria-hidden="true">
+                3
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_04_04" class="mini_calendar_day day other_month next_month date_04_04_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 4 April 2025</span>
+              <span class="day_number" aria-hidden="true">
+                4
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+          <td id="mini_day_2025_04_05" class="mini_calendar_day day other_month next_month date_04_05_2025">
+            <div class="day_wrapper">
+              <span class="screenreader-only"> 5 April 2025</span>
+              <span class="day_number" aria-hidden="true">
+                5
+              </span>
+              <span class="screenreader-only previous_month_text">Previous month</span>
+              <span class="screenreader-only next_month_text">Next month</span>
+              <span class="screenreader-only today_text">Today</span>
+              <span class="screenreader-only event_link_text">Click to view event details</span>
+            </div>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+      
+<div role="complementary" aria-label="Assignment Weights">
+  <h2>Course assignments are not weighted.</h2>
+</div>
+
+</div>
+
+
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div style="display:none;"><!-- Everything inside of this should always stay hidden -->
+        <div id="page_view_id">49c401be-74e9-4d86-8718-23279d528c8e</div>
+    </div>
+  <div id='aria_alerts' class='hide-text affix' role="alert" aria-live="assertive"></div>
+  <div id='StudentTray__Container'></div>
+  <div id="react-router-portals"></div>
+  
+
+  <iframe src="https://sso.canvaslms.com/post_message_forwarding?rev=59677caad5-de8233d392aa15f4&amp;token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJwYXJlbnRfZG9tYWluIjoiY2FudmFzLmR1a2UuZWR1In0.no6omatAufLzc99J3uYqVBWLFy8IYtPK4cdjZq06MjIxNEadEfa1WuAuDchGd65IznL3icsYbolobk4Np75mEA" name="post_message_forwarding" title="post_message_forwarding" id="post_message_forwarding" sandbox="allow-scripts allow-same-origin" style="display:none;"></iframe>
+
+
+  <script>
+    Object.assign(
+      ENV,
+      {}
+    )
+  </script>
+
+<script>
+//<![CDATA[
+(window.bundles || (window.bundles = [])).push('inst_fs_service_worker');
+//]]>
+</script>
+<script src="https://instructure-uploads.s3.amazonaws.com/account_230140000000000001/attachments/1834750/canvas.js" defer="defer"></script>
+<script>
+  window.eesyLaunchConfig = {
+    host: 'duke.eesysoft.com',
+    key: 'u4NcTh5C',
+    supportTab: true
+  };  (function() {
+      var e = document.createElement('script');
+      e.src = '//' + window.eesyLaunchConfig.host + "/resources/js/canvas/launch.js";
+      e.async = true;
+      e.type = 'text/javascript';      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(e, s);
+  } ());
+</script>
+
+
+</div> <!-- #application -->
+</body>
+</html>
