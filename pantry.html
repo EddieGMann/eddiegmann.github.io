@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pantry Tracker</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    h1 { text-align: center; }
+    .item { margin-bottom: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 1rem; }
+    input[type="number"] { width: 60px; }
+    button { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Pantry Tracker</h1>
+  <div id="pantryList">Loading...</div>
+
+  <script>
+    const endpoint = 'PASTE_YOUR_WEB_APP_URL_HERE';
+
+    async function loadPantry() {
+      const res = await fetch(endpoint);
+      const items = await res.json();
+
+      const container = document.getElementById('pantryList');
+      container.innerHTML = '';
+
+      items.forEach(({ item, quantity }) => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <strong>${item}</strong><br>
+          Quantity: <span id="qty-${item}">${quantity}</span><br>
+          <input type="number" id="input-${item}" placeholder="Amount" />
+          <button onclick="adjustItem('${item}', 'add')">Add</button>
+          <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    async function adjustItem(item, action) {
+      const input = document.getElementById(`input-${item}`);
+      const amount = Number(input.value);
+      if (!amount) return;
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: JSON.stringify({ item, amount: action === 'add' ? amount : -amount }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById(`qty-${item}`).textContent = data.quantity;
+        input.value = '';
+      } else {
+        alert("Error: " + data.error);
+      }
+    }
+
+    loadPantry();
+  </script>
+</body>
+</html>
