@@ -24,60 +24,86 @@
 
   <script>
     const endpoint = 'https://script.google.com/macros/s/AKfycbzb86kmdJ97YZWkTFBS0-eaF2MDmJ3s0ZSZ_dvODgYf_ukH2WGPTzvby_E_QA2Vw6mP/exec'; // Replace this with your deployed Apps Script URL
+    let pantryItems = []; // store full list here
 
-    async function loadPantry() {
-      try {
-        const res = await fetch(endpoint);
-        const items = await res.json();
+async function loadPantry() {
+  try {
+    const res = await fetch(endpoint);
+    pantryItems = await res.json();
+    renderPantryList(pantryItems);
+  } catch (error) {
+    document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
+    console.error('Load error:', error);
+  }
+}
 
-        const container = document.getElementById('pantryList');
-        container.innerHTML = '';
+function renderPantryList(items) {
+  const container = document.getElementById('pantryList');
+  container.innerHTML = '';
 
-        items.forEach(({ item, quantity }) => {
-          const div = document.createElement('div');
-          div.className = 'item';
-          div.innerHTML = `
-            <strong>${item}</strong><br />
-            Quantity: <span id="qty-${item}">${quantity}</span><br />
-            <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-            <button onclick="adjustItem('${item}', 'add')">Add</button>
-            <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
-          `;
-          container.appendChild(div);
-        });
-      } catch (error) {
-        document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
-        console.error('Load error:', error);
-      }
+  if (items.length === 0) {
+    container.textContent = 'No items match your search.';
+    return;
+  }
+
+  items.forEach(({ item, quantity }) => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <strong>${item}</strong><br />
+      Quantity: <span id="qty-${item}">${quantity}</span><br />
+      <input type="number" id="input-${item}" placeholder="Amount" min="1" />
+      <button onclick="adjustItem('${item}', 'add')">Add</button>
+      <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
+    `;
+    container.appendChild(div);
+  });
+}
+
+document.getElementById('searchBox').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  if (!query) {
+    renderPantryList(pantryItems);
+    return;
+  }
+  const filtered = pantryItems.filter(({ item }) =>
+    item.toLowerCase().includes(query)
+  );
+  renderPantryList(filtered);
+});
+
+async function adjustItem(item, action) {
+  const input = document.getElementById(`input-${item}`);
+  const amount = Number(input.value);
+  if (!amount || amount <= 0) {
+    alert('Please enter a positive number.');
+    return;
+  }
+
+  const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      document.getElementById(`qty-${item}`).textContent = data.quantity;
+      // Also update pantryItems so the search filter stays correct
+      const index = pantryItems.findIndex(i => i.item === item);
+      if (index > -1) pantryItems[index].quantity = data.quantity;
+
+      input.value = '';
+    } else {
+      alert("Error: " + data.error);
     }
+  } catch (error) {
+    alert('Failed to update item.');
+    console.error('Update error:', error);
+  }
+}
 
-    async function adjustItem(item, action) {
-      const input = document.getElementById(`input-${item}`);
-      const amount = Number(input.value);
-      if (!amount || amount <= 0) {
-        alert('Please enter a positive number.');
-        return;
-      }
+loadPantry();
 
-      const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
-
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if (data.success) {
-          document.getElementById(`qty-${item}`).textContent = data.quantity;
-          input.value = '';
-        } else {
-          alert("Error: " + data.error);
-        }
-      } catch (error) {
-        alert('Failed to update item.');
-        console.error('Update error:', error);
-      }
-    }
-
-    loadPantry();
   </script>
 </body>
 </html>
