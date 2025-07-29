@@ -103,4 +103,4 @@ document.getElementById('searchBox').addEventListener('input', function () {
 
   loadPantry();
 
-setInterval(loadPantry, 5000);
+setInterval(loadPantry, 15000);
