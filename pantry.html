@@ -74,33 +74,26 @@ document.getElementById('searchBox').addEventListener('input', function () {
 
 async function adjustItem(item, action) {
   const input = document.getElementById(`input-${item}`);
-  const amount = Number(input.value);
-  if (!amount || amount <= 0) {
-    alert('Please enter a positive number.');
-    return;
-  }
+  const inputValue = input.value.trim();
 
-  const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
+  // If no value or invalid number, default to 1
+  const amount = inputValue === '' || isNaN(inputValue) ? 1 : Number(inputValue);
 
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    body: JSON.stringify({ item, amount: action === 'add' ? amount : -amount }),
+    headers: { 'Content-Type': 'application/json' }
+  });
 
-    if (data.success) {
-      document.getElementById(`qty-${item}`).textContent = data.quantity;
-      // Also update pantryItems so the search filter stays correct
-      const index = pantryItems.findIndex(i => i.item === item);
-      if (index > -1) pantryItems[index].quantity = data.quantity;
-
-      input.value = '';
-    } else {
-      alert("Error: " + data.error);
-    }
-  } catch (error) {
-    alert('Failed to update item.');
-    console.error('Update error:', error);
+  const data = await res.json();
+  if (data.success) {
+    document.getElementById(`qty-${item}`).textContent = data.quantity;
+    input.value = '';
+  } else {
+    alert("Error: " + data.error);
   }
 }
+
 
 loadPantry();
 
