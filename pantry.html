@@ -20,6 +20,10 @@
     style="width: 100%; padding: 8px; margin-bottom: 1rem; font-size: 1rem;"
   />
 
+  <input type="text" id="newItemInput" placeholder="New item name" style="width: 70%; padding: 8px; font-size: 1rem;" />
+<button onclick="addNewItem()">Add Item</button>
+
+
   <div id="pantryList">Loading...</div>
 
   <script>
@@ -78,27 +82,33 @@ async function adjustItem(item, action) {
   const amount = Number(input.value);
   const validAmount = (amount > 0) ? amount : 1;
 
-  const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${validAmount}`;
+ async function addNewItem() {
+  const input = document.getElementById('newItemInput');
+  const newItem = input.value.trim();
+  if (!newItem) {
+    alert('Please enter a valid item name.');
+    return;
+  }
+
+  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(newItem)}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
 
     if (data.success) {
-      document.getElementById(`qty-${item}`).textContent = data.quantity;
-      // Update pantryItems for search filter correctness
-      const index = pantryItems.findIndex(i => i.item === item);
-      if (index > -1) pantryItems[index].quantity = data.quantity;
-
-      input.value = '';  // Clear input after action
+      pantryItems.push({ item: newItem, quantity: 1 });
+      renderPantryList(pantryItems);
+      input.value = '';
     } else {
-      alert("Error: " + data.error);
+      alert('Error: ' + data.error);
     }
   } catch (error) {
-    alert('Failed to update item.');
-    console.error('Update error:', error);
+    alert('Failed to add new item.');
+    console.error(error);
   }
 }
+
 
 
     loadPantry();
