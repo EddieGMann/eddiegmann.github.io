@@ -1,4 +1,4 @@
-const endpoint = 'https://script.google.com/macros/s/AKfycbxUddjl4JrhwOcqQaINFUElmN3R0jTr1MnWU4cMHuj1SnC2WnttB2USsaTpn-nuZ7YI/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbx451LeCSQZvajuhaqubNPIs1-a52X6D2EQkFnVqUYrJTBcu1Cbh2PKLbdv-j5kfuy7/exec';
   let pantryItems = [];
 
   async function loadPantry() {
@@ -12,28 +12,30 @@ const endpoint = 'https://script.google.com/macros/s/AKfycbxUddjl4JrhwOcqQaINFUE
     }
   }
 
-  function renderPantryList(items) {
-    const container = document.getElementById('pantryList');
-    container.innerHTML = '';
+function renderPantryList(items) {
+  const container = document.getElementById('pantryList');
+  container.innerHTML = '';
 
-    if (items.length === 0) {
-      container.textContent = 'No items match your search.';
-      return;
-    }
-
-    items.forEach(({ item, quantity }) => {
-      const div = document.createElement('div');
-      div.className = 'item';
-      div.innerHTML = `
-        <strong>${item}</strong><br />
-        Quantity: <span id="qty-${item}">${quantity}</span><br />
-        <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-        <button onclick="adjustItem('${item}', 'add')">Add</button>
-        <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
-      `;
-      container.appendChild(div);
-    });
+  if (items.length === 0) {
+    container.textContent = 'No items match your search.';
+    return;
   }
+
+  items.forEach(({ item, quantity, category }) => {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.innerHTML = `
+      <strong>${item}</strong><br />
+      <em style="color: gray;">${category}</em><br />
+      Quantity: <span id="qty-${item}">${quantity}</span><br />
+      <input type="number" id="input-${item}" placeholder="Amount" min="1" />
+      <button onclick="adjustItem('${item}', 'add')">Add</button>
+      <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
+    `;
+    container.appendChild(div);
+  });
+}
+
 
   document.getElementById('searchBox').addEventListener('input', function () {
     const query = this.value.trim().toLowerCase();
