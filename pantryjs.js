@@ -37,17 +37,21 @@ function renderPantryList(items) {
 }
 
 
-  document.getElementById('searchBox').addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-    if (!query) {
-      renderPantryList(pantryItems);
-      return;
-    }
-    const filtered = pantryItems.filter(({ item }) =>
-      item.toLowerCase().includes(query)
-    );
-    renderPantryList(filtered);
-  });
+document.getElementById('searchBox').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+
+  if (!query) {
+    renderPantryList(pantryItems);
+    return;
+  }
+
+  const filtered = pantryItems.filter(({ item, category }) =>
+    item.toLowerCase().includes(query) || 
+    (category && category.toLowerCase().includes(query))
+  );
+
+  renderPantryList(filtered);
+});
 
   async function adjustItem(item, action) {
     const input = document.getElementById(`input-${item}`);
