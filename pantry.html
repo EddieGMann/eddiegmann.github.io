@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,96 +14,93 @@
 <body>
   <h1>Pantry Tracker</h1>
   <input
-  type="text"
-  id="searchBox"
-  placeholder="Search pantry items..."
-  style="width: 100%; padding: 8px; margin-bottom: 1rem; font-size: 1rem;"
-/>
+    type="text"
+    id="searchBox"
+    placeholder="Search pantry items..."
+    style="width: 100%; padding: 8px; margin-bottom: 1rem; font-size: 1rem;"
+  />
 
   <div id="pantryList">Loading...</div>
 
   <script>
-    const endpoint = 'https://script.google.com/macros/s/AKfycbzOb-GT9RmVwqOlD2SL7lCWYTvZh5uclRZQcw1go45BNc00oZgot6hOLKz1z_L1Dha2/exec;' // Replace this with your deployed Apps Script URL
-    let pantryItems = []; // store full list here
+    const endpoint = 'https://script.google.com/macros/s/AKfycbzOb-GT9RmVwqOlD2SL7lCWYTvZh5uclRZQcw1go45BNc00oZgot6hOLKz1z_L1Dha2/exec'; // no semicolon at end
+    let pantryItems = [];
 
-async function loadPantry() {
-  try {
-    const res = await fetch(endpoint);
-    pantryItems = await res.json();
-    renderPantryList(pantryItems);
-  } catch (error) {
-    document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
-    console.error('Load error:', error);
-  }
-}
-
-function renderPantryList(items) {
-  const container = document.getElementById('pantryList');
-  container.innerHTML = '';
-
-  if (items.length === 0) {
-    container.textContent = 'No items match your search.';
-    return;
-  }
-
-  items.forEach(({ item, quantity }) => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <strong>${item}</strong><br />
-      Quantity: <span id="qty-${item}">${quantity}</span><br />
-      <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-      <button onclick="adjustItem('${item}', 'add')">Add</button>
-      <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
-    `;
-    container.appendChild(div);
-  });
-}
-
-document.getElementById('searchBox').addEventListener('input', function () {
-  const query = this.value.trim().toLowerCase();
-  if (!query) {
-    renderPantryList(pantryItems);
-    return;
-  }
-  const filtered = pantryItems.filter(({ item }) =>
-    item.toLowerCase().includes(query)
-  );
-  renderPantryList(filtered);
-});
-
-async function adjustItem(item, action) {
-  const input = document.getElementById(`input-${item}`);
-  const amount = Number(input.value);
-  if (!amount || amount <= 0) {
-    alert('Please enter a positive number.');
-    return;
-  }
-
-  const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
-
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (data.success) {
-      document.getElementById(`qty-${item}`).textContent = data.quantity;
-      // Also update pantryItems so the search filter stays correct
-      const index = pantryItems.findIndex(i => i.item === item);
-      if (index > -1) pantryItems[index].quantity = data.quantity;
-
-      input.value = '';
-    } else {
-      alert("Error: " + data.error);
+    async function loadPantry() {
+      try {
+        const res = await fetch(endpoint);
+        pantryItems = await res.json();
+        renderPantryList(pantryItems);
+      } catch (error) {
+        document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
+        console.error('Load error:', error);
+      }
     }
-  } catch (error) {
-    alert('Failed to update item.');
-    console.error('Update error:', error);
-  }
-}
 
-loadPantry();
+    function renderPantryList(items) {
+      const container = document.getElementById('pantryList');
+      container.innerHTML = '';
 
+      if (items.length === 0) {
+        container.textContent = 'No items match your search.';
+        return;
+      }
+
+      items.forEach(({ item, quantity }) => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
+          <strong>${item}</strong><br />
+          Quantity: <span id="qty-${item}">${quantity}</span><br />
+          <input type="number" id="input-${item}" placeholder="Amount" min="1" />
+          <button onclick="adjustItem('${item}', 'add')">Add</button>
+          <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    document.getElementById('searchBox').addEventListener('input', function () {
+      const query = this.value.trim().toLowerCase();
+      if (!query) {
+        renderPantryList(pantryItems);
+        return;
+      }
+      const filtered = pantryItems.filter(({ item }) =>
+        item.toLowerCase().includes(query)
+      );
+      renderPantryList(filtered);
+    });
+
+    async function adjustItem(item, action) {
+      const input = document.getElementById(`input-${item}`);
+      const amount = Number(input.value);
+      if (!amount || amount <= 0) {
+        alert('Please enter a positive number.');
+        return;
+      }
+
+      const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.success) {
+          document.getElementById(`qty-${item}`).textContent = data.quantity;
+          const index = pantryItems.findIndex(i => i.item === item);
+          if (index > -1) pantryItems[index].quantity = data.quantity;
+          input.value = '';
+        } else {
+          alert("Error: " + data.error);
+        }
+      } catch (error) {
+        alert('Failed to update item.');
+        console.error('Update error:', error);
+      }
+    }
+
+    loadPantry();
   </script>
 </body>
 </html>
