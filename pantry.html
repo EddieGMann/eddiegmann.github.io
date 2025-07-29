@@ -23,79 +23,42 @@
   <div id="pantryList">Loading...</div>
 
   <script>
-    const endpoint = 'https://script.google.com/macros/s/AKfycbzb86kmdJ97YZWkTFBS0-eaF2MDmJ3s0ZSZ_dvODgYf_ukH2WGPTzvby_E_QA2Vw6mP/exec'; // Replace this with your deployed Apps Script URL
-    let pantryItems = []; // store full list here
+   const url = "https://script.google.com/macros/s/AKfycbzb86kmdJ97YZWkTFBS0-eaF2MDmJ3s0ZSZ_dvODgYf_ukH2WGPTzvby_E_QA2Vw6mP/exec";
 
-async function loadPantry() {
+async function adjustItem(itemName, adjustmentType, amountInputId) {
+  const amountInput = document.getElementById(amountInputId);
+  let amount = parseInt(amountInput.value);
+  if (isNaN(amount)) {
+    amount = 1;
+  }
+  if (adjustmentType === "subtract") {
+    amount *= -1;
+  }
+
   try {
-    const res = await fetch(endpoint);
-    pantryItems = await res.json();
-    renderPantryList(pantryItems);
+    const response = await fetch(url, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        item: itemName,
+        amount: amount
+      })
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      loadPantry();  // re-fetch the updated list
+    } else {
+      console.error("Error updating item:", data.error);
+    }
   } catch (error) {
-    document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
-    console.error('Load error:', error);
+    console.error("Fetch error:", error);
   }
 }
 
-function renderPantryList(items) {
-  const container = document.getElementById('pantryList');
-  container.innerHTML = '';
-
-  if (items.length === 0) {
-    container.textContent = 'No items match your search.';
-    return;
-  }
-
-  items.forEach(({ item, quantity }) => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <strong>${item}</strong><br />
-      Quantity: <span id="qty-${item}">${quantity}</span><br />
-      <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-      <button onclick="adjustItem('${item}', 'add')">Add</button>
-      <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
-    `;
-    container.appendChild(div);
-  });
-}
-
-document.getElementById('searchBox').addEventListener('input', function () {
-  const query = this.value.trim().toLowerCase();
-  if (!query) {
-    renderPantryList(pantryItems);
-    return;
-  }
-  const filtered = pantryItems.filter(({ item }) =>
-    item.toLowerCase().includes(query)
-  );
-  renderPantryList(filtered);
-});
-
-async function adjustItem(item, action) {
-  const input = document.getElementById(`input-${item}`);
-  const inputValue = input.value.trim();
-
-  // If no value or invalid number, default to 1
-  const amount = inputValue === '' || isNaN(inputValue) ? 1 : Number(inputValue);
-
-fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ item: itemName, amount: adjustmentAmount })
-});
-
-
-  const data = await res.json();
-  if (data.success) {
-    document.getElementById(`qty-${item}`).textContent = data.quantity;
-    input.value = '';
-  } else {
-    alert("Error: " + data.error);
-  }
-}
 
 
 loadPantry();
