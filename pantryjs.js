@@ -96,3 +96,5 @@ const endpoint = 'https://script.google.com/macros/s/AKfycbxUddjl4JrhwOcqQaINFUE
   }
 
   loadPantry();
+
+setInterval(loadPantry, 5000);
