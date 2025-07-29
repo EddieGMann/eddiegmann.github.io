@@ -79,11 +79,14 @@ async function adjustItem(item, action) {
   // If no value or invalid number, default to 1
   const amount = inputValue === '' || isNaN(inputValue) ? 1 : Number(inputValue);
 
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    body: JSON.stringify({ item, amount: action === 'add' ? amount : -amount }),
-    headers: { 'Content-Type': 'application/json' }
-  });
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ item: itemName, amount: adjustmentAmount })
+});
+
 
   const data = await res.json();
   if (data.success) {
