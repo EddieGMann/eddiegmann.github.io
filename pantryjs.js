@@ -29,7 +29,7 @@ function renderPantryList(items) {
       <em style="color: gray;">${category}</em><br />
       Quantity: <span id="qty-${item}">${quantity}</span><br />
       <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-      <button onclick="adjustItem('${item}', 'add')" style="color: black; font-size: 1.5em;">➕</button>
+      <button onclick="adjustItem('${item}', 'add')" style="width: 40px; height: 40px; border-radius: 50%; background-color: black;  color: white;  font-size: 24px; border: none; text-align: center;line-height: 40px;>+</button>
       <button onclick="adjustItem('${item}', 'subtract')">Subtract</button>
     `;
     container.appendChild(div);
