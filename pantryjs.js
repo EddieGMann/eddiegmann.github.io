@@ -37,8 +37,23 @@ function renderPantryList(items) {
 }
 
 
+let pantryInterval = setInterval(loadPantry, 15000); // auto-refresh every 15 sec
+let resumeTimeout = null;
+
 document.getElementById('searchBox').addEventListener('input', function () {
-  const query = this.value.trim().toLowerCase();
+  const searchBox = this;
+  const query = searchBox.value.trim().toLowerCase();
+
+  // Stop auto-refresh while searching
+  clearInterval(pantryInterval);
+  if (resumeTimeout) clearTimeout(resumeTimeout);
+
+  // Resume auto-refresh after 20 seconds of inactivity
+  resumeTimeout = setTimeout(() => {
+    searchBox.value = ''; // Clear the search input
+    renderPantryList(pantryItems); // Show full list again
+    pantryInterval = setInterval(loadPantry, 15000); // Resume refresh
+  }, 20000);
 
   if (!query) {
     renderPantryList(pantryItems);
@@ -52,6 +67,7 @@ document.getElementById('searchBox').addEventListener('input', function () {
 
   renderPantryList(filtered);
 });
+
 
   async function adjustItem(item, action) {
     const input = document.getElementById(`input-${item}`);
@@ -102,5 +118,3 @@ document.getElementById('searchBox').addEventListener('input', function () {
   }
 
   loadPantry();
-
-setInterval(loadPantry, 15000);
