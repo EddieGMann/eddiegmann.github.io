@@ -43,30 +43,31 @@ function renderPantryList(items) {
     div.style.padding = '10px';
     div.style.borderRadius = '12px';
 
-    div.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 20px;">
+   div.innerHTML = `
+  <div style="display: flex; align-items: center; gap: 20px;">
 
-        <!-- LEFT: Item info -->
-        <div style="text-align: left; width: 160px; word-wrap: break-word;">
-          <strong>${item}</strong><br />
-          <em style="color: gray;">${category}</em><br />
-          Quantity: <span id="qty-${item}">${quantity}</span>
-        </div>
+    <!-- LEFT: Item info -->
+    <div style="text-align: left; width: 160px; word-wrap: break-word;">
+      <strong>${item}</strong><br />
+      <em style="color: gray;">${category}</em><br />
+      Quantity: <span id="qty-${item}">${quantity}</span>
+    </div>
 
-        <!-- RIGHT: Input + buttons -->
-        <div style="text-align: center;">
-          <div style="display: flex; align-items: center;">
-            <button onclick="adjustItem('${item}', 'add'); addClickEffect(this);"
-              style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
-            <button onclick="adjustItem('${item}', 'subtract'); addClickEffect(this);"
-              style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
-          </div>
-          <input type="number" id="input-${item}" placeholder="Amount" min="1"
-            style="width: 75px; margin-top: 10px;" />
-        </div>
-
+    <!-- RIGHT: Input + buttons -->
+    <div style="text-align: center;">
+      <div style="display: flex; align-items: center;">
+        <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'add'); addClickEffect(this);"
+          style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
+        <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
+          style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
       </div>
-    `;
+      <input type="number" id="input-${item}" placeholder="Amount" min="1"
+        style="width: 75px; margin-top: 10px;" />
+    </div>
+
+  </div>
+`;
+
     container.appendChild(div);
   });
 }
