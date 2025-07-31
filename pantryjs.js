@@ -1,5 +1,5 @@
 
-const endpoint = 'https://script.google.com/macros/s/AKfycbwzTdT70HDv28M-Gk7tDg0Ls2k7lOb6fou1HkodIydU_wsFLnrrSqEitx1BxTO0g1JA/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbwvVm8z0Dga_RxnFzprizHQOcExzN1rZMpD5yicalLQzvReuqvhS2ucTJ9GyfwAdSlA/exec';
 let pantryItems = [];
 
 function addClickEffect(button) {
@@ -57,13 +57,38 @@ function renderPantryList(items) {
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
-            		<button style = "background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">✕</button>
+            		<button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
+        style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
+  ✕
+</button>
+
         </div>
       </div>
     `;
 
     container.appendChild(div);
   });
+}
+
+
+function deleteItem(itemName) {
+  if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
+
+  const url = `${endpoint}?action=delete&item=${encodeURIComponent(itemName)}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert(`"${itemName}" deleted successfully.`);
+        fetchPantry(); // optional: re-fetch your UI
+      } else {
+        alert('Delete failed: ' + data.error);
+      }
+    })
+    .catch(err => {
+      console.error('Delete error:', err);
+      alert('Something went wrong.');
+    });
 }
 
 async function adjustItem(item, action) {
