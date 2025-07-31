@@ -36,7 +36,7 @@ items.forEach(({ item, quantity, category }) => {
     <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
 
       <!-- LEFT: Item info -->
-      <div style="text-align: left;">
+      <div style="text-align: left; width: 160px; word-wrap: break-word;">
         <strong>${item}</strong><br />
         <em style="color: gray;">${category}</em><br />
         Quantity: <span id="qty-${item}">${quantity}</span>
