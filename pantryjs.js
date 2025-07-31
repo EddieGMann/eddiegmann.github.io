@@ -21,24 +21,33 @@ function renderPantryList(items) {
     return;
   }
 
-  items.forEach(({ item, quantity, category }) => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.innerHTML = `
-      <strong>${item}</strong><br />
-      <em style="color: gray;">${category}</em><br />
-      Quantity: <span id="qty-${item}">${quantity}</span><br />
-      <input type="number" id="input-${item}" placeholder="Amount" min="1" />
-      <br/>
-      <br/>
-      <div style = "display: flex; align-items: center;">
-        <button onclick="adjustItem('${item}', 'add')" style = "background-image: linear-gradient(#F74902, #F74910);margin-right: 15px; margin-left: -12px; border-radius: 12px; color:black; width: 65px; height: 65px; font-size: 32px;">+</button>
-        <button onclick="adjustItem('${item}', 'subtract')"style = "background-color: black;color:#F74902; width: 65px; height: 65px; font-size: 55px; border-radius: 12px; padding-bottom:10px;">-</button>
-</div>
-    `;
-    container.appendChild(div);
-  });
-}
+items.forEach(({ item, quantity, category }) => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  div.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+
+      <!-- LEFT: Item info -->
+      <div style="text-align: left;">
+        <strong>${item}</strong><br />
+        <em style="color: gray;">${category}</em><br />
+        Quantity: <span id="qty-${item}">${quantity}</span>
+      </div>
+
+      <!-- RIGHT: Input + buttons -->
+      <div style = text-align:center;>
+	<div style = display:flex; align-items:center;>
+        <button onclick="adjustItem('${item}', 'add')" style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
+        <button onclick="adjustItem('${item}', 'subtract')" style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button><br />
+</div>		
+<input type="number" id="input-${item}" placeholder="Amount" min="1" style="width: 75px; margin-top: 10px;" />
+      </div>
+
+    </div>
+  `;
+  container.appendChild(div);
+});
+
 
 
 let pantryInterval = setInterval(loadPantry, 15000); // auto-refresh every 15 sec
