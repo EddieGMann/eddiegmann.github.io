@@ -1,6 +1,14 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbx451LeCSQZvajuhaqubNPIs1-a52X6D2EQkFnVqUYrJTBcu1Cbh2PKLbdv-j5kfuy7/exec';
   let pantryItems = [];
 
+function addClickEffect(button) {
+  button.classList.add("click-effect");
+  setTimeout(() => {
+    button.classList.remove("click-effect");
+  }, 150);
+}
+
+
   async function loadPantry() {
     try {
       const res = await fetch(endpoint);
@@ -37,8 +45,8 @@ items.forEach(({ item, quantity, category }) => {
       <!-- RIGHT: Input + buttons -->
       <div style = text-align:center;>
 	<div style = display:flex; align-items:center;>
-        <button onclick="adjustItem('${item}', 'add')" style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
-        <button onclick="adjustItem('${item}', 'subtract')" style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button><br />
+         <button onclick="adjustItem('${item}', 'add'); addClickEffect(this);"  style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
+        <button onclick="adjustItem('${item}', 'subtract'); addClickEffect(this);" style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button><br />
 </div>		
 <input type="number" id="input-${item}" placeholder="Amount" min="1" style="width: 75px; margin-top: 10px;" />
       </div>
