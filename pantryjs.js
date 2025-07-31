@@ -172,7 +172,22 @@ document.getElementById('searchBox').addEventListener('input', function () {
     renderPantryList(pantryItems);
     return;
   }
-
+  function deleteItem(item, element) {
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        element.remove(); // Remove the item's div from the DOM
+        console.log(`Deleted: ${item}`);
+      } else {
+        alert(`Error deleting item: ${data.error}`);
+      }
+    })
+    .catch(error => {
+      console.error('Request failed', error);
+      alert('Error deleting item. Please try again.');
+    });
+}
   const filtered = pantryItems.filter(({ item, category }) =>
     item.toLowerCase().includes(query) ||
     (category && category.toLowerCase().includes(query))
