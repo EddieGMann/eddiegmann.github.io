@@ -44,9 +44,11 @@ items.forEach(({ item, quantity, category }) => {
       </div>
 
     </div>
-  `;
-  container.appendChild(div);
-});
+    `;
+    container.appendChild(div);
+  });
+}
+
 
 
 
