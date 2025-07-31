@@ -80,7 +80,7 @@ function deleteItem(itemName) {
     .then(data => {
       if (data.success) {
         alert(`"${itemName}" deleted successfully.`);
-        fetchPantry(); // optional: re-fetch your UI
+        loadPantry(); // optional: re-fetch your UI
       } else {
         alert('Delete failed: ' + data.error);
       }
