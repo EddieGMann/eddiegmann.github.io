@@ -127,12 +127,32 @@ document.getElementById('searchBox').addEventListener('input', function () {
   }
 
   async function addNewItem() {
-    const input = document.getElementById('newItemInput');
-    const newItem = input.value.trim();
-    if (!newItem) {
-      alert('Please enter a valid item name.');
-      return;
+  const item = prompt("Enter the item name:");
+  if (!item || item.trim() === "") {
+    alert("Item name is required.");
+    return;
+  }
+
+  const category = prompt("Enter the category (optional):") || "";
+
+  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item.trim())}&category=${encodeURIComponent(category.trim())}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      pantryItems.push({ item: item.trim(), quantity: 1, category: category.trim() });
+      renderPantryList(pantryItems);
+    } else {
+      alert("Error: " + data.error);
     }
+  } catch (error) {
+    alert("Failed to add new item.");
+    console.error(error);
+  }
+}
+
 
     const url = `${endpoint}?action=addNew&item=${encodeURIComponent(newItem)}`;
 
