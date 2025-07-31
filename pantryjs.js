@@ -1,200 +1,138 @@
+<script>
 const endpoint = 'https://script.google.com/macros/s/AKfycbwzTdT70HDv28M-Gk7tDg0Ls2k7lOb6fou1HkodIydU_wsFLnrrSqEitx1BxTO0g1JA/exec';
-let pantryItems = [];
 
-function addClickEffect(button) {
-  button.classList.add("click-effect");
-  setTimeout(() => {
-    button.classList.remove("click-effect");
-  }, 150);
-}
+document.addEventListener('DOMContentLoaded', () => {
+  fetchPantry();
 
-async function loadPantry() {
-  try {
-    const res = await fetch(endpoint);
-    pantryItems = await res.json();
-    pantryItems.sort((a, b) => a.item.localeCompare(b.item));
-    renderPantryList(pantryItems);
-  } catch (error) {
-    document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
-    console.error('Load error:', error);
-  }
+  document.getElementById('addItemButton').addEventListener('click', () => {
+    const item = prompt('Enter item name:');
+    if (!item) return;
+
+    const category = prompt('Enter category:');
+    if (category === null) return;
+
+    const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item.trim())}&category=${encodeURIComponent(category.trim())}`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          fetchPantry();
+        } else {
+          alert('Error: ' + data.error);
+        }
+      })
+      .catch(err => console.error('Add item error:', err));
+  });
+
+  document.getElementById('searchBox').addEventListener('input', (e) => {
+    const searchTerm = e.target.value.trim().toLowerCase();
+    fetchPantry(searchTerm);
+  });
+});
+
+function fetchPantry(filter = '') {
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(items => {
+      const filtered = filter
+        ? items.filter(i => i.item.toLowerCase().includes(filter))
+        : items;
+      renderPantryList(filtered);
+    });
 }
 
 function renderPantryList(items) {
-  const container = document.getElementById('pantryList'); // <- updated here
-  container.innerHTML = ''; // clear existing content
+  const container = document.getElementById('pantryList');
+  container.innerHTML = '';
+
+  if (items.length === 0) {
+    container.textContent = 'No items match your search.';
+    return;
+  }
+
+  container.style.display = 'grid';
+  container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(320px, 1fr))';
+  container.style.gap = '20px';
 
   items.forEach(({ item, quantity, category }) => {
     const div = document.createElement('div');
-    div.className = 'pantry-item';
-    div.style.cssText = `
-      background-color: #f3f3f3;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      position: relative;
-    `;
+    div.className = 'item';
+    div.style.border = '1px solid #ccc';
+    div.style.borderRadius = '10px';
+    div.style.padding = '10px';
+    div.style.boxShadow = '0 2px 6px rgba(0,0,0,0.1)';
+    div.style.background = '#fff';
 
     div.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <div style="text-align: left; width: 160px; word-wrap: break-word;">
+      <div style="display: flex; align-items: center; gap: 20px; justify-content: space-between;">
+        <div style="width: 160px; word-wrap: break-word;">
           <strong>${item}</strong><br />
-          <em style="color: gray;">${category || ''}</em><br />
+          <em style="color: gray;">${category}</em><br />
           Quantity: <span id="qty-${item}">${quantity}</span>
         </div>
         <div style="text-align: center;">
-          <div style="display: flex; align-items: center;">
-            <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'add'); addClickEffect(this);"
-              style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
-            <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
-              style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="adjustItem('${item}', 'add'); addClickEffect(this);" style="background-image: linear-gradient(#F74902, #F74910); border-radius: 12px; color: black; width: 55px; height: 55px; font-size: 24px;">+</button>
+            <button onclick="adjustItem('${item}', 'subtract'); addClickEffect(this);" style="background-color: black; color: #F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
           </div>
-          <input type="number" id="input-${item}" placeholder="Amount" min="1"
-            style="width: 75px; margin-top: 10px;" />
+          <input type="number" id="input-${item}" placeholder="Amount" min="1" style="width: 75px; margin-top: 10px;" />
+          <br />
+          <button onclick="confirmDelete('${item}')" style="margin-top: 10px; background-color: red; color: white; padding: 6px 12px; border: none; border-radius: 8px;">Delete</button>
         </div>
       </div>
     `;
-
-    // Add delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = '✕';
-    deleteBtn.style.cssText = `
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      font-size: 14px;
-      cursor: pointer;
-      position: absolute;
-      top: 8px;
-      right: 8px;
-    `;
-
-    deleteBtn.onclick = () => {
-      const confirmed = confirm(`Are you sure you want to delete "${item}"?`);
-      if (confirmed) {
-        deleteItem(item, div); // <- assumes you have this function
-      }
-    };
-
-    div.appendChild(deleteBtn);
     container.appendChild(div);
   });
 }
 
-
-function deleteItem(itemName, cardElement) {
-  const url = `${scriptURL}?action=delete&item=${encodeURIComponent(itemName)}`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        cardElement.remove(); // remove the item from the page
-      } else {
-        alert('Error deleting item: ' + data.error);
-      }
-    })
-    .catch(err => {
-      console.error('Error:', err);
-      alert('Failed to delete item.');
-    });
-}
-
-async function adjustItem(item, action) {
+function adjustItem(item, action) {
   const input = document.getElementById(`input-${item}`);
   const amount = Number(input.value);
-  const validAmount = amount > 0 ? amount : 1;
-
-  const url = `${endpoint}?item=${encodeURIComponent(item)}&action=${action}&amount=${validAmount}`;
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.success) {
-      loadPantry();
-      input.value = '';
-    } else {
-      alert('Update failed: ' + data.error);
-    }
-  } catch (error) {
-    alert('Failed to update item.');
-    console.error(error);
-  }
-}
-
-async function addNewItem() {
-  const item = prompt("Enter the item name:");
-  if (!item || item.trim() === "") {
-    alert("Item name is required.");
+  if (!amount || amount <= 0) {
+    alert('Enter a valid amount.');
     return;
   }
 
-  const category = prompt("Enter the category (optional):") || "";
+  const url = `${endpoint}?action=${action}&item=${encodeURIComponent(item)}&amount=${amount}`;
 
-  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item.trim())}&category=${encodeURIComponent(category.trim())}`;
-
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (data.success) {
-      pantryItems.push({ item: item.trim(), quantity: 1, category: category.trim() });
-      pantryItems.sort((a, b) => a.item.localeCompare(b.item));
-      renderPantryList(pantryItems);
-    } else {
-      alert("Error: " + data.error);
-    }
-  } catch (error) {
-    alert("Failed to add new item.");
-    console.error(error);
-  }
-}
-
-// Search input handling
-let pantryInterval = setInterval(loadPantry, 15000);
-let resumeTimeout = null;
-
-document.getElementById('searchBox').addEventListener('input', function () {
-  const searchBox = this;
-  const query = searchBox.value.trim().toLowerCase();
-
-  clearInterval(pantryInterval);
-  if (resumeTimeout) clearTimeout(resumeTimeout);
-
-  resumeTimeout = setTimeout(() => {
-    searchBox.value = '';
-    renderPantryList(pantryItems);
-    pantryInterval = setInterval(loadPantry, 15000);
-  }, 20000);
-
-  if (!query) {
-    renderPantryList(pantryItems);
-    return;
-  }
-  function deleteItem(item, element) {
-fetch(url)
-    .then(response => response.json())
+  fetch(url)
+    .then(res => res.json())
     .then(data => {
       if (data.success) {
-        element.remove(); // Remove the item's div from the DOM
-        console.log(`Deleted: ${item}`);
+        document.getElementById(`qty-${item}`).textContent = data.quantity;
+        input.value = '';
       } else {
-        alert(`Error deleting item: ${data.error}`);
+        alert('Error: ' + data.error);
       }
     })
-    .catch(error => {
-      console.error('Request failed', error);
-      alert('Error deleting item. Please try again.');
-    });
+    .catch(err => console.error('Quantity update error:', err));
 }
-  const filtered = pantryItems.filter(({ item, category }) =>
-    item.toLowerCase().includes(query) ||
-    (category && category.toLowerCase().includes(query))
-  );
 
-  renderPantryList(filtered);
-});
+function confirmDelete(itemName) {
+  if (confirm(`Are you sure you want to delete "${itemName}"?`)) {
+    deleteItem(itemName);
+  }
+}
 
-// Initial load
-loadPantry();
+function deleteItem(itemName) {
+  const url = `${endpoint}?action=delete&item=${encodeURIComponent(itemName)}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        fetchPantry();
+      } else {
+        alert('Delete failed: ' + data.error);
+      }
+    })
+    .catch(err => console.error('Delete error:', err));
+}
+
+function addClickEffect(btn) {
+  btn.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    btn.style.transform = '';
+  }, 100);
+}
+</script>
