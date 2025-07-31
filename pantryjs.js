@@ -58,10 +58,52 @@ function renderPantryList(items) {
             style="width: 75px; margin-top: 10px;" />
         </div>
       </div>
+      // Add delete button
+const deleteBtn = document.createElement('button');
+deleteBtn.textContent = '✕'; // or use 🗑️ if you want
+deleteBtn.style.cssText = `
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+  margin-top: -4px;
+`;
+
+deleteBtn.onclick = () => {
+  const confirmed = confirm(`Are you sure you want to delete "${item.item}"?`);
+  if (confirmed) {
+    deleteItem(item.item, card);
+  }
+};
+
+card.appendChild(deleteBtn);
+
     `;
 
     container.appendChild(div);
   });
+}
+
+function deleteItem(itemName, cardElement) {
+  const url = `${scriptURL}?action=delete&item=${encodeURIComponent(itemName)}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        cardElement.remove(); // remove the item from the page
+      } else {
+        alert('Error deleting item: ' + data.error);
+      }
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('Failed to delete item.');
+    });
 }
 
 async function adjustItem(item, action) {
