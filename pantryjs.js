@@ -13,6 +13,8 @@ function addClickEffect(button) {
     try {
       const res = await fetch(endpoint);
       pantryItems = await res.json();
+	    pantryItems.sort((a, b) => a.item.localeCompare(b.item));
+
       renderPantryList(pantryItems);
     } catch (error) {
       document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
