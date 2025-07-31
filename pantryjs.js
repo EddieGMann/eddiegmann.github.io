@@ -32,7 +32,7 @@ function renderPantryList(items) {
       <br/>
       <br/>
       <div style = "display: flex; align-items: center;">
-        <button onclick="adjustItem('${item}', 'add')" style = "background-image: linear-gradient(#F74902, #F74910);margin-right: 15px; border-radius: 12px; color:black; width: 65px; height: 65px; font-size: 32px;">+</button>
+        <button onclick="adjustItem('${item}', 'add')" style = "background-image: linear-gradient(#F74902, #F74910);margin-right: 15px; margin-left: -12px; border-radius: 12px; color:black; width: 65px; height: 65px; font-size: 32px;">+</button>
         <button onclick="adjustItem('${item}', 'subtract')"style = "background-color: black;color:#F74902; width: 65px; height: 65px; font-size: 55px; border-radius: 12px; padding-bottom:10px;">-</button>
 </div>
     `;
