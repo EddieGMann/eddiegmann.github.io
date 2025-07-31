@@ -39,6 +39,7 @@ function renderPantryList(items) {
     div.style.border = '1px solid #ccc';
     div.style.padding = '10px';
     div.style.borderRadius = '12px';
+    div.style.position = 'relative'; // So the delete button can float
 
     div.innerHTML = `
       <div style="display: flex; align-items: center; gap: 20px;">
@@ -58,36 +59,37 @@ function renderPantryList(items) {
             style="width: 75px; margin-top: 10px;" />
         </div>
       </div>
-      // Add delete button
-const deleteBtn = document.createElement('button');
-deleteBtn.textContent = '✕'; // or use 🗑️ if you want
-deleteBtn.style.cssText = `
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-  cursor: pointer;
-  float: right;
-  margin-top: -4px;
-`;
-
-deleteBtn.onclick = () => {
-  const confirmed = confirm(`Are you sure you want to delete "${item.item}"?`);
-  if (confirmed) {
-    deleteItem(item.item, card);
-  }
-};
-
-card.appendChild(deleteBtn);
-
     `;
 
+    // Add delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '✕';
+    deleteBtn.style.cssText = `
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      position: absolute;
+      top: 6px;
+      right: 6px;
+    `;
+
+    deleteBtn.onclick = () => {
+      const confirmed = confirm(`Are you sure you want to delete "${item}"?`);
+      if (confirmed) {
+        deleteItem(item, div);
+      }
+    };
+
+    div.appendChild(deleteBtn);
     container.appendChild(div);
   });
 }
+
 
 function deleteItem(itemName, cardElement) {
   const url = `${scriptURL}?action=delete&item=${encodeURIComponent(itemName)}`;
