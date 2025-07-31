@@ -57,7 +57,7 @@ function renderPantryList(items) {
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
-            		<button style = "background-color: red; color: white; border: none; order-radius: 50%; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">✕</button>
+            		<button style = "background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">✕</button>
         </div>
       </div>
     `;
