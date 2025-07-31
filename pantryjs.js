@@ -65,7 +65,7 @@ function renderPantryList(items) {
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = '✕';
     deleteBtn.style.cssText = `
-      background: red;
+      background-color: red;
       color: white;
       border: none;
       border-radius: 50%;
