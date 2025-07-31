@@ -49,9 +49,6 @@ items.forEach(({ item, quantity, category }) => {
   });
 }
 
-
-
-
 let pantryInterval = setInterval(loadPantry, 15000); // auto-refresh every 15 sec
 let resumeTimeout = null;
 
