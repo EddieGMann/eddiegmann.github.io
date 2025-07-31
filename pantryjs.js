@@ -1,4 +1,4 @@
-const endpoint = 'https://script.google.com/macros/s/AKfycbx451LeCSQZvajuhaqubNPIs1-a52X6D2EQkFnVqUYrJTBcu1Cbh2PKLbdv-j5kfuy7/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbybRd_32PYIsKQAcT9gTBJfV5QWZ8uZ3ZwBjxweIesUS-lukVqyyBS9Ukx44g3NXgVl/exec';
 let pantryItems = [];
 
 function addClickEffect(button) {
