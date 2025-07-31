@@ -29,6 +29,8 @@ function renderPantryList(items) {
       <em style="color: gray;">${category}</em><br />
       Quantity: <span id="qty-${item}">${quantity}</span><br />
       <input type="number" id="input-${item}" placeholder="Amount" min="1" />
+      <br/>
+      <br/>
       <div style = "display: flex; align-items: center;">
         <button onclick="adjustItem('${item}', 'add')" style = "background-image: linear-gradient(#F74902, #F74910);margin-right: 15px; border-radius: 12px; color:black; width: 95px; height: 95px; font-size: 32px;">+</button>
         <button onclick="adjustItem('${item}', 'subtract')"style = "background-color: black;color:#F74902; width: 95px; height: 95px; font-size: 55px; border-radius: 12px; padding-bottom:10px;">-</button>
