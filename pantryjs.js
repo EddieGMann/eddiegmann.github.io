@@ -21,31 +21,25 @@ async function loadPantry() {
 }
 
 function renderPantryList(items) {
-  const container = document.getElementById('pantryList');
-  container.innerHTML = '';
-
-  if (items.length === 0) {
-    container.textContent = 'No items match your search.';
-    return;
-  }
-
-  container.style.display = 'grid';
-  container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
-  container.style.gap = '20px';
+  const container = document.getElementById('pantryList'); // <- updated here
+  container.innerHTML = ''; // clear existing content
 
   items.forEach(({ item, quantity, category }) => {
     const div = document.createElement('div');
-    div.className = 'item';
-    div.style.border = '1px solid #ccc';
-    div.style.padding = '10px';
-    div.style.borderRadius = '12px';
-    div.style.position = 'relative'; // So the delete button can float
+    div.className = 'pantry-item';
+    div.style.cssText = `
+      background-color: #f3f3f3;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      position: relative;
+    `;
 
     div.innerHTML = `
       <div style="display: flex; align-items: center; gap: 20px;">
         <div style="text-align: left; width: 160px; word-wrap: break-word;">
           <strong>${item}</strong><br />
-          <em style="color: gray;">${category}</em><br />
+          <em style="color: gray;">${category || ''}</em><br />
           Quantity: <span id="qty-${item}">${quantity}</span>
         </div>
         <div style="text-align: center;">
@@ -74,14 +68,14 @@ function renderPantryList(items) {
       font-size: 14px;
       cursor: pointer;
       position: absolute;
-      top: 6px;
-      right: 6px;
+      top: 8px;
+      right: 8px;
     `;
 
     deleteBtn.onclick = () => {
       const confirmed = confirm(`Are you sure you want to delete "${item}"?`);
       if (confirmed) {
-        deleteItem(item, div);
+        deleteItem(item, div); // <- assumes you have this function
       }
     };
 
