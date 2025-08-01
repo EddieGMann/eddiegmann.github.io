@@ -7,20 +7,22 @@ let pantryItems = [];
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
   }
 
-  function selectCategory(category) {
-    document.getElementById("categoryDropdown").style.display = "none";
-    // You can replace the alert with your filtering logic
-    // filterByCategory(category);
-  }
+ function selectCategory(category) {
+  // Example: get all data for the selected category
+  fetch(`https://script.google.com/macros/s/AKfycbwvVm8z0Dga_RxnFzprizHQOcExzN1rZMpD5yicalLQzvReuqvhS2ucTJ9GyfwAdSlA/exec?category=${encodeURIComponent(category)}`)
+    .then(response => response.json())
+    .then(data => {
+      // Do something with the returned data (e.g., update the UI)
+      console.log("Data from Google Sheet:", data);
+      displayItems(data); // replace with your rendering function
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
 
-  // Optional: Hide dropdown if you click outside
-  document.addEventListener("click", function (event) {
-    const dropdown = document.getElementById("categoryDropdown");
-    const button = document.querySelector(".dropbtn");
-    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-      dropdown.style.display = "none";
-    }
-  });
+  document.getElementById("categoryDropdown").style.display = "none";
+}
+
 
 function addClickEffect(button) {
   button.classList.add("click-effect");
