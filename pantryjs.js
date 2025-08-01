@@ -1,5 +1,5 @@
 
-const endpoint = 'https://script.google.com/macros/s/AKfycbzHQ6pAOeGTxvvYixJ4HpbfOYh_Ig1uy7udnsVs4UIRmmIfavHKdUmffawedLEwPOl6/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbyt1w9Wx5ILWvvQCO-27DovhTFcCIJKKRXXH049mUWCbV8CzRZLfrGr1D683sHN33WU/exec';
 let pantryItems = [];
 
   function toggleDropdown() {
@@ -9,7 +9,7 @@ let pantryItems = [];
 
  function selectCategory(category) {
   // Example: get all data for the selected category
-  fetch(`https://script.google.com/macros/s/AKfycbzHQ6pAOeGTxvvYixJ4HpbfOYh_Ig1uy7udnsVs4UIRmmIfavHKdUmffawedLEwPOl6/exec?category=${encodeURIComponent(category)}`)
+  fetch(`https://script.google.com/macros/s/AKfycbyt1w9Wx5ILWvvQCO-27DovhTFcCIJKKRXXH049mUWCbV8CzRZLfrGr1D683sHN33WU/exec?category=${encodeURIComponent(category)}`)
     .then(response => response.json())
     .then(data => {
       // Do something with the returned data (e.g., update the UI)
