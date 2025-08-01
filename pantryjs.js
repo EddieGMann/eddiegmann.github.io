@@ -28,6 +28,18 @@ function addClickEffect(button) {
     button.classList.remove("click-effect");
   }, 150);
 }
+function formatDateToMonthDay(dateString) {
+  const date = new Date(dateString);
+  if (isNaN(date)) return '';
+  const day = date.getDate();
+  const month = date.toLocaleString('default', { month: 'long' });
+  const suffix =
+    day >= 11 && day <= 13 ? 'th' :
+    day % 10 === 1 ? 'st' :
+    day % 10 === 2 ? 'nd' :
+    day % 10 === 3 ? 'rd' : 'th';
+  return `${month} ${day}${suffix}`;
+}
 
 async function loadPantry(sheet = 'Pantry') {
   try {
@@ -54,7 +66,7 @@ function renderPantryList(items) {
   container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
   container.style.gap = '20px';
 
-  items.forEach(({ item, quantity, category }) => {
+ items.forEach(({ item, quantity, category, timestamp }) => {
     const div = document.createElement('div');
     div.className = 'item';
     div.style.border = '1px solid #ccc';
@@ -67,7 +79,8 @@ function renderPantryList(items) {
           <strong>${item}</strong><br />
           <em style="color: gray;">${category}</em><br />
           Quantity: <span id="qty-${item}">${quantity}</span><br />
-${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${timestamp}</span>` : ''}
+          ${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${formatDateToMonthDay(timestamp)}</span>` : ''}
+
 
         </div>
         <div style="text-align: center;">
