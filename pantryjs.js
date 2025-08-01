@@ -9,7 +9,6 @@ let pantryItems = [];
 
 
   function selectCategory(category) {
-    alert("Selected category: " + category);
     document.getElementById("categoryDropdown").style.display = "none";
     // You can replace the alert with your filtering logic
     // filterByCategory(category);
