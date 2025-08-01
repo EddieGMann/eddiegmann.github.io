@@ -1,4 +1,4 @@
-const endpoint = 'https://script.google.com/macros/s/AKfycbynUsWYvv39BL3YFfTyHoVW2cdZPHlynAZOCGWhHAc8MUP-jriHQekdzfc3retKais/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbzT1HD621pYYNrD42WfFWS9xPam8ms70ZxVVd-w9askUVM95paG-2GQ5akw1x1rTGPD/exec';
 let pantryItems = [];
 let currentSheet = 'Pantry'; // Default tab
 
