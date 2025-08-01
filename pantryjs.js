@@ -1,4 +1,4 @@
-const endpoint = 'https://script.google.com/macros/s/AKfycbzT1HD621pYYNrD42WfFWS9xPam8ms70ZxVVd-w9askUVM95paG-2GQ5akw1x1rTGPD/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbyVPXqQZqngGdUDttOe0MlBU6X_EO3SOdivp6a98e9Ca7P9NCBhlnjrtuKxHyjfQEQ/exec';
 let pantryItems = [];
 let currentSheet = 'Pantry'; // Default tab
 
@@ -65,7 +65,9 @@ function renderPantryList(items) {
         <div style="text-align: left; width: 160px; word-wrap: break-word;">
           <strong>${item}</strong><br />
           <em style="color: gray;">${category}</em><br />
-          Quantity: <span id="qty-${item}">${quantity}</span>
+          Quantity: <span id="qty-${item}">${quantity}</span><br />
+${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${timestamp}</span>` : ''}
+
         </div>
         <div style="text-align: center;">
           <div style="display: flex; align-items: center;">
