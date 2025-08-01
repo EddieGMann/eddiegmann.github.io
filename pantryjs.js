@@ -112,33 +112,43 @@ async function adjustItem(item, action) {
   }
 }
 
-async function addNewItem() {
-  const item = prompt("Enter the item name:");
-  if (!item || item.trim() === "") {
-    alert("Item name is required.");
+function addNewItem() {
+  document.getElementById('addItemModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('addItemModal').style.display = 'none';
+}
+
+async function submitNewItem() {
+  const item = document.getElementById('newItemName').value.trim();
+  const category = document.getElementById('newItemCategory').value.trim();
+
+  if (!item) {
+    alert("Item Name is required.");
     return;
   }
 
-  const category = prompt("Enter the category (optional):") || "";
-
-  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item.trim())}&category=${encodeURIComponent(category.trim())}`;
-
+  // Send to backend (adjust endpoint if needed)
+  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
 
     if (data.success) {
-      pantryItems.push({ item: item.trim(), quantity: 1, category: category.trim() });
+      pantryItems.push({ item, quantity: 1, category });
       pantryItems.sort((a, b) => a.item.localeCompare(b.item));
       renderPantryList(pantryItems);
+      closeModal();
     } else {
       alert("Error: " + data.error);
     }
   } catch (error) {
-    alert("Failed to add new item.");
+    alert("Error adding item.");
     console.error(error);
   }
 }
+
 
 // Search input handling
 let pantryInterval = setInterval(loadPantry, 15000);
