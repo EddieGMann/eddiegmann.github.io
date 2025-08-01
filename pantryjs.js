@@ -9,7 +9,7 @@ let pantryItems = [];
 
  function selectCategory(category) {
   // Example: get all data for the selected category
-  fetch(`hhttps://script.google.com/macros/s/AKfycbzHQ6pAOeGTxvvYixJ4HpbfOYh_Ig1uy7udnsVs4UIRmmIfavHKdUmffawedLEwPOl6/exec?category=${encodeURIComponent(category)}`)
+  fetch(`https://script.google.com/macros/s/AKfycbzHQ6pAOeGTxvvYixJ4HpbfOYh_Ig1uy7udnsVs4UIRmmIfavHKdUmffawedLEwPOl6/exec?category=${encodeURIComponent(category)}`)
     .then(response => response.json())
     .then(data => {
       // Do something with the returned data (e.g., update the UI)
