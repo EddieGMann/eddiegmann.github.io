@@ -1,5 +1,5 @@
 
-const endpoint = 'https://script.google.com/macros/s/AKfycbx5N4yjNobV-I0YZLPcusmDgocOXt84iIf2vJ_eJUes0UjZ1OGqEJbs6Z-ozTxWvcGB/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbzZz6gH3TAx7sfRA0cJcpr663ghxz7SlzXUdwljp0jdZtnTQroZ8dvOPZku4OX__Gao/exec';
 let pantryItems = [];
 
   function toggleDropdown() {
