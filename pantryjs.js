@@ -2,6 +2,27 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbwvVm8z0Dga_RxnFzprizHQOcExzN1rZMpD5yicalLQzvReuqvhS2ucTJ9GyfwAdSlA/exec';
 let pantryItems = [];
 
+  function toggleDropdown() {
+    const dropdown = document.getElementById("categoryDropdown");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  function selectCategory(category) {
+    alert("Selected category: " + category);
+    document.getElementById("categoryDropdown").style.display = "none";
+    // You can replace the alert with your filtering logic
+    // filterByCategory(category);
+  }
+
+  // Optional: Hide dropdown if you click outside
+  document.addEventListener("click", function (event) {
+    const dropdown = document.getElementById("categoryDropdown");
+    const button = document.querySelector(".dropbtn");
+    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+
 function addClickEffect(button) {
   button.classList.add("click-effect");
   setTimeout(() => {
