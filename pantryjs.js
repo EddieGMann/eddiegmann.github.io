@@ -45,6 +45,15 @@ async function loadPantry() {
   try {
     const res = await fetch(endpoint);
     pantryItems = await res.json();
+
+    if (!Array.isArray(pantryItems)) {
+      console.error('Unexpected data format: pantryItems is not an array', pantryItems);
+      pantryItems = [];
+    }
+
+    // Filter out any entries that don't have a valid 'item' string
+    pantryItems = pantryItems.filter(entry => entry && typeof entry.item === 'string');
+
     pantryItems.sort((a, b) => a.item.localeCompare(b.item));
     renderPantryList(pantryItems);
   } catch (error) {
@@ -53,6 +62,7 @@ async function loadPantry() {
     console.error('Load error:', error);
   }
 }
+
 
 function renderPantryList(items) {
   const container = document.getElementById('pantryList');
