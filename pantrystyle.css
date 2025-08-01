@@ -23,7 +23,7 @@ input[type="number"] { width: 60px;
   left: 0; top: 0;
   width: 100%; height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(247,73,2,0.3);
 }
 
 .modal-content {
@@ -48,7 +48,7 @@ input[type="number"] { width: 60px;
   margin-top: 10px;
   width: 100%;
   padding: 10px;
-  background-color: #0a7;
+  background-color: #F74902;
   color: white;
   border: none;
   border-radius: 6px;
@@ -56,7 +56,7 @@ input[type="number"] { width: 60px;
 }
 
 .modal-content button:hover {
-  background-color: #095;
+  background-color: #F74922;
 }
 
 .close {
