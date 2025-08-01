@@ -8,6 +8,17 @@
     <link id="stylesheet" rel="stylesheet" href="pantrystyle.css">
 </head>
 <body>
+<div class="dropdown">
+  <button class="dropbtn" onclick="toggleDropdown()">☰</button>
+  <div class="dropdown-content" id="categoryDropdown">
+    <a href="#" onclick="selectCategory('Pantry')">Pantry</a>
+    <a href="#" onclick="selectCategory('Freezer')">Freezer</a>
+    <a href="#" onclick="selectCategory('Fridge')">Fridge</a>
+    <a href="#" onclick="selectCategory('Toiletries')">Toiletries</a>
+    <a href="#" onclick="selectCategory('Garage')">Garage</a>
+  </div>
+</div>
+
  <h1>Supply Tracker</h1>
 <div style = "display:flex; align-items: center;">
 <input type="text"  id="searchBox"  placeholder="Search pantry..."  style="width: 45%; padding: 8px; margin: .2rem; font-size: 1rem;"/>
