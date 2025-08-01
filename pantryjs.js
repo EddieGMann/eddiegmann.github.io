@@ -1,37 +1,25 @@
-
 const endpoint = 'https://script.google.com/macros/s/AKfycbzZz6gH3TAx7sfRA0cJcpr663ghxz7SlzXUdwljp0jdZtnTQroZ8dvOPZku4OX__Gao/exec';
 let pantryItems = [];
+let currentSheet = 'Pantry'; // Default tab
 
-  function toggleDropdown() {
-    const dropdown = document.getElementById("categoryDropdown");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+function toggleDropdown() {
+  const dropdown = document.getElementById("categoryDropdown");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+function selectCategory(category) {
+  currentSheet = category;
+  document.getElementById("categoryDropdown").style.display = "none";
+  loadPantry(currentSheet);
+}
+
+document.addEventListener("click", function (event) {
+  const dropdown = document.getElementById("categoryDropdown");
+  const button = document.querySelector(".dropbtn");
+  if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+    dropdown.style.display = "none";
   }
-
-
-  function selectCategory(category) {
-    document.getElementById("categoryDropdown").style.display = "none";
-    // You can replace the alert with your filtering logic
-    // filterByCategory(category);
-  }
-
-  // Optional: Hide dropdown if you click outside
-  document.addEventListener("click", function (event) {
-    const dropdown = document.getElementById("categoryDropdown");
-    const button = document.querySelector(".dropbtn");
-    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-      dropdown.style.display = "none";
-    }
-  });
-
-
-  // Optional: Hide dropdown if you click outside
-  document.addEventListener("click", function (event) {
-    const dropdown = document.getElementById("categoryDropdown");
-    const button = document.querySelector(".dropbtn");
-    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
-      dropdown.style.display = "none";
-    }
-  });
+});
 
 function addClickEffect(button) {
   button.classList.add("click-effect");
@@ -40,9 +28,9 @@ function addClickEffect(button) {
   }, 150);
 }
 
-async function loadPantry() {
+async function loadPantry(sheet = 'Pantry') {
   try {
-    const res = await fetch(endpoint);
+    const res = await fetch(`${endpoint}?sheet=${encodeURIComponent(sheet)}`);
     pantryItems = await res.json();
     pantryItems.sort((a, b) => a.item.localeCompare(b.item));
     renderPantryList(pantryItems);
@@ -88,11 +76,10 @@ function renderPantryList(items) {
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
-            		<button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
-        style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
-  ✕
-</button>
-
+          <button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
+            style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
+            ✕
+          </button>
         </div>
       </div>
     `;
@@ -101,17 +88,16 @@ function renderPantryList(items) {
   });
 }
 
-
 function deleteItem(itemName) {
   if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
 
-  const url = `${endpoint}?action=delete&item=${encodeURIComponent(itemName)}`;
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=delete&item=${encodeURIComponent(itemName)}`;
   fetch(url)
     .then(res => res.json())
     .then(data => {
       if (data.success) {
         alert(`"${itemName}" deleted successfully.`);
-        loadPantry(); // optional: re-fetch your UI
+        loadPantry(currentSheet);
       } else {
         alert('Delete failed: ' + data.error);
       }
@@ -127,12 +113,12 @@ async function adjustItem(item, action) {
   const amount = Number(input.value);
   const validAmount = amount > 0 ? amount : 1;
 
-  const url = `${endpoint}?item=${encodeURIComponent(item)}&action=${action}&amount=${validAmount}`;
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&item=${encodeURIComponent(item)}&action=${action}&amount=${validAmount}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
     if (data.success) {
-      loadPantry();
+      loadPantry(currentSheet);
       input.value = '';
     } else {
       alert('Update failed: ' + data.error);
@@ -160,8 +146,7 @@ async function submitNewItem() {
     return;
   }
 
-  // Send to backend (adjust endpoint if needed)
-  const url = `${endpoint}?action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}`;
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
@@ -180,9 +165,8 @@ async function submitNewItem() {
   }
 }
 
-
 // Search input handling
-let pantryInterval = setInterval(loadPantry, 15000);
+let pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
 let resumeTimeout = null;
 
 document.getElementById('searchBox').addEventListener('input', function () {
@@ -195,7 +179,7 @@ document.getElementById('searchBox').addEventListener('input', function () {
   resumeTimeout = setTimeout(() => {
     searchBox.value = '';
     renderPantryList(pantryItems);
-    pantryInterval = setInterval(loadPantry, 15000);
+    pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
   }, 20000);
 
   if (!query) {
@@ -212,4 +196,4 @@ document.getElementById('searchBox').addEventListener('input', function () {
 });
 
 // Initial load
-loadPantry();
+loadPantry(currentSheet);
