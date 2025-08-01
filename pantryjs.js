@@ -14,7 +14,7 @@ let pantryItems = [];
     .then(data => {
       // Do something with the returned data (e.g., update the UI)
       console.log("Data from Google Sheet:", data);
-      displayItems(data); // replace with your rendering function
+      renderPantryList(data); // replace with your rendering function
     })
     .catch(error => {
       console.error("Error:", error);
