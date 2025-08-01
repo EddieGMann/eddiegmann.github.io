@@ -79,7 +79,7 @@ function renderPantryList(items) {
           <strong>${item}</strong><br />
           <em style="color: gray;">${category}</em><br />
           Quantity: <span id="qty-${item}">${quantity}</span><br />
-          ${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${formatDateToMonthDay(timestamp)}</span>` : ''}
+          ${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${(timestamp)}</span>` : ''}
 
 
         </div>
