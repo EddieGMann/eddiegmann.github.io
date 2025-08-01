@@ -16,6 +16,23 @@
 <div id="pantryList">Loading...</div>
 
 <script src="pantryjs.js"></script>
+
+<div id="addItemModal" class="modal">
+  <div class="modal-content">
+    <h3>Add Pantry Item</h3>
+    
+    <label for="newItemName">Item Name:</label>
+    <input type="text" id="newItemName" placeholder="e.g., Beans"><br><br>
+
+    <label for="newItemCategory">Category:</label>
+    <input type="text" id="newItemCategory" placeholder="e.g., Canned"><br><br>
+
+    <div style="display: flex; justify-content: space-between;">
+      <button onclick="submitNewItem()">Add New</button>
+      <button onclick="closeModal()" style="background-color: gray;">Cancel</button>
+    </div>
+  </div>
+</div>
   
 </body>
 </html>
