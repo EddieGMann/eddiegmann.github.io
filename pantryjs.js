@@ -53,42 +53,41 @@ function renderPantryList(items) {
   container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
   container.style.gap = '20px';
 
-  items.forEach(({ item, quantity, category }) => {
-    const div = document.createElement('div');
-    div.className = 'item';
-    div.style.border = '1px solid #ccc';
-    div.style.padding = '10px';
-    div.style.borderRadius = '12px';
+ items.forEach(({ item, quantity, category, timestamp }) => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  div.style.border = '1px solid #ccc';
+  div.style.padding = '10px';
+  div.style.borderRadius = '12px';
 
-    div.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <div style="text-align: left; width: 160px; word-wrap: break-word;">
-          <strong>${item}</strong><br />
-          <em style="color: gray;">${category}</em><br />
-          Quantity: <span id="qty-${item}">${quantity}</span><br />
-${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Last Added: ${timestamp}</span>` : ''}
-
-        </div>
-        <div style="text-align: center;">
-          <div style="display: flex; align-items: center;">
-            <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'add'); addClickEffect(this);"
-              style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
-            <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
-              style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
-          </div>
-          <input type="number" id="input-${item}" placeholder="Amount" min="1"
-            style="width: 75px; margin-top: 10px;" />
-          <button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
-            style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
-            ✕
-          </button>
-        </div>
+  div.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <div style="text-align: left; width: 160px; word-wrap: break-word;">
+        <strong>${item}</strong><br />
+        <em style="color: gray;">${category}</em><br />
+        Quantity: <span id="qty-${item}">${quantity}</span><br />
+        ${currentSheet === 'Fridge' && timestamp ? `<span style="font-size: 12px; color: #888;">Updated: ${timestamp}</span>` : ''}
       </div>
-    `;
+      <div style="text-align: center;">
+        <div style="display: flex; align-items: center;">
+          <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'add'); addClickEffect(this);"
+            style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
+          <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
+            style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
+        </div>
+        <input type="number" id="input-${item}" placeholder="Amount" min="1"
+          style="width: 75px; margin-top: 10px;" />
+        <button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
+          style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
+          ✕
+        </button>
+      </div>
+    </div>
+  `;
 
-    container.appendChild(div);
-  });
-}
+  container.appendChild(div);
+});
+
 
 function deleteItem(itemName) {
   if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
