@@ -7,11 +7,23 @@ let pantryItems = [];
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
   }
 
+
   function selectCategory(category) {
+    alert("Selected category: " + category);
     document.getElementById("categoryDropdown").style.display = "none";
     // You can replace the alert with your filtering logic
     // filterByCategory(category);
   }
+
+  // Optional: Hide dropdown if you click outside
+  document.addEventListener("click", function (event) {
+    const dropdown = document.getElementById("categoryDropdown");
+    const button = document.querySelector(".dropbtn");
+    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+
 
   // Optional: Hide dropdown if you click outside
   document.addEventListener("click", function (event) {
