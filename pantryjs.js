@@ -44,6 +44,8 @@ function formatDateToMonthDay(dateString) {
 async function loadPantry(sheet = 'Pantry') {
   try {
     const res = await fetch(`${endpoint}?sheet=${encodeURIComponent(sheet)}`);
+    document.getElementById('currentSheetLabel').textContent = currentSheet;
+
     pantryItems = await res.json();
     pantryItems.sort((a, b) => a.item.localeCompare(b.item));
     renderPantryList(pantryItems);
