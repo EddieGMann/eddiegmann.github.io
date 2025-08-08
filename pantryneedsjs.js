@@ -30,7 +30,6 @@ async function loadNeedsData() {
 
     tableBody.innerHTML = "";
     data.forEach(row => {
-     data.forEach(row => {
   const item = row.item ?? "";
   // Replace empty or falsy values with 0 for these numeric columns
   const current = (row.current === undefined || row.current === null || row.current === "") ? 0 : row.current;
