@@ -7,6 +7,17 @@ function toggleDropdown() {
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  let hash = window.location.hash;
+  if (hash) {
+    const category = hash.substring(1); // remove the '#' char
+    selectCategory(category);
+  } else {
+    selectCategory('Pantry'); // default category if no hash
+  }
+});
+
+
 function selectCategory(category) {
   currentSheet = category;
   document.getElementById("categoryDropdown").style.display = "none";
