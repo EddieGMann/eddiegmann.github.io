@@ -170,8 +170,13 @@ async function adjustItem(item, action) {
 }
 
 function addNewItem() {
+  populateCategorySelect('newItemCategory');
+  document.getElementById('newItemName').value = '';
+  document.getElementById('newItemQuantity').value = 1;
+  document.getElementById('newItemMinimum').value = 0;
   document.getElementById('addItemModal').style.display = 'block';
 }
+
 
 function closeModal() {
   document.getElementById('addItemModal').style.display = 'none';
