@@ -44,7 +44,6 @@ async function loadNeedsData() {
         <td>${styledNeeded}</td>
         <td>${minimum}</td>
         <td>${current}</td>
-        
       `;
       tableBody.appendChild(tr);
     });
