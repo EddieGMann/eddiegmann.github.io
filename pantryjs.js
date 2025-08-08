@@ -170,6 +170,9 @@ async function adjustItem(item, action) {
 }
 
 function addNewItem() {
+const title=document.getElementById('addItemModalTitle');
+  title.textContent = 'New ${currentSheet} Item';
+  
   document.getElementById('newItemName').value = '';
   document.getElementById('newItemQuantity').value = 1;
   document.getElementById('newItemMinimum').value = 0;
