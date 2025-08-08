@@ -51,3 +51,9 @@ fetch(`${endpoint}?sheet=${encodeURIComponent(sheetName)}`)
     document.querySelector("#needsList tbody").innerHTML = "<tr><td colspan='4'>Error loading data</td></tr>";
   });
 
+// Initial load
+loadNeedsData();
+
+// Refresh data every 15 seconds (15000 milliseconds)
+setInterval(loadNeedsData, 3000);
+
