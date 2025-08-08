@@ -1,22 +1,20 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbzeAOCFW1ICEIhFsgf5BXKeh9nGu1rEJOLQW2hxbdTgXn2KyYMN9hT42dW67OxcEJWK/exec';
 const sheetName = "Needs";
 
-// === Dropdown Logic ===
 function toggleDropdown() {
   document.getElementById("categoryDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.addEventListener("click", function(event) {
   if (!event.target.matches('.dropbtn')) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     for (let i = 0; i < dropdowns.length; i++) {
       let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
+      openDropdown.classList.remove("show");
     }
   }
-};
+});
+
 
 async function loadNeedsData() {
   try {
