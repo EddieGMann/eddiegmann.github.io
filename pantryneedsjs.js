@@ -1,3 +1,6 @@
+const endpoint = 'https://script.google.com/macros/s/AKfycbzeAOCFW1ICEIhFsgf5BXKeh9nGu1rEJOLQW2hxbdTgXn2KyYMN9hT42dW67OxcEJWK/exec';
+const sheetName = "Needs";
+
 // === Dropdown Logic ===
 function toggleDropdown() {
   document.getElementById("categoryDropdown").classList.toggle("show");
@@ -15,8 +18,7 @@ window.onclick = function(event) {
   }
 };
 
-const endpoint = 'https://script.google.com/macros/s/AKfycbzeAOCFW1ICEIhFsgf5BXKeh9nGu1rEJOLQW2hxbdTgXn2KyYMN9hT42dW67OxcEJWK/exec';
-const sheetName = "Needs";
+
 
 fetch(`${endpoint}?sheet=${encodeURIComponent(sheetName)}`)
   .then(res => res.json())
@@ -31,16 +33,19 @@ fetch(`${endpoint}?sheet=${encodeURIComponent(sheetName)}`)
     tableBody.innerHTML = "";
     data.forEach(row => {
   const item = row.item ?? "";
+      const needed = row.needed ?? "";
+const styledNeeded = `<span style="font-weight: bold; background-color: #F74902; padding: 2px 6px; border-radius: 4px;">${needed}</span>`;
   const current = row.current ?? "";
   const minimum = row.minimum ?? "";
-  const needed = row.needed ?? "";
+  
 
   const tr = document.createElement("tr");
-  tr.innerHTML = `
+  tr.innerHTML = `   
     <td>${item}</td>
+    <td>${styledNeeded}</td>
     <td>${current}</td>
     <td>${minimum}</td>
-    <td>${needed}</td>
+    
   `;
   tableBody.appendChild(tr);
 });
