@@ -115,10 +115,10 @@ input[type="number"] { width: 60px;
 
  /* Simple bullet-style table */
     #needsList {
-      width: 90%;
-      margin: 1rem auto;
+      width: 82%;
+      margin: .4rem auto;
       border-collapse: collapse;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
     #needsList th {
       text-align: left;
