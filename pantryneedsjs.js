@@ -52,6 +52,33 @@ async function loadNeedsData() {
   }
 }
 
+function printNeedsList() {
+  const tableBody = document.querySelector("#needsList tbody");
+  let rows = tableBody.querySelectorAll("tr");
+
+  // Create a new printable window
+  let printWindow = window.open("", "", "width=800,height=600");
+  printWindow.document.write("<html><head><title>Needs List</title></head><body>");
+  printWindow.document.write("<h2>Needs List</h2>");
+  printWindow.document.write("<table border='1' style='border-collapse: collapse; width: 100%;'>");
+  printWindow.document.write("<tr><th>Item</th><th>Needed</th></tr>");
+
+  rows.forEach(row => {
+    let cells = row.querySelectorAll("td");
+    if (cells.length >= 2) {
+      let item = cells[0].innerText;
+      let needed = cells[1].innerText;
+      printWindow.document.write(`<tr><td>${item}</td><td>${needed}</td></tr>`);
+    }
+  });
+
+  printWindow.document.write("</table>");
+  printWindow.document.write("</body></html>");
+  printWindow.document.close();
+  printWindow.print();
+}
+
+
 // Initial load
 loadNeedsData();
 
