@@ -46,7 +46,7 @@
     </div>
   </div>
 </div>
-  <div id="editItemModal" class="modal">
+<div id="editItemModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeEditModal()">&times;</span>
     <h3>Edit Pantry Item</h3>
@@ -56,9 +56,10 @@
     <input type="number" id="editItemQuantity" min="0" /><br /><br />
     <label for="editItemCategory">Category:</label>
     <input type="text" id="editItemCategory" /><br /><br />
-    <label for="editItemTimestamp">Timestamp:</label>
+    <label for="editItemMinimum">Minimum:</label>
+    <input type="number" id="editItemMinimum" min="0" /><br /><br />
     <button onclick="submitEditItem()">Save Changes</button>
-    <button onclick="closeEditModal()" style="background-color: gray;>Cancel</button>
+    <button onclick="closeEditModal()" style="background-color: gray;">Cancel</button>
   </div>
 </div>
 
