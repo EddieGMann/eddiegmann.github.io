@@ -1,4 +1,4 @@
-const endpoint = 'https://script.google.com/macros/s/AKfycbyVPXqQZqngGdUDttOe0MlBU6X_EO3SOdivp6a98e9Ca7P9NCBhlnjrtuKxHyjfQEQ/exec';
+const endpoint = 'https://script.google.com/macros/s/AKfycbznTUysuSqlylPLjkcdqbJ-6Hn61MrRhyDdWKmBqniumDLBtNSuznkeanaIxP7xoSo2/exec';
 let pantryItems = [];
 let currentSheet = 'Pantry'; // Default tab
 
@@ -90,16 +90,16 @@ function renderPantryList(items) {
               style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
             <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
               style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
+                        <button onclick="openEditModal('${item.replace(/'/g, "\\'")}', ${quantity}, '${category ? category.replace(/'/g, "\\'") : ''}', ${minimum !== undefined ? minimum : 0}); addClickEffect(this);" 
+            style="background-color:#F74902; color:white; border:none; border-radius:6px; padding:6px 12px; margin-left: 10px; cursor:pointer;">
+            Edit
+          </button>
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
           <button onclick="deleteItem('${item.replace(/'/g, "\\'")}'); addClickEffect(this);" 
             style="background-color: red; color: white; border: none; width: 18px; height: 18px; font-size: 10px; margin-left: 4px; cursor: pointer;">
             ✕
-          </button>
-          <button onclick="openEditModal('${item.replace(/'/g, "\\'")}', ${quantity}, '${category ? category.replace(/'/g, "\\'") : ''}', ${minimum !== undefined ? minimum : 0}); addClickEffect(this);" 
-            style="background-color:#007BFF; color:white; border:none; border-radius:6px; padding:6px 12px; margin-left: 10px; cursor:pointer;">
-            Edit
           </button>
         </div>
       </div>
