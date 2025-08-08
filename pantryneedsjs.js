@@ -30,21 +30,21 @@ fetch(`${endpoint}?sheet=${encodeURIComponent(sheetName)}`)
 
     tableBody.innerHTML = "";
     data.forEach(row => {
-      // Assuming your backend returns objects with keys: item, current, minimum, needed
-      const item = row.item || "";
-      const current = row.current || "";
-      const minimum = row.minimum || "";
-      const needed = row.needed || "";
+  const item = row.item ?? "";
+  const current = row.current ?? "";
+  const minimum = row.minimum ?? "";
+  const needed = row.needed ?? "";
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${item}</td>
-        <td>${current}</td>
-        <td>${minimum}</td>
-        <td>${needed}</td>
-      `;
-      tableBody.appendChild(tr);
-    });
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${item}</td>
+    <td>${current}</td>
+    <td>${minimum}</td>
+    <td>${needed}</td>
+  `;
+  tableBody.appendChild(tr);
+});
+
   })
   .catch(err => {
     console.error("Error fetching Needs sheet:", err);
