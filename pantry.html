@@ -32,7 +32,8 @@
 
 <script src="pantryjs.js"></script>
 
-<div id="addItemModal" style="display:none;">
+<div id="addItemModal" class="modal">
+  <div class="modal-content">
   <label>Item Name: <input type="text" id="newItemName" /></label><br />
   
   <label>Category: <input type="text" id="newItemCategory" /></label><br />
@@ -44,6 +45,8 @@
   <button onclick="submitNewItem()">Add Item</button>
   <button onclick="closeModal()">Cancel</button>
 </div>
+</div>
+
 
 <div id="editItemModal" class="modal">
   <div class="modal-content">
