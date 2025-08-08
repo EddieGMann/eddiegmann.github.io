@@ -92,6 +92,9 @@ input[type="number"] { width: 60px;
   z-index: 1;
 }
 
+.dropdown-content.show {
+  display: block;
+}
 .dropdown-content a {
   color: black;
   padding: 10px 14px;
@@ -108,9 +111,7 @@ input[type="number"] { width: 60px;
   background-color: #f0f0f0;
 }
 
-.dropdown-content.show {
-  display: block;
-}
+
 
  /* Simple bullet-style table */
     #needsList {
