@@ -203,7 +203,45 @@ async function submitNewItem() {
     alert("Error adding item.");
     console.error(error);
   }
+}async function submitNewItem() {
+  const item = document.getElementById('newItemName').value.trim();
+  const category = document.getElementById('newItemCategory').value.trim();
+  const quantity = Number(document.getElementById('newItemQuantity').value);
+  const minimum = Number(document.getElementById('newItemMinimum').value);
+
+  if (!item) {
+    alert("Item Name is required.");
+    return;
+  }
+  if (isNaN(quantity) || quantity < 0) {
+    alert("Quantity must be zero or more.");
+    return;
+  }
+  if (isNaN(minimum) || minimum < 0) {
+    alert("Minimum must be zero or more.");
+    return;
+  }
+
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
+  
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      pantryItems.push({ item, quantity, category, minimum });
+      pantryItems.sort((a, b) => a.item.localeCompare(b.item));
+      renderPantryList(pantryItems);
+      closeModal();
+    } else {
+      alert("Error: " + data.error);
+    }
+  } catch (error) {
+    alert("Error adding item.");
+    console.error(error);
+  }
 }
+
 
 // --------- Edit Modal related functions ---------
 
