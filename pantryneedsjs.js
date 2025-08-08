@@ -15,46 +15,39 @@ window.onclick = function(event) {
   }
 };
 
-// === Google Sheets Fetch ===
-// Replace with your actual spreadsheet ID and API key
-const sheetID = "Pantry";
-const apiKey = "https://script.google.com/macros/s/AKfycbznTUysuSqlylPLjkcdqbJ-6Hn61MrRhyDdWKmBqniumDLBtNSuznkeanaIxP7xoSo2/exec";
-const sheetName = "Needs"; // The tab name in your Google Sheet
+const endpoint = 'https://script.google.com/macros/s/AKfycbznTUysuSqlylPLjkcdqbJ-6Hn61MrRhyDdWKmBqniumDLBtNSuznkeanaIxP7xoSo2/exec';
+const sheetName = "Needs";
 
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}!A:D?key=${apiKey}`;
-
-fetch(url)
-  .then(response => response.json())
+fetch(`${endpoint}?sheet=${encodeURIComponent(sheetName)}`)
+  .then(res => res.json())
   .then(data => {
-    const values = data.values;
     const tableBody = document.querySelector("#needsList tbody");
 
-    if (!values || values.length < 2) {
+    if (!Array.isArray(data) || data.length === 0) {
       tableBody.innerHTML = "<tr><td colspan='4'>No data found</td></tr>";
       return;
     }
 
-    // Remove header row from the data
-    const rows = values.slice(1);
-
-    // Fill table
     tableBody.innerHTML = "";
-    rows.forEach(row => {
-      const [item, current, minimum, needed] = row;
+    data.forEach(row => {
+      // Assuming your backend returns objects with keys: item, current, minimum, needed
+      const item = row.item || "";
+      const current = row.current || "";
+      const minimum = row.minimum || "";
+      const needed = row.needed || "";
+
       const tr = document.createElement("tr");
-
       tr.innerHTML = `
-        <td>${item || ""}</td>
-        <td>${current || ""}</td>
-        <td>${minimum || ""}</td>
-        <td>${needed || ""}</td>
+        <td>${item}</td>
+        <td>${current}</td>
+        <td>${minimum}</td>
+        <td>${needed}</td>
       `;
-
       tableBody.appendChild(tr);
     });
   })
   .catch(err => {
     console.error("Error fetching Needs sheet:", err);
-    document.querySelector("#needsList tbody").innerHTML = 
-      "<tr><td colspan='4'>Error loading data</td></tr>";
+    document.querySelector("#needsList tbody").innerHTML = "<tr><td colspan='4'>Error loading data</td></tr>";
   });
+
