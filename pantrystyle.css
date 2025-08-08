@@ -113,7 +113,7 @@ input[type="number"] { width: 60px;
       width: 90%;
       margin: 1rem auto;
       border-collapse: collapse;
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
     #needsList th {
       text-align: left;
