@@ -17,8 +17,8 @@ window.onclick = function(event) {
 
 // === Google Sheets Fetch ===
 // Replace with your actual spreadsheet ID and API key
-const sheetID = "YOUR_SHEET_ID";
-const apiKey = "YOUR_API_KEY";
+const sheetID = "Pantry";
+const apiKey = "https://script.google.com/macros/s/AKfycbznTUysuSqlylPLjkcdqbJ-6Hn61MrRhyDdWKmBqniumDLBtNSuznkeanaIxP7xoSo2/exec";
 const sheetName = "Needs"; // The tab name in your Google Sheet
 
 const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}!A:D?key=${apiKey}`;
