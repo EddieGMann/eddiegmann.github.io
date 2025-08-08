@@ -91,6 +91,11 @@ function renderPantryList(items) {
               style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
             <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
               style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
+              <button onclick="openEditModal('${item.replace(/'/g, "\\'")}', ${quantity}, '${category.replace(/'/g, "\\'")}', '${timestamp || ''}'); addClickEffect(this);" 
+        style="margin-left:10px; background-color:#007BFF; color:white; border:none; border-radius:6px; padding:6px 12px; cursor:pointer;">
+  Edit
+</button>
+
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
@@ -212,6 +217,65 @@ document.getElementById('searchBox').addEventListener('input', function () {
 
   renderPantryList(filtered);
 });
+
+function openEditModal(item, quantity, category, timestamp) {
+  const modal = document.getElementById('editItemModal');
+
+  modal.style.display = 'block';
+
+  // Pre-fill inputs
+  document.getElementById('editItemName').value = item;
+  document.getElementById('editItemQuantity').value = quantity;
+  document.getElementById('editItemCategory').value = category;
+
+  // Store original item name in a data attribute to handle renaming
+  modal.setAttribute('data-original-item', item);
+}
+
+function closeEditModal() {
+  document.getElementById('editItemModal').style.display = 'none';
+}
+
+async function submitEditItem() {
+  const modal = document.getElementById('editItemModal');
+  const originalItem = modal.getAttribute('data-original-item');
+
+  const newItem = document.getElementById('editItemName').value.trim();
+  const newQuantity = Number(document.getElementById('editItemQuantity').value);
+  const newCategory = document.getElementById('editItemCategory').value.trim();
+  const newTimestamp = document.getElementById('editItemTimestamp').value.trim();
+
+  if (!newItem) {
+    alert('Item name cannot be empty.');
+    return;
+  }
+  if (isNaN(newQuantity) || newQuantity < 0) {
+    alert('Quantity must be zero or a positive number.');
+    return;
+  }
+
+  try {
+    // Example API call, you need to add support for 'edit' action in your backend
+    const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=edit&originalItem=${encodeURIComponent(originalItem)}&item=${encodeURIComponent(newItem)}&quantity=${newQuantity}&category=${encodeURIComponent(newCategory)}&timestamp=${encodeURIComponent(newTimestamp)}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      alert('Item updated successfully.');
+      loadPantry(currentSheet);
+      closeEditModal();
+    } else {
+      alert('Update failed: ' + data.error);
+    }
+  } catch (error) {
+    alert('Error updating item.');
+    console.error(error);
+  }
+}
+
+
+
 
 // Initial load
 loadPantry(currentSheet);
