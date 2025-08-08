@@ -36,7 +36,7 @@ async function loadNeedsData() {
   const current = (row.current === undefined || row.current === null || row.current === "") ? 0 : row.current;
   const minimum = (row.minimum === undefined || row.minimum === null || row.minimum === "") ? 0 : row.minimum;
   const needed = (row.needed === undefined || row.needed === null || row.needed === "") ? 0 : row.needed;
-      const styledNeeded = `<span style="font-weight: bold; background-color: #F74902; padding: 2px 6px; border-radius: 4px;">${needed}</span>`;
+      const styledNeeded = `<span style="font-weight: bold; color: #F74902; padding: 2px 6px; border-radius: 4px;">${needed}</span>`;
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
