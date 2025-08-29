@@ -1,7 +1,6 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbyyltTFmNtNJ5i4C69MMLFdgl7VMV_DK0eH3C4E-0eIisL7f67-5p7Y_vyX0VVZIJVE/exec';
 let pantryItems = [];
 let currentSheet = 'Pantry'; // Default tab
-let pantryInterval = null;
 
 // Utility to sanitize item names for IDs
 function safeId(item) {
@@ -14,50 +13,13 @@ function toggleDropdown() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if (hash) {
-    selectCategory(hash.substring(1));
-  } else {
-    selectCategory('Pantry');
-  }
-
-  // Start auto-refresh
-  pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
-
-  // Set up search
-  const searchBox = document.getElementById('searchBox');
-  let resumeTimeout = null;
-
-  searchBox.addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-
-    // Pause auto-refresh while searching
-    clearInterval(pantryInterval);
-    if (resumeTimeout) clearTimeout(resumeTimeout);
-
-    resumeTimeout = setTimeout(() => {
-      this.value = '';
-      renderPantryList(pantryItems);
-      pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
-    }, 20000);
-
-    if (!query) {
-      renderPantryList(pantryItems);
-      return;
-    }
-
-    const filtered = pantryItems.filter(({ item, category }) =>
-      item.toLowerCase().includes(query) ||
-      (category && category.toLowerCase().includes(query))
-    );
-
-    renderPantryList(filtered);
-  });
+  let hash = window.location.hash;
+  if (hash) selectCategory(hash.substring(1));
+  else selectCategory('Pantry');
 });
 
 window.addEventListener('hashchange', () => {
-  const hash = window.location.hash;
-  if (hash) selectCategory(hash.substring(1));
+  if (window.location.hash) selectCategory(window.location.hash.substring(1));
 });
 
 function selectCategory(category) {
@@ -91,13 +53,12 @@ function formatDateToMonthDay(dateString) {
   return `${month} ${day}${suffix}`;
 }
 
-// -------- Load Pantry --------
 async function loadPantry(sheet = 'Pantry') {
   try {
     const res = await fetch(`${endpoint}?sheet=${encodeURIComponent(sheet)}`);
+    document.getElementById('currentSheetLabel').textContent = currentSheet;
     pantryItems = await res.json();
     pantryItems.sort((a, b) => a.item.localeCompare(b.item));
-    document.getElementById('currentSheetLabel').textContent = currentSheet;
     renderPantryList(pantryItems);
   } catch (error) {
     document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
@@ -105,7 +66,6 @@ async function loadPantry(sheet = 'Pantry') {
   }
 }
 
-// -------- Render Pantry List --------
 function renderPantryList(items) {
   const container = document.getElementById('pantryList');
   container.innerHTML = '';
@@ -113,7 +73,6 @@ function renderPantryList(items) {
     container.textContent = 'No items match your search.';
     return;
   }
-
   container.style.display = 'grid';
   container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
   container.style.gap = '20px';
@@ -143,12 +102,7 @@ function renderPantryList(items) {
               style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
             <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
               style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
-            <button onclick="openEditModal(
-                      '${item.replace(/'/g, "\\'")}', 
-                      ${displayQuantity}, 
-                      '${category ? category.replace(/'/g, "\\'") : ''}', 
-                      ${displayMinimum}
-                    ); addClickEffect(this);"
+            <button onclick="openEditModal('${item.replace(/'/g, "\\'")}', ${displayQuantity}, '${category ? category.replace(/'/g, "\\'") : ''}', ${displayMinimum}); addClickEffect(this);"
               style="background-color:#F74902; color:white; border:none; border-radius:6px; padding:6px 12px; margin-left: 10px; cursor:pointer;">
               Edit
             </button>
@@ -163,7 +117,6 @@ function renderPantryList(items) {
   });
 }
 
-// -------- Adjust Item Quantity --------
 async function adjustItem(item, action) {
   const id = safeId(item);
   const input = document.getElementById(`input-${id}`);
@@ -186,16 +139,21 @@ async function adjustItem(item, action) {
     console.error(error);
   }
 }
+
 function addNewItem() {
   const title = document.getElementById('addItemModalTitle');
   title.textContent = `New ${currentSheet} Item`;
 
   document.getElementById('newItemName').value = '';
-  document.getElementById('newItemQuantity').value = 0; // default to 0
+  document.getElementById('newItemQuantity').value = 0;
   document.getElementById('newItemMinimum').value = 0;
   document.getElementById('newItemCategory').value = '';
 
   document.getElementById('addItemModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('addItemModal').style.display = 'none';
 }
 
 async function submitNewItem() {
@@ -207,17 +165,13 @@ async function submitNewItem() {
   const quantity = isNaN(quantityInput) || quantityInput < 0 ? 0 : quantityInput;
   const minimum = isNaN(minimumInput) || minimumInput < 0 ? 0 : minimumInput;
 
-  if (!item) {
-    alert("Item Name is required.");
-    return;
-  }
+  if (!item) { alert("Item Name is required."); return; }
 
   const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
-
     if (data.success) {
       pantryItems.push({ item, quantity, category, minimum });
       pantryItems.sort((a, b) => a.item.localeCompare(b.item));
@@ -232,7 +186,7 @@ async function submitNewItem() {
   }
 }
 
-// -------- Edit Modal --------
+// --------- Edit Modal ---------
 function openEditModal(item, quantity, category, minimum) {
   const modal = document.getElementById('editItemModal');
   modal.style.display = 'block';
@@ -266,7 +220,6 @@ async function submitEditItem() {
     const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=edit&originalItem=${encodeURIComponent(originalItem)}&item=${encodeURIComponent(newItem)}&quantity=${newQuantity}&category=${encodeURIComponent(newCategory)}&minimum=${newMinimum}`;
     const res = await fetch(url);
     const data = await res.json();
-
     if (data.success) {
       alert('Item updated successfully.');
       loadPantry(currentSheet);
@@ -280,21 +233,46 @@ async function submitEditItem() {
   }
 }
 
-// -------- Delete Item --------
-async function deleteItem(itemName) {
+// --------- Delete Item ---------
+function deleteItem(itemName) {
   if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
-
   const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=delete&item=${encodeURIComponent(itemName)}`;
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.success) {
-      loadPantry(currentSheet);
-    } else {
-      alert('Delete failed: ' + data.error);
-    }
-  } catch (error) {
-    alert('Something went wrong.');
-    console.error('Delete error:', error);
-  }
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) loadPantry(currentSheet);
+      else alert('Delete failed: ' + data.error);
+    })
+    .catch(err => {
+      alert('Something went wrong.');
+      console.error(err);
+    });
 }
+
+// --------- Search Handling ---------
+let pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
+let resumeTimeout = null;
+
+document.getElementById('searchBox').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  clearInterval(pantryInterval);
+  if (resumeTimeout) clearTimeout(resumeTimeout);
+
+  resumeTimeout = setTimeout(() => {
+    this.value = '';
+    renderPantryList(pantryItems);
+    pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
+  }, 20000);
+
+  if (!query) return renderPantryList(pantryItems);
+
+  const filtered = pantryItems.filter(({ item, category }) =>
+    item.toLowerCase().includes(query) ||
+    (category && category.toLowerCase().includes(query))
+  );
+
+  renderPantryList(filtered);
+});
+
+// Initial load
+loadPantry(currentSheet);
