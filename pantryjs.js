@@ -1,46 +1,20 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbyyltTFmNtNJ5i4C69MMLFdgl7VMV_DK0eH3C4E-0eIisL7f67-5p7Y_vyX0VVZIJVE/exec';
 let pantryItems = [];
-let currentSheet = 'Pantry'; // Default tab
+let currentSheet = 'Pantry'; // default
 
-// Utility to sanitize item names for IDs
+// Sanitize item names for element IDs
 function safeId(item) {
   return item.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
 }
 
+// Dropdown toggle
 function toggleDropdown() {
   const dropdown = document.getElementById("categoryDropdown");
   dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Only select default if hash is empty
-  if (!window.location.hash) {
-    selectCategory('Pantry');
-  } else {
-    // If hash exists, use it
-    const category = window.location.hash.substring(1);
-    selectCategory(category);
-  }
-});
-
-// Handle hash changes (e.g., user clicks dropdown links)
-window.addEventListener('hashchange', () => {
-  const hash = window.location.hash;
-  if (hash) {
-    const category = hash.substring(1);
-    selectCategory(category);
-  }
-});
-
-
-
-function selectCategory(category) {
-  currentSheet = category;
-  document.getElementById("categoryDropdown").style.display = "none";
-  loadPantry(currentSheet);
-}
-
-document.addEventListener("click", function (event) {
+// Click outside dropdown to close
+document.addEventListener("click", function(event) {
   const dropdown = document.getElementById("categoryDropdown");
   const button = document.querySelector(".dropbtn");
   if (!dropdown.contains(event.target) && !button.contains(event.target)) {
@@ -48,11 +22,13 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// Click animation
 function addClickEffect(button) {
   button.classList.add("click-effect");
   setTimeout(() => button.classList.remove("click-effect"), 150);
 }
 
+// Format dates
 function formatDateToMonthDay(dateString) {
   const date = new Date(dateString);
   if (isNaN(date)) return '';
@@ -65,6 +41,7 @@ function formatDateToMonthDay(dateString) {
   return `${month} ${day}${suffix}`;
 }
 
+// Load pantry from endpoint
 async function loadPantry(sheet = 'Pantry') {
   try {
     const res = await fetch(`${endpoint}?sheet=${encodeURIComponent(sheet)}`);
@@ -78,6 +55,7 @@ async function loadPantry(sheet = 'Pantry') {
   }
 }
 
+// Render pantry items
 function renderPantryList(items) {
   const container = document.getElementById('pantryList');
   container.innerHTML = '';
@@ -129,6 +107,7 @@ function renderPantryList(items) {
   });
 }
 
+// Adjust quantity with +/- buttons
 async function adjustItem(item, action) {
   const id = safeId(item);
   const input = document.getElementById(`input-${id}`);
@@ -141,7 +120,7 @@ async function adjustItem(item, action) {
     const res = await fetch(url);
     const data = await res.json();
     if (data.success) {
-      loadPantry(currentSheet);
+      await loadPantry(currentSheet);
       input.value = '';
     } else {
       alert('Update failed: ' + data.error);
@@ -152,30 +131,23 @@ async function adjustItem(item, action) {
   }
 }
 
+// New Item modal
 function addNewItem() {
-  const title = document.getElementById('addItemModalTitle');
-  title.textContent = `New ${currentSheet} Item`;
-
+  document.getElementById('addItemModalTitle').textContent = `New ${currentSheet} Item`;
   document.getElementById('newItemName').value = '';
+  document.getElementById('newItemCategory').value = '';
   document.getElementById('newItemQuantity').value = 0;
   document.getElementById('newItemMinimum').value = 0;
-  document.getElementById('newItemCategory').value = '';
-
   document.getElementById('addItemModal').style.display = 'block';
 }
-
 function closeModal() {
   document.getElementById('addItemModal').style.display = 'none';
 }
-
 async function submitNewItem() {
   const item = document.getElementById('newItemName').value.trim();
   const category = document.getElementById('newItemCategory').value.trim();
-  const quantityInput = Number(document.getElementById('newItemQuantity').value);
-  const minimumInput = Number(document.getElementById('newItemMinimum').value);
-
-  const quantity = isNaN(quantityInput) || quantityInput < 0 ? 0 : quantityInput;
-  const minimum = isNaN(minimumInput) || minimumInput < 0 ? 0 : minimumInput;
+  const quantity = Number(document.getElementById('newItemQuantity').value) || 0;
+  const minimum = Number(document.getElementById('newItemMinimum').value) || 0;
 
   if (!item) { alert("Item Name is required."); return; }
 
@@ -183,38 +155,24 @@ async function submitNewItem() {
     const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
     const res = await fetch(url);
     const data = await res.json();
-
     if (data.success) {
-      // Reload the pantry from server instead of pushing manually
       await loadPantry(currentSheet);
       closeModal();
-    } else {
-      alert("Error adding item: " + data.error);
-    }
-  } catch (error) {
-    alert("Error adding item.");
-    console.error(error);
-  }
+    } else alert("Error adding item: " + data.error);
+  } catch (err) { alert("Error adding item."); console.error(err); }
 }
 
-
-// --------- Edit Modal ---------
+// Edit Item modal
 function openEditModal(item, quantity, category, minimum) {
   const modal = document.getElementById('editItemModal');
   modal.style.display = 'block';
-
   document.getElementById('editItemName').value = item;
   document.getElementById('editItemQuantity').value = Number(quantity) || 0;
   document.getElementById('editItemCategory').value = category || '';
   document.getElementById('editItemMinimum').value = Number(minimum) || 0;
-
   modal.setAttribute('data-original-item', item);
 }
-
-function closeEditModal() {
-  document.getElementById('editItemModal').style.display = 'none';
-}
-
+function closeEditModal() { document.getElementById('editItemModal').style.display = 'none'; }
 async function submitEditItem() {
   const modal = document.getElementById('editItemModal');
   const originalItem = modal.getAttribute('data-original-item');
@@ -232,40 +190,26 @@ async function submitEditItem() {
     const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=edit&originalItem=${encodeURIComponent(originalItem)}&item=${encodeURIComponent(newItem)}&quantity=${newQuantity}&category=${encodeURIComponent(newCategory)}&minimum=${newMinimum}`;
     const res = await fetch(url);
     const data = await res.json();
-    if (data.success) {
-      alert('Item updated successfully.');
-      loadPantry(currentSheet);
-      closeEditModal();
-    } else {
-      alert('Update failed: ' + data.error);
-    }
-  } catch (error) {
-    alert('Error updating item.');
-    console.error(error);
-  }
+    if (data.success) { await loadPantry(currentSheet); closeEditModal(); }
+    else alert('Update failed: ' + data.error);
+  } catch (err) { alert('Error updating item.'); console.error(err); }
 }
 
-// --------- Delete Item ---------
+// Delete item
 function deleteItem(itemName) {
   if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
   const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=delete&item=${encodeURIComponent(itemName)}`;
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) loadPantry(currentSheet);
-      else alert('Delete failed: ' + data.error);
-    })
-    .catch(err => {
-      alert('Something went wrong.');
-      console.error(err);
-    });
+  fetch(url).then(res => res.json()).then(data => {
+    if (data.success) loadPantry(currentSheet);
+    else alert('Delete failed: ' + data.error);
+  }).catch(err => { alert('Something went wrong.'); console.error(err); });
 }
 
-// --------- Search Handling ---------
+// Search handling
 let pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
 let resumeTimeout = null;
 
-document.getElementById('searchBox').addEventListener('input', function () {
+document.getElementById('searchBox').addEventListener('input', function() {
   const query = this.value.trim().toLowerCase();
   clearInterval(pantryInterval);
   if (resumeTimeout) clearTimeout(resumeTimeout);
@@ -279,12 +223,22 @@ document.getElementById('searchBox').addEventListener('input', function () {
   if (!query) return renderPantryList(pantryItems);
 
   const filtered = pantryItems.filter(({ item, category }) =>
-    item.toLowerCase().includes(query) ||
-    (category && category.toLowerCase().includes(query))
+    item.toLowerCase().includes(query) || (category && category.toLowerCase().includes(query))
   );
-
   renderPantryList(filtered);
 });
 
-// Initial load
-loadPantry(currentSheet);
+// --------- Handle hash changes ---------
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const category = hash.substring(1);
+    selectCategory(category);
+  }
+});
+
+// Initial load: if hash exists, use it; else default
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.hash) selectCategory(window.location.hash.substring(1));
+  else selectCategory('Pantry');
+});
