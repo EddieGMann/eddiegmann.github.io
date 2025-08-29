@@ -167,15 +167,14 @@ async function submitNewItem() {
 
   if (!item) { alert("Item Name is required."); return; }
 
-  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
-
   try {
+    const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
     const res = await fetch(url);
     const data = await res.json();
+
     if (data.success) {
-      pantryItems.push({ item, quantity, category, minimum });
-      pantryItems.sort((a, b) => a.item.localeCompare(b.item));
-      renderPantryList(pantryItems);
+      // Reload the pantry from server instead of pushing manually
+      await loadPantry(currentSheet);
       closeModal();
     } else {
       alert("Error adding item: " + data.error);
@@ -185,6 +184,7 @@ async function submitNewItem() {
     console.error(error);
   }
 }
+
 
 // --------- Edit Modal ---------
 function openEditModal(item, quantity, category, minimum) {
