@@ -10,14 +10,15 @@
 <body>
 <div class="dropdown">
   <button class="dropbtn" onclick="toggleDropdown()">☰</button>
-  <div class="dropdown-content" id="categoryDropdown">
-    <a href="#Pantry">Pantry</a>
-    <a href="#Freezer">Freezer</a>
-    <a href="#Fridge">Fridge</a>
-    <a href="#Toiletries">Toiletries</a>
-    <a href="#Garage">Garage</a>
-    <a href="pantryneeds.html">Needs</a>
-  </div>
+<div class="dropdown-content" id="categoryDropdown">
+  <a href="#Pantry" onclick="selectCategory('Pantry'); toggleDropdown();">Pantry</a>
+  <a href="#Freezer" onclick="selectCategory('Freezer'); toggleDropdown();">Freezer</a>
+  <a href="#Fridge" onclick="selectCategory('Fridge'); toggleDropdown();">Fridge</a>
+  <a href="#Toiletries" onclick="selectCategory('Toiletries'); toggleDropdown();">Toiletries</a>
+  <a href="#Garage" onclick="selectCategory('Garage'); toggleDropdown();">Garage</a>
+  <a href="pantryneeds.html">Needs</a>
+</div>
+
 </div>
 
 
