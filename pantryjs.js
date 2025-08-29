@@ -186,6 +186,51 @@ async function adjustItem(item, action) {
     console.error(error);
   }
 }
+function addNewItem() {
+  const title = document.getElementById('addItemModalTitle');
+  title.textContent = `New ${currentSheet} Item`;
+
+  document.getElementById('newItemName').value = '';
+  document.getElementById('newItemQuantity').value = 0; // default to 0
+  document.getElementById('newItemMinimum').value = 0;
+  document.getElementById('newItemCategory').value = '';
+
+  document.getElementById('addItemModal').style.display = 'block';
+}
+
+async function submitNewItem() {
+  const item = document.getElementById('newItemName').value.trim();
+  const category = document.getElementById('newItemCategory').value.trim();
+  const quantityInput = Number(document.getElementById('newItemQuantity').value);
+  const minimumInput = Number(document.getElementById('newItemMinimum').value);
+
+  const quantity = isNaN(quantityInput) || quantityInput < 0 ? 0 : quantityInput;
+  const minimum = isNaN(minimumInput) || minimumInput < 0 ? 0 : minimumInput;
+
+  if (!item) {
+    alert("Item Name is required.");
+    return;
+  }
+
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=addNew&item=${encodeURIComponent(item)}&category=${encodeURIComponent(category)}&quantity=${quantity}&minimum=${minimum}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      pantryItems.push({ item, quantity, category, minimum });
+      pantryItems.sort((a, b) => a.item.localeCompare(b.item));
+      renderPantryList(pantryItems);
+      closeModal();
+    } else {
+      alert("Error adding item: " + data.error);
+    }
+  } catch (error) {
+    alert("Error adding item.");
+    console.error(error);
+  }
+}
 
 // -------- Edit Modal --------
 function openEditModal(item, quantity, category, minimum) {
