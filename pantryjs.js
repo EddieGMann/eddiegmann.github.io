@@ -236,6 +236,12 @@ window.addEventListener('hashchange', () => {
     selectCategory(category);
   }
 });
+// Switch to a category (from menu or hash)
+function selectCategory(category) {
+  currentSheet = category;
+  window.location.hash = category; // update the hash so refresh keeps the page
+  loadPantry(currentSheet);
+}
 
 // Initial load: if hash exists, use it; else default
 document.addEventListener("DOMContentLoaded", () => {
