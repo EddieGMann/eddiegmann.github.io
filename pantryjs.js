@@ -109,10 +109,18 @@ function renderPantryList(items) {
               style="background-image: linear-gradient(#F74902, #F74910); margin-right: 10px; border-radius: 12px; color:black; width: 55px; height: 55px; font-size: 24px;">+</button>
             <button onclick="adjustItem('${item.replace(/'/g, "\\'")}', 'subtract'); addClickEffect(this);"
               style="background-color: black; color:#F74902; width: 55px; height: 55px; font-size: 32px; padding-bottom: 5px; border-radius: 12px;">-</button>
-                        <button onclick="openEditModal('${item.replace(/'/g, "\\'")}', ${quantity}, '${category ? category.replace(/'/g, "\\'") : ''}', ${minimum !== undefined ? minimum : 0}); addClickEffect(this);" 
-            style="background-color:#F74902; color:white; border:none; border-radius:6px; padding:6px 12px; margin-left: 10px; cursor:pointer;">
-            Edit
-          </button>
+                       <button 
+  onclick="openEditModal(
+              '${item.replace(/'/g, "\\'")}', 
+              ${(quantity != null && !isNaN(quantity)) ? quantity : 0}, 
+              '${category ? category.replace(/'/g, "\\'") : ''}', 
+              ${(minimum != null && !isNaN(minimum)) ? minimum : 0}
+           ); 
+           addClickEffect(this);" 
+  style="background-color:#F74902; color:white; border:none; border-radius:6px; padding:6px 12px; margin-left: 10px; cursor:pointer;">
+  Edit
+</button>
+
           </div>
           <input type="number" id="input-${item}" placeholder="Amount" min="1"
             style="width: 75px; margin-top: 10px;" />
