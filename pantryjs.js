@@ -129,6 +129,32 @@ function renderPantryList(items) {
   });
 }
 
+async function adjustItem(item, action) {
+  const id = safeId(item); // use sanitized ID
+  const input = document.getElementById(`input-${id}`);
+  const amount = Number(input.value);
+
+  // If the input is empty, zero, or NaN, default to 1
+  const validAmount = amount > 0 ? amount : 1;
+
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&item=${encodeURIComponent(item)}&action=${action}&amount=${validAmount}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.success) {
+      loadPantry(currentSheet);
+      input.value = ''; // clear input after update
+    } else {
+      alert('Update failed: ' + data.error);
+    }
+  } catch (error) {
+    alert('Failed to update item.');
+    console.error(error);
+  }
+}
+
+
 function openEditModal(item, quantity, category, minimum) {
   const modal = document.getElementById('editItemModal');
   modal.style.display = 'block';
