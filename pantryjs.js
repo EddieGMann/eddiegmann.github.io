@@ -1,6 +1,7 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbyyltTFmNtNJ5i4C69MMLFdgl7VMV_DK0eH3C4E-0eIisL7f67-5p7Y_vyX0VVZIJVE/exec';
 let pantryItems = [];
 let currentSheet = 'Pantry'; // Default tab
+let pantryInterval = null;
 
 // Utility to sanitize item names for IDs
 function safeId(item) {
@@ -13,20 +14,50 @@ function toggleDropdown() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let hash = window.location.hash;
+  const hash = window.location.hash;
   if (hash) {
-    const category = hash.substring(1);
-    selectCategory(category);
+    selectCategory(hash.substring(1));
   } else {
     selectCategory('Pantry');
   }
+
+  // Start auto-refresh
+  pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
+
+  // Set up search
+  const searchBox = document.getElementById('searchBox');
+  let resumeTimeout = null;
+
+  searchBox.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+
+    // Pause auto-refresh while searching
+    clearInterval(pantryInterval);
+    if (resumeTimeout) clearTimeout(resumeTimeout);
+
+    resumeTimeout = setTimeout(() => {
+      this.value = '';
+      renderPantryList(pantryItems);
+      pantryInterval = setInterval(() => loadPantry(currentSheet), 15000);
+    }, 20000);
+
+    if (!query) {
+      renderPantryList(pantryItems);
+      return;
+    }
+
+    const filtered = pantryItems.filter(({ item, category }) =>
+      item.toLowerCase().includes(query) ||
+      (category && category.toLowerCase().includes(query))
+    );
+
+    renderPantryList(filtered);
+  });
 });
 
 window.addEventListener('hashchange', () => {
   const hash = window.location.hash;
-  if (hash) {
-    selectCategory(hash.substring(1));
-  }
+  if (hash) selectCategory(hash.substring(1));
 });
 
 function selectCategory(category) {
@@ -60,12 +91,13 @@ function formatDateToMonthDay(dateString) {
   return `${month} ${day}${suffix}`;
 }
 
+// -------- Load Pantry --------
 async function loadPantry(sheet = 'Pantry') {
   try {
     const res = await fetch(`${endpoint}?sheet=${encodeURIComponent(sheet)}`);
-    document.getElementById('currentSheetLabel').textContent = currentSheet;
     pantryItems = await res.json();
     pantryItems.sort((a, b) => a.item.localeCompare(b.item));
+    document.getElementById('currentSheetLabel').textContent = currentSheet;
     renderPantryList(pantryItems);
   } catch (error) {
     document.getElementById('pantryList').textContent = 'Failed to load pantry data.';
@@ -73,6 +105,7 @@ async function loadPantry(sheet = 'Pantry') {
   }
 }
 
+// -------- Render Pantry List --------
 function renderPantryList(items) {
   const container = document.getElementById('pantryList');
   container.innerHTML = '';
@@ -80,6 +113,7 @@ function renderPantryList(items) {
     container.textContent = 'No items match your search.';
     return;
   }
+
   container.style.display = 'grid';
   container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
   container.style.gap = '20px';
@@ -129,12 +163,11 @@ function renderPantryList(items) {
   });
 }
 
+// -------- Adjust Item Quantity --------
 async function adjustItem(item, action) {
-  const id = safeId(item); // use sanitized ID
+  const id = safeId(item);
   const input = document.getElementById(`input-${id}`);
   const amount = Number(input.value);
-
-  // If the input is empty, zero, or NaN, default to 1
   const validAmount = amount > 0 ? amount : 1;
 
   const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&item=${encodeURIComponent(item)}&action=${action}&amount=${validAmount}`;
@@ -144,7 +177,7 @@ async function adjustItem(item, action) {
     const data = await res.json();
     if (data.success) {
       loadPantry(currentSheet);
-      input.value = ''; // clear input after update
+      input.value = '';
     } else {
       alert('Update failed: ' + data.error);
     }
@@ -154,7 +187,7 @@ async function adjustItem(item, action) {
   }
 }
 
-
+// -------- Edit Modal --------
 function openEditModal(item, quantity, category, minimum) {
   const modal = document.getElementById('editItemModal');
   modal.style.display = 'block';
@@ -199,5 +232,24 @@ async function submitEditItem() {
   } catch (error) {
     alert('Error updating item.');
     console.error(error);
+  }
+}
+
+// -------- Delete Item --------
+async function deleteItem(itemName) {
+  if (!confirm(`Are you sure you want to delete "${itemName}"?`)) return;
+
+  const url = `${endpoint}?sheet=${encodeURIComponent(currentSheet)}&action=delete&item=${encodeURIComponent(itemName)}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.success) {
+      loadPantry(currentSheet);
+    } else {
+      alert('Delete failed: ' + data.error);
+    }
+  } catch (error) {
+    alert('Something went wrong.');
+    console.error('Delete error:', error);
   }
 }
