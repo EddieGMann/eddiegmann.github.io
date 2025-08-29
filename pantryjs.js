@@ -13,14 +13,16 @@ function toggleDropdown() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let hash = window.location.hash;
-  if (hash) selectCategory(hash.substring(1));
-  else selectCategory('Pantry');
+  // Only select default if hash is empty
+  if (!window.location.hash) {
+    selectCategory('Pantry');
+  } else {
+    // If hash exists, use it
+    const category = window.location.hash.substring(1);
+    selectCategory(category);
+  }
 });
 
-window.addEventListener('hashchange', () => {
-  if (window.location.hash) selectCategory(window.location.hash.substring(1));
-});
 
 function selectCategory(category) {
   currentSheet = category;
