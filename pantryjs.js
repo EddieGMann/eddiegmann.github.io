@@ -23,6 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Handle hash changes (e.g., user clicks dropdown links)
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const category = hash.substring(1);
+    selectCategory(category);
+  }
+});
+
+
 
 function selectCategory(category) {
   currentSheet = category;
