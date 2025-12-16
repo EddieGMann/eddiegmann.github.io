@@ -59,6 +59,31 @@
     style="width:100%; max-width:400px; padding:8px;"
   />
 
+  <!-- Edit Recipe Modal -->
+<div id="editRecipeModal" class="modal">
+  <div class="modal-content">
+    <span id="closeEditModal" class="close">&times;</span>
+    <h3>Edit Recipe</h3>
+
+    <input type="hidden" id="editRow">
+
+    <label for="editName">Name:</label>
+    <input type="text" id="editName" />
+
+    <label for="editIngredients">Ingredients:</label>
+    <textarea id="editIngredients" rows="5"></textarea>
+
+    <label for="editDirections">Directions:</label>
+    <textarea id="editDirections" rows="5"></textarea>
+
+    <label for="editTags">Tags:</label>
+    <input type="text" id="editTags" />
+
+    <button id="submitEditRecipe">Save Changes</button>
+  </div>
+</div>
+
+
   <!-- Where recipe cards will be injected -->
   <div id="recipeList">Loading...</div>
 
