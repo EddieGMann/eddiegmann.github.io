@@ -4,14 +4,12 @@ console.log("Recipe JS loaded");
 
 /* ---------- Helpers ---------- */
 
-// Generate safe element IDs
 function safeId(text) {
   return String(text)
     .replace(/\s+/g, "_")
     .replace(/[^a-zA-Z0-9_]/g, "");
 }
 
-// Format ingredients into <li>
 function formatIngredients(text) {
   if (!text) return "";
   return text
@@ -22,7 +20,6 @@ function formatIngredients(text) {
     .join("");
 }
 
-// Format tags into <span>
 function formatTags(text) {
   if (!text) return "";
   return text
@@ -31,7 +28,6 @@ function formatTags(text) {
     .join("");
 }
 
-// Toggle directions visibility
 function toggleDirections(id) {
   const el = document.getElementById(`directions-${id}`);
   const button = el.previousElementSibling;
@@ -39,7 +35,6 @@ function toggleDirections(id) {
   button.textContent = el.style.display === "none" ? "Show Directions" : "Hide Directions";
 }
 
-// Toggle ingredients visibility
 function toggleIngredients(id) {
   const el = document.getElementById(`ingredients-${id}`);
   const button = el.previousElementSibling;
@@ -85,7 +80,7 @@ function renderRecipes(recipes) {
   });
 }
 
-/* ---------- Load + Initialize ---------- */
+/* ---------- Load Recipes ---------- */
 
 let allRecipes = []; // global storage
 
@@ -95,7 +90,7 @@ async function loadRecipes() {
     const recipes = await res.json();
     console.log("Recipes loaded:", recipes);
 
-    allRecipes = recipes; // store globally
+    allRecipes = recipes;
     renderRecipes(recipes);
   } catch (err) {
     console.error("Failed to load recipes:", err);
@@ -107,23 +102,41 @@ async function loadRecipes() {
 document.addEventListener("DOMContentLoaded", () => {
   loadRecipes();
 
+  // Search boxes
+  const searchNameBox = document.getElementById("searchName");
   const searchIngredientsBox = document.getElementById("searchIngredients");
   const searchTagsBox = document.getElementById("searchTags");
 
+  let nameSearchTimeout = null;
   let searchTimeout = null;
 
-  function handleSearch() {
+  // Name search (independent)
+  searchNameBox.addEventListener("input", () => {
+    if (nameSearchTimeout) clearTimeout(nameSearchTimeout);
+    nameSearchTimeout = setTimeout(() => {
+      const query = searchNameBox.value.trim().toLowerCase();
+      if (!query) {
+        renderRecipes(allRecipes);
+        return;
+      }
+
+      const filtered = allRecipes.filter(recipe =>
+        (recipe.Name || "").toLowerCase().includes(query)
+      );
+
+      renderRecipes(filtered);
+    }, 200);
+  });
+
+  // Ingredients + Tags search (combined)
+  function handleIngredientsTagsSearch() {
     const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
     const tagsQuery = searchTagsBox.value.trim().toLowerCase();
 
     const filtered = allRecipes.filter(recipe => {
-      // Ingredients search
       const ingredientsMatch = !ingredientsQuery || (recipe.Ingredients || "").toLowerCase().includes(ingredientsQuery);
-
-      // Tags search (match individual tags)
       const tagsArray = (recipe.Tags || "").split(",").map(t => t.trim().toLowerCase());
       const tagsMatch = !tagsQuery || tagsArray.some(tag => tag.includes(tagsQuery));
-
       return ingredientsMatch && tagsMatch;
     });
 
@@ -133,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   [searchIngredientsBox, searchTagsBox].forEach(box => {
     box.addEventListener("input", () => {
       if (searchTimeout) clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(handleSearch, 200); // debounce
+      searchTimeout = setTimeout(handleIngredientsTagsSearch, 200);
     });
   });
 });
