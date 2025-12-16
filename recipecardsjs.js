@@ -55,22 +55,27 @@ function renderRecipes(recipes) {
     card.className = "recipe-card";
 
     card.innerHTML = `
-      <h2 style="text-align:center;">${Name}</h2>
+  <h2 style="text-align:center;">${Name}</h2>
 
-      <button onclick="toggleIngredients('${id}')">Show Ingredients</button>
-      <ul id="ingredients-${id}" style="display:none; margin-top:8px;">
-        ${formatIngredients(Ingredients)}
-      </ul>
+  <button onclick="toggleIngredients('${id}')">Show Ingredients</button>
+  <ul id="ingredients-${id}" style="display:none; margin-top:8px;">
+    ${formatIngredients(Ingredients)}
+  </ul>
 
-      <button onclick="toggleDirections('${id}')">Show Directions</button>
-      <div id="directions-${id}" style="display:none; margin-top:10px;">
-        ${Directions.replace(/\n/g, "<br>")}
-      </div>
+  <button onclick="toggleDirections('${id}')">Show Directions</button>
+  <div id="directions-${id}" style="display:none; margin-top:10px;">
+    ${Directions.replace(/\n/g, "<br>")}
+  </div>
 
-      <div class="tags">
-        ${formatTags(Tags)}
-      </div>
-    `;
+  <div class="tags">
+    ${formatTags(Tags)}
+  </div>
+
+  <button class="edit-btn" onclick="openEditModal(${_row}, '${Name.replace(/'/g,"\\'")}', '${Ingredients.replace(/'/g,"\\'")}', '${Directions.replace(/'/g,"\\'")}', '${Tags.replace(/'/g,"\\'")}')">
+    Edit
+  </button>
+`;
+
 
     container.appendChild(card);
   });
@@ -204,3 +209,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Open edit modal
+function openEditModal(row, name, ingredients, directions, tags) {
+  const modal = document.getElementById("editRecipeModal");
+  modal.style.display = "block";
+
+  document.getElementById("editRow").value = row;
+  document.getElementById("editName").value = name;
+  document.getElementById("editIngredients").value = ingredients;
+  document.getElementById("editDirections").value = directions;
+  document.getElementById("editTags").value = tags;
+}
+
+// Close edit modal
+document.getElementById("closeEditModal").addEventListener("click", () => {
+  document.getElementById("editRecipeModal").style.display = "none";
+});
+
+// Submit edited recipe
+document.getElementById("submitEditRecipe").addEventListener("click", async () => {
+  const row = document.getElementById("editRow").value;
+  const name = document.getElementById("editName").value.trim();
+  const ingredients = document.getElementById("editIngredients").value.trim();
+  const directions = document.getElementById("editDirections").value.trim();
+  const tags = document.getElementById("editTags").value.trim();
+
+  if (!name) { alert("Name is required."); return; }
+
+  try {
+    const url = `${endpoint}?sheet=Recipes&action=editRecipe&row=${row}&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Recipe updated!");
+      document.getElementById("editRecipeModal").style.display = "none";
+      loadRecipes();
+    } else {
+      alert("Error updating recipe: " + data.error);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Failed to update recipe.");
+  }
+});
+
