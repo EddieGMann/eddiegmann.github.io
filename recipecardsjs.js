@@ -34,6 +34,20 @@ function toggleDirections(id) {
   el.style.display = el.style.display === "none" ? "block" : "none";
 }
 
+function toggleIngredients(id) {
+  const el = document.getElementById(`ingredients-${id}`);
+  const button = el.previousElementSibling; // the button before the <ul>
+  
+  if (el.style.display === "none") {
+    el.style.display = "block";
+    button.textContent = "Hide Ingredients";
+  } else {
+    el.style.display = "none";
+    button.textContent = "Show Ingredients";
+  }
+}
+
+
 /* ---------- Load + Render ---------- */
 
 async function loadRecipes() {
@@ -64,14 +78,12 @@ function renderRecipes(recipes) {
     card.innerHTML = `
       <h2 style="text-align:center;">${Name}</h2>
 
-      <ul>
+      <button onclick="toggleIngredients('${id}')">Show Ingredients</button>
+      <ul id="ingredients-${id}" style="display:none; margin-top:8px;">
         ${formatIngredients(Ingredients)}
       </ul>
 
-      <button onclick="toggleDirections('${id}')">
-        Show Directions
-      </button>
-
+      <button onclick="toggleDirections('${id}')">Show Directions</button>
       <div id="directions-${id}" style="display:none; margin-top:10px;">
         ${Directions.replace(/\n/g, "<br>")}
       </div>
@@ -84,6 +96,7 @@ function renderRecipes(recipes) {
     container.appendChild(card);
   });
 }
+
 
 /* ---------- Init ---------- */
 
