@@ -3,11 +3,8 @@ const endpoint = 'https://script.google.com/macros/s/AKfycbzL6H9zeY-JmFYZmegpRME
 console.log("Recipe JS loaded");
 
 /* ---------- Helpers ---------- */
-
 function safeId(text) {
-  return String(text)
-    .replace(/\s+/g, "_")
-    .replace(/[^a-zA-Z0-9_]/g, "");
+  return String(text).replace(/\s+/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
 }
 
 function formatIngredients(text) {
@@ -25,7 +22,7 @@ function formatTags(text) {
   return text
     .split(",")
     .map(tag => `<span class="tag">${tag.trim()}</span>`)
-    .join("");
+    .join(" ");
 }
 
 function toggleDirections(id) {
@@ -43,7 +40,6 @@ function toggleIngredients(id) {
 }
 
 /* ---------- Render Recipes ---------- */
-
 function renderRecipes(recipes) {
   const container = document.getElementById("recipeList");
   container.innerHTML = "";
@@ -81,7 +77,6 @@ function renderRecipes(recipes) {
 }
 
 /* ---------- Load Recipes ---------- */
-
 let allRecipes = []; // global storage
 
 async function loadRecipes() {
@@ -97,32 +92,33 @@ async function loadRecipes() {
   }
 }
 
-/* ---------- Search Handling ---------- */
-
+/* ---------- Initialize & Event Listeners ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   loadRecipes();
 
+  // Modal elements
   const addRecipeBtn = document.getElementById("addRecipeBtn");
-const newRecipeModal = document.getElementById("newRecipeModal");
-const closeModal = document.getElementById("closeModal");
+  const newRecipeModal = document.getElementById("newRecipeModal");
+  const closeModal = document.getElementById("closeModal");
+  const submitNewRecipeBtn = document.getElementById("submitNewRecipe");
 
-addRecipeBtn.addEventListener("click", () => {
-  newRecipeModal.style.display = "block";
-});
+  // Open modal
+  addRecipeBtn.addEventListener("click", () => {
+    newRecipeModal.style.display = "block";
+  });
 
-closeModal.addEventListener("click", () => {
-  newRecipeModal.style.display = "none";
-});
-
-// Close modal if clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === newRecipeModal) {
+  // Close modal
+  closeModal.addEventListener("click", () => {
     newRecipeModal.style.display = "none";
-  }
-});
+  });
 
+  window.addEventListener("click", (e) => {
+    if (e.target === newRecipeModal) {
+      newRecipeModal.style.display = "none";
+    }
+  });
 
-  // Search boxes
+  // Search inputs
   const searchNameBox = document.getElementById("searchName");
   const searchIngredientsBox = document.getElementById("searchIngredients");
   const searchTagsBox = document.getElementById("searchTags");
@@ -169,45 +165,42 @@ window.addEventListener("click", (e) => {
       searchTimeout = setTimeout(handleIngredientsTagsSearch, 200);
     });
   });
-});
 
-const submitNewRecipeBtn = document.getElementById("submitNewRecipe");
+  // Submit new recipe
+  submitNewRecipeBtn.addEventListener("click", async () => {
+    const name = document.getElementById("newName").value.trim();
+    const ingredients = document.getElementById("newIngredients").value.trim();
+    const directions = document.getElementById("newDirections").value.trim();
+    const tags = document.getElementById("newTags").value.trim();
 
-submitNewRecipeBtn.addEventListener("click", async () => {
-  const name = document.getElementById("newName").value.trim();
-  const ingredients = document.getElementById("newIngredients").value.trim();
-  const directions = document.getElementById("newDirections").value.trim();
-  const tags = document.getElementById("newTags").value.trim();
-
-  if (!name) {
-    alert("Name is required.");
-    return;
-  }
-
-  try {
-    const url = `${endpoint}?sheet=Recipes&action=addNewRecipe&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
-
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (data.success) {
-      alert("Recipe added successfully!");
-      newRecipeModal.style.display = "none";
-
-      // Clear inputs
-      document.getElementById("newName").value = "";
-      document.getElementById("newIngredients").value = "";
-      document.getElementById("newDirections").value = "";
-      document.getElementById("newTags").value = "";
-
-      // Reload recipes
-      loadRecipes();
-    } else {
-      alert("Error adding recipe: " + data.error);
+    if (!name) {
+      alert("Name is required.");
+      return;
     }
-  } catch (err) {
-    console.error(err);
-    alert("Failed to add recipe.");
-  }
-});
 
+    try {
+      const url = `${endpoint}?sheet=Recipes&action=addNewRecipe&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Recipe added successfully!");
+        newRecipeModal.style.display = "none";
+
+        // Clear inputs
+        document.getElementById("newName").value = "";
+        document.getElementById("newIngredients").value = "";
+        document.getElementById("newDirections").value = "";
+        document.getElementById("newTags").value = "";
+
+        // Reload recipes
+        loadRecipes();
+      } else {
+        alert("Error adding recipe: " + data.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to add recipe.");
+    }
+  });
+});
