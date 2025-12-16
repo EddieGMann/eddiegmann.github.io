@@ -1,5 +1,7 @@
 const endpoint = 'https://script.google.com/macros/s/AKfycbzL6H9zeY-JmFYZmegpRME6dNK7_zrU90A7HDYP3RRL7x7Pj7lPkfS9srre5E-fIEdY/exec';
 
+let allRecipes = []; // global storage
+
 console.log("Recipe JS loaded");
 
 /* ---------- Helpers ---------- */
@@ -9,87 +11,74 @@ function safeId(text) {
 
 function formatIngredients(text) {
   if (!text) return "";
-  return text
-    .split("\n")
-    .map(line => line.trim())
-    .filter(line => line.length)
-    .map(line => `<li>${line}</li>`)
-    .join("");
+  return text.split("\n").map(line => line.trim()).filter(Boolean).map(line => `<li>${line}</li>`).join("");
 }
 
 function formatTags(text) {
   if (!text) return "";
-  return text
-    .split(",")
-    .map(tag => `<span class="tag">${tag.trim()}</span>`)
-    .join(" ");
+  return text.split(",").map(tag => `<span class="tag">${tag.trim()}</span>`).join(" ");
 }
 
 function toggleDirections(id) {
   const el = document.getElementById(`directions-${id}`);
-  const button = el.previousElementSibling;
+  const btn = el.previousElementSibling;
   el.style.display = el.style.display === "none" ? "block" : "none";
-  button.textContent = el.style.display === "none" ? "Show Directions" : "Hide Directions";
+  btn.textContent = el.style.display === "none" ? "Show Directions" : "Hide Directions";
 }
 
 function toggleIngredients(id) {
   const el = document.getElementById(`ingredients-${id}`);
-  const button = el.previousElementSibling;
+  const btn = el.previousElementSibling;
   el.style.display = el.style.display === "none" ? "block" : "none";
-  button.textContent = el.style.display === "none" ? "Show Ingredients" : "Hide Ingredients";
+  btn.textContent = el.style.display === "none" ? "Show Ingredients" : "Hide Ingredients";
 }
 
 /* ---------- Render Recipes ---------- */
 function renderRecipes(recipes) {
   const container = document.getElementById("recipeList");
   container.innerHTML = "";
-
   container.style.display = "grid";
   container.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
   container.style.gap = "20px";
 
-  recipes.forEach(({ ID, Name, Ingredients, Directions, Tags }) => {
-    const id = safeId(ID || Name);
+  recipes.forEach(({ _row, Name, Ingredients, Directions, Tags }) => {
+    const id = safeId(Name);
 
     const card = document.createElement("div");
     card.className = "recipe-card";
-
     card.innerHTML = `
-  <h2 style="text-align:center;">${Name}</h2>
+      <h2 style="text-align:center;">${Name}</h2>
 
-  <button onclick="toggleIngredients('${id}')">Show Ingredients</button>
-  <ul id="ingredients-${id}" style="display:none; margin-top:8px;">
-    ${formatIngredients(Ingredients)}
-  </ul>
+      <button onclick="toggleIngredients('${id}')">Show Ingredients</button>
+      <ul id="ingredients-${id}" style="display:none; margin-top:8px;">
+        ${formatIngredients(Ingredients)}
+      </ul>
 
-  <button onclick="toggleDirections('${id}')">Show Directions</button>
-  <div id="directions-${id}" style="display:none; margin-top:10px;">
-    ${Directions.replace(/\n/g, "<br>")}
-  </div>
+      <button onclick="toggleDirections('${id}')">Show Directions</button>
+      <div id="directions-${id}" style="display:none; margin-top:10px;">
+        ${Directions.replace(/\n/g, "<br>")}
+      </div>
 
-  <div class="tags">
-    ${formatTags(Tags)}
-  </div>
+      <div class="tags">${formatTags(Tags)}</div>
 
-  <button class="edit-btn" onclick="openEditModal(${_row}, '${Name.replace(/'/g,"\\'")}', '${Ingredients.replace(/'/g,"\\'")}', '${Directions.replace(/'/g,"\\'")}', '${Tags.replace(/'/g,"\\'")}')">
-    Edit
-  </button>
-`;
-
-
+      <button class="editBtn" data-row="${_row}" data-name="${Name}" data-ingredients="${Ingredients}" data-directions="${Directions}" data-tags="${Tags}">
+        Edit
+      </button>
+    `;
     container.appendChild(card);
+  });
+
+  // Attach edit button events
+  document.querySelectorAll(".editBtn").forEach(btn => {
+    btn.addEventListener("click", () => openEditModal(btn.dataset));
   });
 }
 
 /* ---------- Load Recipes ---------- */
-let allRecipes = []; // global storage
-
 async function loadRecipes() {
   try {
     const res = await fetch(`${endpoint}?sheet=Recipes`);
     const recipes = await res.json();
-    console.log("Recipes loaded:", recipes);
-
     allRecipes = recipes;
     renderRecipes(recipes);
   } catch (err) {
@@ -97,161 +86,112 @@ async function loadRecipes() {
   }
 }
 
-/* ---------- Initialize & Event Listeners ---------- */
+/* ---------- Add Recipe ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   loadRecipes();
 
-  // Modal elements
+  // Modal handling
   const addRecipeBtn = document.getElementById("addRecipeBtn");
   const newRecipeModal = document.getElementById("newRecipeModal");
   const closeModal = document.getElementById("closeModal");
-  const submitNewRecipeBtn = document.getElementById("submitNewRecipe");
 
-  // Open modal
-  addRecipeBtn.addEventListener("click", () => {
-    newRecipeModal.style.display = "block";
-  });
+  addRecipeBtn.addEventListener("click", () => newRecipeModal.style.display = "block");
+  closeModal.addEventListener("click", () => newRecipeModal.style.display = "none");
+  window.addEventListener("click", (e) => { if (e.target === newRecipeModal) newRecipeModal.style.display = "none"; });
 
-  // Close modal
-  closeModal.addEventListener("click", () => {
-    newRecipeModal.style.display = "none";
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === newRecipeModal) {
-      newRecipeModal.style.display = "none";
-    }
-  });
-
-  // Search inputs
-  const searchNameBox = document.getElementById("searchName");
-  const searchIngredientsBox = document.getElementById("searchIngredients");
-  const searchTagsBox = document.getElementById("searchTags");
-
-  let nameSearchTimeout = null;
-  let searchTimeout = null;
-
-  // Name search (independent)
-  searchNameBox.addEventListener("input", () => {
-    if (nameSearchTimeout) clearTimeout(nameSearchTimeout);
-    nameSearchTimeout = setTimeout(() => {
-      const query = searchNameBox.value.trim().toLowerCase();
-      if (!query) {
-        renderRecipes(allRecipes);
-        return;
-      }
-
-      const filtered = allRecipes.filter(recipe =>
-        (recipe.Name || "").toLowerCase().includes(query)
-      );
-
-      renderRecipes(filtered);
-    }, 200);
-  });
-
-  // Ingredients + Tags search (combined)
-  function handleIngredientsTagsSearch() {
-    const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
-    const tagsQuery = searchTagsBox.value.trim().toLowerCase();
-
-    const filtered = allRecipes.filter(recipe => {
-      const ingredientsMatch = !ingredientsQuery || (recipe.Ingredients || "").toLowerCase().includes(ingredientsQuery);
-      const tagsArray = (recipe.Tags || "").split(",").map(t => t.trim().toLowerCase());
-      const tagsMatch = !tagsQuery || tagsArray.some(tag => tag.includes(tagsQuery));
-      return ingredientsMatch && tagsMatch;
-    });
-
-    renderRecipes(filtered);
-  }
-
-  [searchIngredientsBox, searchTagsBox].forEach(box => {
-    box.addEventListener("input", () => {
-      if (searchTimeout) clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(handleIngredientsTagsSearch, 200);
-    });
-  });
-
-  // Submit new recipe
-  submitNewRecipeBtn.addEventListener("click", async () => {
+  document.getElementById("submitNewRecipe").addEventListener("click", async () => {
     const name = document.getElementById("newName").value.trim();
     const ingredients = document.getElementById("newIngredients").value.trim();
     const directions = document.getElementById("newDirections").value.trim();
     const tags = document.getElementById("newTags").value.trim();
 
-    if (!name) {
-      alert("Name is required.");
-      return;
-    }
+    if (!name) { alert("Name is required."); return; }
 
     try {
       const url = `${endpoint}?sheet=Recipes&action=addNewRecipe&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
       const res = await fetch(url);
       const data = await res.json();
-
       if (data.success) {
-        alert("Recipe added successfully!");
+        alert("Recipe added!");
         newRecipeModal.style.display = "none";
-
-        // Clear inputs
         document.getElementById("newName").value = "";
         document.getElementById("newIngredients").value = "";
         document.getElementById("newDirections").value = "";
         document.getElementById("newTags").value = "";
-
-        // Reload recipes
         loadRecipes();
-      } else {
-        alert("Error adding recipe: " + data.error);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Failed to add recipe.");
-    }
+      } else alert("Error: " + data.error);
+    } catch (err) { alert("Failed to add recipe."); console.error(err); }
+  });
+
+  // ---------- Edit Recipe ----------
+  const editModal = document.getElementById("editRecipeModal");
+  const closeEditModalBtn = document.getElementById("closeEditModal");
+  closeEditModalBtn.addEventListener("click", () => editModal.style.display = "none");
+  window.addEventListener("click", (e) => { if (e.target === editModal) editModal.style.display = "none"; });
+
+  document.getElementById("submitEditRecipe").addEventListener("click", async () => {
+    const row = document.getElementById("editRow").value;
+    const name = document.getElementById("editName").value.trim();
+    const ingredients = document.getElementById("editIngredients").value.trim();
+    const directions = document.getElementById("editDirections").value.trim();
+    const tags = document.getElementById("editTags").value.trim();
+
+    if (!row || !name) { alert("Name is required."); return; }
+
+    try {
+      const url = `${endpoint}?sheet=Recipes&action=editRecipe&row=${row}&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.success) {
+        alert("Recipe updated!");
+        editModal.style.display = "none";
+        loadRecipes();
+      } else alert("Error: " + data.error);
+    } catch (err) { alert("Failed to edit recipe."); console.error(err); }
+  });
+
+  // ---------- Search handling ----------
+  const searchNameBox = document.getElementById("searchName");
+  const searchIngredientsBox = document.getElementById("searchIngredients");
+  const searchTagsBox = document.getElementById("searchTags");
+
+  let nameTimeout = null, otherTimeout = null;
+
+  searchNameBox.addEventListener("input", () => {
+    if (nameTimeout) clearTimeout(nameTimeout);
+    nameTimeout = setTimeout(() => {
+      const query = searchNameBox.value.trim().toLowerCase();
+      renderRecipes(query ? allRecipes.filter(r => (r.Name || "").toLowerCase().includes(query)) : allRecipes);
+    }, 200);
+  });
+
+  function handleIngredientsTagsSearch() {
+    const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
+    const tagsQuery = searchTagsBox.value.trim().toLowerCase();
+
+    renderRecipes(allRecipes.filter(r => {
+      const ingredientsMatch = !ingredientsQuery || (r.Ingredients || "").toLowerCase().includes(ingredientsQuery);
+      const tagsArray = (r.Tags || "").split(",").map(t => t.trim().toLowerCase());
+      const tagsMatch = !tagsQuery || tagsArray.some(t => t.includes(tagsQuery));
+      return ingredientsMatch && tagsMatch;
+    }));
+  }
+
+  [searchIngredientsBox, searchTagsBox].forEach(box => {
+    box.addEventListener("input", () => {
+      if (otherTimeout) clearTimeout(otherTimeout);
+      otherTimeout = setTimeout(handleIngredientsTagsSearch, 200);
+    });
   });
 });
 
-// Open edit modal
-function openEditModal(row, name, ingredients, directions, tags) {
-  const modal = document.getElementById("editRecipeModal");
-  modal.style.display = "block";
-
-  document.getElementById("editRow").value = row;
-  document.getElementById("editName").value = name;
-  document.getElementById("editIngredients").value = ingredients;
-  document.getElementById("editDirections").value = directions;
-  document.getElementById("editTags").value = tags;
+/* ---------- Open Edit Modal ---------- */
+function openEditModal(data) {
+  document.getElementById("editRow").value = data.row;
+  document.getElementById("editName").value = data.name;
+  document.getElementById("editIngredients").value = data.ingredients;
+  document.getElementById("editDirections").value = data.directions;
+  document.getElementById("editTags").value = data.tags;
+  document.getElementById("editRecipeModal").style.display = "block";
 }
-
-// Close edit modal
-document.getElementById("closeEditModal").addEventListener("click", () => {
-  document.getElementById("editRecipeModal").style.display = "none";
-});
-
-// Submit edited recipe
-document.getElementById("submitEditRecipe").addEventListener("click", async () => {
-  const row = document.getElementById("editRow").value;
-  const name = document.getElementById("editName").value.trim();
-  const ingredients = document.getElementById("editIngredients").value.trim();
-  const directions = document.getElementById("editDirections").value.trim();
-  const tags = document.getElementById("editTags").value.trim();
-
-  if (!name) { alert("Name is required."); return; }
-
-  try {
-    const url = `${endpoint}?sheet=Recipes&action=editRecipe&row=${row}&name=${encodeURIComponent(name)}&ingredients=${encodeURIComponent(ingredients)}&directions=${encodeURIComponent(directions)}&tags=${encodeURIComponent(tags)}`;
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (data.success) {
-      alert("Recipe updated!");
-      document.getElementById("editRecipeModal").style.display = "none";
-      loadRecipes();
-    } else {
-      alert("Error updating recipe: " + data.error);
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Failed to update recipe.");
-  }
-});
 
