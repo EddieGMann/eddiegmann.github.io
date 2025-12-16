@@ -4,23 +4,25 @@ console.log("Recipe JS loaded");
 
 /* ---------- Helpers ---------- */
 
+// Generate safe element IDs
 function safeId(text) {
   return String(text)
     .replace(/\s+/g, "_")
     .replace(/[^a-zA-Z0-9_]/g, "");
 }
 
+// Format ingredients into <li>
 function formatIngredients(text) {
   if (!text) return "";
   return text
     .split("\n")
-    .map(line => line.trim())      // remove leading/trailing spaces
-    .filter(line => line.length)   // remove empty lines
+    .map(line => line.trim())
+    .filter(line => line.length)
     .map(line => `<li>${line}</li>`)
     .join("");
 }
 
-
+// Format tags into <span>
 function formatTags(text) {
   if (!text) return "";
   return text
@@ -29,37 +31,23 @@ function formatTags(text) {
     .join("");
 }
 
+// Toggle directions visibility
 function toggleDirections(id) {
   const el = document.getElementById(`directions-${id}`);
+  const button = el.previousElementSibling;
   el.style.display = el.style.display === "none" ? "block" : "none";
+  button.textContent = el.style.display === "none" ? "Show Directions" : "Hide Directions";
 }
 
+// Toggle ingredients visibility
 function toggleIngredients(id) {
   const el = document.getElementById(`ingredients-${id}`);
-  const button = el.previousElementSibling; // the button before the <ul>
-  
-  if (el.style.display === "none") {
-    el.style.display = "block";
-    button.textContent = "Hide Ingredients";
-  } else {
-    el.style.display = "none";
-    button.textContent = "Show Ingredients";
-  }
+  const button = el.previousElementSibling;
+  el.style.display = el.style.display === "none" ? "block" : "none";
+  button.textContent = el.style.display === "none" ? "Show Ingredients" : "Hide Ingredients";
 }
 
-
-/* ---------- Load + Render ---------- */
-
-async function loadRecipes() {
-  try {
-    const res = await fetch(`${endpoint}?sheet=Recipes`);
-    const recipes = await res.json();
-    console.log("Recipes loaded:", recipes);
-    renderRecipes(recipes);
-  } catch (err) {
-    console.error("Failed to load recipes:", err);
-  }
-}
+/* ---------- Render Recipes ---------- */
 
 function renderRecipes(recipes) {
   const container = document.getElementById("recipeList");
@@ -97,11 +85,9 @@ function renderRecipes(recipes) {
   });
 }
 
+/* ---------- Load + Initialize ---------- */
 
-/* ---------- Init ---------- */
-
-// Store recipes globally for filtering
-let allRecipes = [];
+let allRecipes = []; // global storage
 
 async function loadRecipes() {
   try {
@@ -109,63 +95,45 @@ async function loadRecipes() {
     const recipes = await res.json();
     console.log("Recipes loaded:", recipes);
 
-    // Save to global variable for searching
-    allRecipes = recipes;
-
+    allRecipes = recipes; // store globally
     renderRecipes(recipes);
   } catch (err) {
     console.error("Failed to load recipes:", err);
   }
 }
 
-let allRecipes = [];
+/* ---------- Search Handling ---------- */
 
-async function loadRecipes() {
-  try {
-    const res = await fetch(`${endpoint}?sheet=Recipes`);
-    const recipes = await res.json();
-    console.log("Recipes loaded:", recipes);
+document.addEventListener("DOMContentLoaded", () => {
+  loadRecipes();
 
-    allRecipes = recipes;
-    renderRecipes(recipes);
-  } catch (err) {
-    console.error("Failed to load recipes:", err);
+  const searchIngredientsBox = document.getElementById("searchIngredients");
+  const searchTagsBox = document.getElementById("searchTags");
+
+  let searchTimeout = null;
+
+  function handleSearch() {
+    const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
+    const tagsQuery = searchTagsBox.value.trim().toLowerCase();
+
+    const filtered = allRecipes.filter(recipe => {
+      // Ingredients search
+      const ingredientsMatch = !ingredientsQuery || (recipe.Ingredients || "").toLowerCase().includes(ingredientsQuery);
+
+      // Tags search (match individual tags)
+      const tagsArray = (recipe.Tags || "").split(",").map(t => t.trim().toLowerCase());
+      const tagsMatch = !tagsQuery || tagsArray.some(tag => tag.includes(tagsQuery));
+
+      return ingredientsMatch && tagsMatch;
+    });
+
+    renderRecipes(filtered);
   }
-}
 
-// Search input elements
-const searchIngredientsBox = document.getElementById("searchIngredients");
-const searchTagsBox = document.getElementById("searchTags");
-
-let searchTimeout = null;
-
-function handleSearch() {
-  const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
-  const tagsQuery = searchTagsBox.value.trim().toLowerCase();
-
-  // Filter recipes
-  const filtered = allRecipes.filter(recipe => {
-    // Ingredients search
-    const ingredientsMatch = !ingredientsQuery || (recipe.Ingredients || "").toLowerCase().includes(ingredientsQuery);
-
-    // Tags search
-    const tagsMatch = !tagsQuery || (recipe.Tags || "").toLowerCase().includes(tagsQuery);
-
-    // Only include if both match
-    return ingredientsMatch && tagsMatch;
-  });
-
-  renderRecipes(filtered);
-}
-
-// Add event listeners with debounce
-[searchIngredientsBox, searchTagsBox].forEach(box => {
-  box.addEventListener("input", () => {
-    if (searchTimeout) clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(handleSearch, 200);
+  [searchIngredientsBox, searchTagsBox].forEach(box => {
+    box.addEventListener("input", () => {
+      if (searchTimeout) clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(handleSearch, 200); // debounce
+    });
   });
 });
-
-
-
-document.addEventListener("DOMContentLoaded", loadRecipes);
