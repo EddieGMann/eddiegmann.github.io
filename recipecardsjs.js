@@ -14,9 +14,12 @@ function formatIngredients(text) {
   if (!text) return "";
   return text
     .split("\n")
+    .map(line => line.trim())      // remove leading/trailing spaces
+    .filter(line => line.length)   // remove empty lines
     .map(line => `<li>${line}</li>`)
     .join("");
 }
+
 
 function formatTags(text) {
   if (!text) return "";
