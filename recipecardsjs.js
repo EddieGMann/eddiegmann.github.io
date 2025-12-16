@@ -100,4 +100,51 @@ function renderRecipes(recipes) {
 
 /* ---------- Init ---------- */
 
+// Store recipes globally for filtering
+let allRecipes = [];
+
+async function loadRecipes() {
+  try {
+    const res = await fetch(`${endpoint}?sheet=Recipes`);
+    const recipes = await res.json();
+    console.log("Recipes loaded:", recipes);
+
+    // Save to global variable for searching
+    allRecipes = recipes;
+
+    renderRecipes(recipes);
+  } catch (err) {
+    console.error("Failed to load recipes:", err);
+  }
+}
+
+// Search box filter
+const searchBox = document.getElementById("searchBox");
+let searchTimeout = null;
+
+searchBox.addEventListener("input", function () {
+  const query = this.value.trim().toLowerCase();
+
+  // Debounce search to avoid filtering on every keystroke
+  if (searchTimeout) clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    filterRecipes(query);
+  }, 200);
+});
+
+function filterRecipes(query) {
+  if (!query) {
+    renderRecipes(allRecipes);
+    return;
+  }
+
+  const filtered = allRecipes.filter(recipe => {
+    const ingredients = (recipe.Ingredients || "").toLowerCase();
+    return ingredients.includes(query);
+  });
+
+  renderRecipes(filtered);
+}
+
+
 document.addEventListener("DOMContentLoaded", loadRecipes);
