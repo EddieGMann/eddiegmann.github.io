@@ -1,0 +1,159 @@
+/* ----------------- Global ----------------- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #fafafa;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ----------------- Recipe Cards ----------------- */
+#recipeList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.recipe-card h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ----------------- Ingredients ----------------- */
+.recipe-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.recipe-card ul li {
+  margin-bottom: 4px;
+}
+
+/* ----------------- Directions ----------------- */
+.recipe-card button {
+  background-color: #F74902;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
+
+.recipe-card button:hover {
+  background-color: #F74922;
+}
+
+.recipe-card .directions {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ----------------- Tags ----------------- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* space between tags */
+  margin-top: 12px;
+}
+
+.tag {
+  background-color: #F74902;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* ----------------- Modal (if needed) ----------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: left;
+  position: relative;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #F74902;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #F74922;
+}
+
+.close {
+  position: absolute;
+  top: 8px; right: 12px;
+  font-size: 24px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+/* ----------------- Optional responsive tweaks ----------------- */
+@media (max-width: 400px) {
+  .recipe-card {
+    padding: 12px;
+  }
+  
+  .tags {
+    gap: 6px;
+  }
+
+  .recipe-card button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
