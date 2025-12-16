@@ -118,33 +118,54 @@ async function loadRecipes() {
   }
 }
 
-// Search box filter
-const searchBox = document.getElementById("searchBox");
+let allRecipes = [];
+
+async function loadRecipes() {
+  try {
+    const res = await fetch(`${endpoint}?sheet=Recipes`);
+    const recipes = await res.json();
+    console.log("Recipes loaded:", recipes);
+
+    allRecipes = recipes;
+    renderRecipes(recipes);
+  } catch (err) {
+    console.error("Failed to load recipes:", err);
+  }
+}
+
+// Search input elements
+const searchIngredientsBox = document.getElementById("searchIngredients");
+const searchTagsBox = document.getElementById("searchTags");
+
 let searchTimeout = null;
 
-searchBox.addEventListener("input", function () {
-  const query = this.value.trim().toLowerCase();
+function handleSearch() {
+  const ingredientsQuery = searchIngredientsBox.value.trim().toLowerCase();
+  const tagsQuery = searchTagsBox.value.trim().toLowerCase();
 
-  // Debounce search to avoid filtering on every keystroke
-  if (searchTimeout) clearTimeout(searchTimeout);
-  searchTimeout = setTimeout(() => {
-    filterRecipes(query);
-  }, 200);
-});
-
-function filterRecipes(query) {
-  if (!query) {
-    renderRecipes(allRecipes);
-    return;
-  }
-
+  // Filter recipes
   const filtered = allRecipes.filter(recipe => {
-    const ingredients = (recipe.Ingredients || "").toLowerCase();
-    return ingredients.includes(query);
+    // Ingredients search
+    const ingredientsMatch = !ingredientsQuery || (recipe.Ingredients || "").toLowerCase().includes(ingredientsQuery);
+
+    // Tags search
+    const tagsMatch = !tagsQuery || (recipe.Tags || "").toLowerCase().includes(tagsQuery);
+
+    // Only include if both match
+    return ingredientsMatch && tagsMatch;
   });
 
   renderRecipes(filtered);
 }
+
+// Add event listeners with debounce
+[searchIngredientsBox, searchTagsBox].forEach(box => {
+  box.addEventListener("input", () => {
+    if (searchTimeout) clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(handleSearch, 200);
+  });
+});
+
 
 
 document.addEventListener("DOMContentLoaded", loadRecipes);
