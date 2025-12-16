@@ -42,5 +42,27 @@
 
   <!-- Your JavaScript -->
   <script src="recipecardsjs.js"></script>
+
+  <!-- New Recipe Modal -->
+<div id="newRecipeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h3>Add New Recipe</h3>
+
+    <label for="newName">Name:</label>
+    <input type="text" id="newName" />
+
+    <label for="newIngredients">Ingredients (line by line):</label>
+    <textarea id="newIngredients" rows="5"></textarea>
+
+    <label for="newDirections">Directions:</label>
+    <textarea id="newDirections" rows="5"></textarea>
+
+    <label for="newTags">Tags (comma separated):</label>
+    <input type="text" id="newTags" />
+
+    <button id="submitNewRecipe">Submit</button>
+  </div>
+</div>
 </body>
 </html>
