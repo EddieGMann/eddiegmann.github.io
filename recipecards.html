@@ -23,6 +23,28 @@
   </button>
 </div>
 
+  <!-- Add Recipe Modal -->
+<div id="newRecipeModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h3>Add New Recipe</h3>
+
+    <label for="newName">Name:</label>
+    <input type="text" id="newName" placeholder="Recipe name" />
+
+    <label for="newIngredients">Ingredients (one per line):</label>
+    <textarea id="newIngredients" rows="5" placeholder="1 cup flour&#10;2 eggs"></textarea>
+
+    <label for="newDirections">Directions:</label>
+    <textarea id="newDirections" rows="5" placeholder="Step 1&#10;Step 2"></textarea>
+
+    <label for="newTags">Tags (comma separated):</label>
+    <input type="text" id="newTags" placeholder="dessert, vegan" />
+
+    <button id="submitNewRecipe" style="margin-top:10px;">Submit</button>
+  </div>
+</div>
+
   <!-- (Optional) Search -->
   <input
     type="text"
@@ -43,26 +65,6 @@
   <!-- Your JavaScript -->
   <script src="recipecardsjs.js"></script>
 
-  <!-- New Recipe Modal -->
-<div id="newRecipeModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeModal">&times;</span>
-    <h3>Add New Recipe</h3>
 
-    <label for="newName">Name:</label>
-    <input type="text" id="newName" />
-
-    <label for="newIngredients">Ingredients (line by line):</label>
-    <textarea id="newIngredients" rows="5"></textarea>
-
-    <label for="newDirections">Directions:</label>
-    <textarea id="newDirections" rows="5"></textarea>
-
-    <label for="newTags">Tags (comma separated):</label>
-    <input type="text" id="newTags" />
-
-    <button id="submitNewRecipe">Submit</button>
-  </div>
-</div>
 </body>
 </html>
