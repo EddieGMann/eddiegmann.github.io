@@ -95,7 +95,7 @@ function renderRecipes(recipes) {
     const card = document.createElement("div");
     card.className = "recipe-card";
 
-    const recipeSheetHTML = RecipeSheet ? `<a href="${RecipeSheet}" target="_blank" class="recipe-link">Recipe Sheet</a>` : "";
+    const recipeSheetHTML = RecipeSheet ? `<a href="${RecipeSheet}" target="_blank" class="recipe-sheet-link">Recipe Sheet</a>` : "";
 
     card.innerHTML = `
       <h2>${Name}</h2>
