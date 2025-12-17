@@ -154,6 +154,15 @@ function setupSearch() {
 
 /* ---------- Add Recipe ---------- */
 
+function openNewRecipeModal() {
+  document.getElementById("newRecipeModal").style.display = "block";
+}
+
+function closeNewRecipeModal() {
+  document.getElementById("newRecipeModal").style.display = "none";
+}
+
+
 async function submitNewRecipe() {
   const name = newName.value.trim();
   if (!name) return alert("Name required");
