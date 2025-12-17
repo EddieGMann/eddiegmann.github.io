@@ -19,6 +19,18 @@ function ingredientInPantry(line) {
   return pantryItems.some(item => lower.includes(item));
 }
 
+function ingredientInPantry(line) {
+  if (!line) return false;
+  const lowerLine = line.toLowerCase();
+
+  // Check if any pantry item word is included in the line
+  return pantryItems.some(item => {
+    const words = item.toLowerCase().split(/\s+/); // split pantry item into words
+    return words.some(word => lowerLine.includes(word));
+  });
+}
+
+
 // Format ingredients with pantry icons
 function formatIngredients(text) {
   if (!text) return "";
