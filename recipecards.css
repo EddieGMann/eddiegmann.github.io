@@ -78,17 +78,19 @@ h1 {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px; /* space between tags */
+  gap: 8px;
   margin-top: 12px;
 }
 
 .tag {
-  background-color: #F74902;
-  color: white;
+  background-color: #000;
+  color: #F74902;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.85rem;
+  font-weight: 500;
 }
+
 
 /* ----------------- Modal (if needed) ----------------- */
 .modal {
@@ -141,6 +143,27 @@ h1 {
   color: #aaa;
   cursor: pointer;
 }
+
+/* ----------------- Recipe Sheet Link ----------------- */
+.recipe-sheet-link {
+  display: inline-block;
+  align-self: center;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.recipe-sheet-link:hover {
+  background-color: #222;
+  transform: translateY(-1px);
+}
+
 
 /* ----------------- Optional responsive tweaks ----------------- */
 @media (max-width: 400px) {
