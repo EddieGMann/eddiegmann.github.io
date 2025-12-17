@@ -64,28 +64,29 @@
   <!-- Edit Recipe Modal -->
 <div id="editRecipeModal" class="modal">
   <div class="modal-content">
-    <span id="closeEditModal" class="close">&times;</span>
-    <h3>Edit Recipe</h3>
+    <span class="close" onclick="editRecipeModal.style.display='none'">&times;</span>
 
-    <input type="hidden" id="editRow">
+    <input type="hidden" id="editRow" />
 
-    <label for="editName">Name:</label>
-    <input type="text" id="editName" />
+    <label>Name</label>
+    <input id="editName" />
 
-    <label for="editIngredients">Ingredients:</label>
-    <textarea id="editIngredients" rows="5"></textarea>
+    <label>Ingredients</label>
+    <textarea id="editIngredients"></textarea>
 
-    <label for="editDirections">Directions:</label>
-    <textarea id="editDirections" rows="5"></textarea>
+    <label>Directions</label>
+    <textarea id="editDirections"></textarea>
 
-    <label for="editTags">Tags:</label>
-    <input type="text" id="editTags" />
+    <label>Tags</label>
+    <input id="editTags" />
 
-    <input type="text" id="editRecipeSheet" placeholder="Recipe Sheet URL">
+    <label>Recipe Sheet Link</label>
+    <input id="editRecipeSheet" />
 
-    <button id="submitEditRecipe">Save Changes</button>
+    <button onclick="submitEditRecipe()">Save Changes</button>
   </div>
 </div>
+
 
 
   <!-- Where recipe cards will be injected -->
