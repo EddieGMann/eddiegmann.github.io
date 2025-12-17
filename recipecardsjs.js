@@ -74,7 +74,7 @@ function renderRecipes(recipes) {
 
       ${RecipeSheet ? `
         <div style="text-align:center; margin-bottom:8px;">
-          <a href="${RecipeSheet}" target="_blank">Recipe Sheet</a>
+          <a href="${RecipeSheet}" target="_blank" class="recipe-sheet-link">Recipe Sheet</a>
         </div>
       ` : ""}
 
