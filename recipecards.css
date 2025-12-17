@@ -164,6 +164,23 @@ h1 {
   transform: translateY(-1px);
 }
 
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredient.available {
+  color: #2e7d32;
+}
+
+.ingredient.missing {
+  color: #c62828;
+}
+
+.ingredient .icon {
+  font-weight: bold;
+}
 
 /* ----------------- Optional responsive tweaks ----------------- */
 @media (max-width: 400px) {
