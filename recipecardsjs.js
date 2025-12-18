@@ -179,6 +179,11 @@ async function submitNewRecipe() {
   }
 }
 
+function closeNewRecipeModal() {
+  document.getElementById("newRecipeModal").style.display = "none";
+}
+
+
 /* ---------- Edit Recipe ---------- */
 function openEditModal(id) {
   const recipe = allRecipes.find(r => safeId(r.ID || r.Name) === id);
