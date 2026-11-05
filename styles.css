@@ -618,3 +618,147 @@ hr {
         max-width: 300px;
     }
 }
+
+
+/* =========================================================
+   DUKE MEGA MENU
+   ========================================================= */
+
+.dropdownnavbar {
+    position: relative;
+    display: inline-block;
+}
+
+/* Main dropdown panel */
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 640px;
+    max-width: calc(100vw - 30px);
+
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    padding: 25px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #DCE3EA;
+    border-top: 3px solid #C5A45D;
+
+    border-radius: 0 0 10px 10px;
+
+    box-shadow: 0 10px 30px rgba(23,43,77,0.16);
+
+    z-index: 100;
+}
+
+/* Show menu on hover or keyboard focus */
+
+.dropdownnavbar:hover .mega-menu,
+.dropdownnavbar:focus-within .mega-menu {
+    display: grid;
+}
+
+/* Individual columns */
+
+.mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Column headings */
+
+.mega-column h3 {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #426B8A;
+
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid #DCE3EA;
+}
+
+/* Individual menu links */
+
+.mega-link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    padding: 9px 10px;
+
+    border-radius: 6px;
+
+    color: #263445 !important;
+    text-decoration: none !important;
+
+    transition: background-color 0.2s ease,
+                padding-left 0.2s ease;
+}
+
+/* Link titles */
+
+.mega-link strong {
+    font-size: 14px;
+    font-weight: 600;
+    color: #172B4D;
+}
+
+/* Link descriptions */
+
+.mega-link span {
+    font-size: 11px;
+    color: #64748B;
+    line-height: 1.4;
+}
+
+/* Hover effects */
+
+.mega-link:hover {
+    background-color: #E9EFF4;
+    padding-left: 15px;
+}
+
+.mega-link:hover strong {
+    color: #426B8A;
+}
+
+/* Keep dropdown links from inheriting
+   the main navigation link styling */
+
+.top-frame nav .mega-menu a {
+    padding: 9px 10px;
+}
+
+/* =========================================================
+   MEGA MENU RESPONSIVE ADJUSTMENTS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .mega-menu {
+        width: calc(100vw - 20px);
+        max-height: 75vh;
+        overflow-y: auto;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .mega-link strong {
+        font-size: 13px;
+    }
+
+    .mega-link span {
+        font-size: 10px;
+    }
+}
