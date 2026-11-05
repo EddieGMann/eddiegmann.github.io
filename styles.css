@@ -730,8 +730,9 @@ hr {
     padding-left: 15px;
 }
 
-.mega-link:hover strong {
-    color: #FFFFFF;
+.mega-link:hover strong,
+.mega-link:hover span {
+    color: #FFFFFF !important;
 }
 
 /* Keep dropdown links from inheriting
