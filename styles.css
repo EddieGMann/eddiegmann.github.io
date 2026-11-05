@@ -116,7 +116,7 @@ hr {
 
 .drpbutton {
     background-color: var(--accent);
-    color: var(--primary);
+    color: #D6BA76;
     padding: 14px 20px;
     font-size: 16px;
     font-weight: 600;
