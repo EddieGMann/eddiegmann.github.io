@@ -250,35 +250,30 @@ hr {
    SIDEBAR
    ========================================================= */
 
-.sidebarcontainer {
-    background-color: var(--primary);
-    color: white;
-    padding: 20px;
-    height: 470px;
-    width: 200px;
-    position: fixed;
-    border-radius: 0 10px 10px 0;
-    box-shadow: var(--shadow);
-}
-
-.sidebar button {
-    background-color: var(--secondary);
-    color: #FFFFFF;
-    border: none;
-    padding: 11px 14px;
-    margin: 10px 0;
-    cursor: pointer;
-    font-size: 15px;
-    border-radius: 6px;
+.sidebarcontainer button.button {
     width: 100%;
-    transition: background-color 0.2s ease,
-                transform 0.2s ease;
+    min-height: 42px;
+    padding: 9px 7px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    background-color: #E9EFF4;
+    color: #172B4D;
+
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.sidebar button:hover {
-    background-color: var(--accent);
-    color: var(--primary);
-    transform: translateX(3px);
+.sidebarcontainer button.button:hover {
+    background-color: #C5A45D;
+    color: #172B4D;
+    border-color: #C5A45D;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================================================
