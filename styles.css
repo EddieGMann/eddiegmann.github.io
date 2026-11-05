@@ -250,30 +250,40 @@ hr {
    SIDEBAR
    ========================================================= */
 
-.sidebarcontainer button.button {
-    width: 100%;
-    min-height: 42px;
-    padding: 9px 7px;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.3;
-
-    background-color: #E9EFF4;
-    color: #172B4D;
-
-    border: 1px solid #FFFFFF;
-    border-radius: 6px;
-
-    cursor: pointer;
-    transition: all 0.2s ease;
+/* Sidebar navigation layout */
+.sidebarcontainer .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
-.sidebarcontainer button.button:hover {
+/* Sidebar navigation buttons */
+
+.sidebarcontainer .button {
+    background-color: #E9EFF4;
+    color: #172B4D;
+    border: 1px solid #DCE3EA;
+    padding: 10px 5px;
+    min-height: 42px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.sidebarcontainer .button:hover {
     background-color: #C5A45D;
     color: #172B4D;
     border-color: #C5A45D;
     transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================================================
