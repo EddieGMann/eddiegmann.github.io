@@ -764,3 +764,108 @@ hr {
         font-size: 10px;
     }
 }
+
+
+/* =========================================
+   CANVAS PORTFOLIO DEMONSTRATION PAGES
+========================================= */
+
+.demo-header {
+    background: #172B4D;
+    color: #FFFFFF;
+    padding: 35px;
+    margin: 30px 0;
+    border-radius: 12px;
+}
+
+.demo-header h1 {
+    color: #FFFFFF;
+    margin: 20px 0 10px;
+}
+
+.demo-header p {
+    color: #E9EFF4;
+    max-width: 750px;
+    line-height: 1.7;
+}
+
+.back-link {
+    color: #E3C77E;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.demo-content,
+.demo-skills {
+    background: #FFFFFF;
+    padding: 30px;
+    margin: 25px 0;
+    border: 1px solid #DCE3EA;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(23, 43, 77, 0.06);
+}
+
+.demo-content h2,
+.demo-skills h2 {
+    color: #172B4D;
+    margin-top: 0;
+}
+
+.demo-video {
+    width: 100%;
+    margin: 20px 0 30px;
+    background: #172B4D;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.demo-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.demo-content p,
+.demo-skills li {
+    color: #263445;
+    line-height: 1.7;
+}
+
+.demo-skills ul {
+    padding-left: 22px;
+}
+
+.button {
+    display: inline-block;
+    background: #172B4D;
+    color: #FFFFFF;
+    padding: 11px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 8px 12px 8px 0;
+}
+
+.button:hover {
+    background: #426B8A;
+    color: #FFFFFF;
+}
+
+.text-link {
+    color: #426B8A;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+@media (max-width: 650px) {
+    .demo-header,
+    .demo-content,
+    .demo-skills {
+        padding: 20px;
+    }
+}
