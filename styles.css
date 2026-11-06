@@ -866,3 +866,57 @@ hr {
         padding: 20px;
     }
 }
+
+/* Canvas Portfolio Gallery */
+
+.canvas-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+}
+
+.canvas-gallery-item {
+    background: #f3f3f3;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.canvas-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.canvas-gallery-item h3 {
+    margin: 14px 0 6px;
+}
+
+.canvas-gallery-item p {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Tablet and mobile layouts */
+
+@media (max-width: 800px) {
+    .canvas-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .canvas-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .canvas-gallery-item img {
+        height: auto;
+        max-height: 300px;
+    }
+}
