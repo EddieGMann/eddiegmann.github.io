@@ -976,3 +976,15 @@ hr {
     }
 }
 
+.portfolio-gallery {
+    width: 45%;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
