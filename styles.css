@@ -920,3 +920,59 @@ hr {
         max-height: 300px;
     }
 }
+
+
+/* Canvas Screenshot Gallery */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    align-items: start;
+}
+
+.gallery-item {
+    min-width: 0;
+    background: #f3f3f3;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.gallery-item a {
+    display: block;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: white;
+    border-radius: 5px;
+}
+
+.gallery-item h2 {
+    font-size: 1.1rem;
+    margin: 12px 0 6px;
+}
+
+.gallery-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
