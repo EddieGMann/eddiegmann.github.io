@@ -991,3 +991,19 @@ hr {
 .gallery-item a {
     height: 150px;
 }
+.portfolio-section {
+    width: 100%;
+    margin: 35px auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.portfolio-card {
+    padding: 25px;
+    min-height: 200px;
+}
